@@ -4,7 +4,7 @@ search:
 
 title: jEveAssets
 type: service
-description: jEveAssets is an out-of-game asset manager for Eve-Online, written in Java
+description: jEveAssets — это менеджер активов вне игры для Eve-Online, написанный на Java
 maintainer:
   name: Golden Gnu
   github: goldengnu
@@ -23,18 +23,18 @@ maintainer:
 
 </div>
 
-## Features
+## Возможности
 
-- Assets - many ways to search and look through your assets
-- Net worth tracker
-- Journal
-- Contracts
-- Market orders and transactions
-- Mining and extraction log
-- Industry jobs
-- And much more...
+- Активы — множество способов поиска и просмотра ваших активов
+- Отслеживание чистой стоимости
+- Журнал
+- Контракты
+- Рыночные заказы и транзакции
+- Лог добычи и извлечения
+- Производственные работы
+- И многое другое...
 
-## Screenshots
+## Скриншоты
 
 ![](default.png)
 ![](tracker.png)

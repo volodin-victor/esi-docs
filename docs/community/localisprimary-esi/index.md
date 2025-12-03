@@ -4,7 +4,7 @@ search:
 
 title: localisprimary/esi
 type: resource
-description: A slightly opinionated TypeScript client for the EVE Online API.
+description: Несколько упрощённый TypeScript-клиент для API EVE Online.
 maintainer:
   name: Tujiko Noriko
   github: nfinished
@@ -13,7 +13,7 @@ maintainer:
 
 # @localisprimary/esi
 
-A slightly opinionated TypeScript client for the EVE Online API.
+Несколько упрощённый TypeScript-клиент для API EVE Online.
 
 <div class="grid cards" markdown>
 
@@ -22,6 +22,6 @@ A slightly opinionated TypeScript client for the EVE Online API.
 
 </div>
 
-## Features
+## Возможности
 
-A fully typed npm library for interacting with ESI. [Documentation](https://github.com/localisprimary/esi#readme)
+Полностью типизированная npm-библиотека для взаимодействия с ESI. [Документация](https://github.com/localisprimary/esi#readme)

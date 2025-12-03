@@ -4,7 +4,7 @@ search:
 
 title: MutaMarket
 type: service
-description: Web tool for managing abyssal modules. Import modules, browse contracts, and analyze values with ease.
+description: Веб-инструмент для управления абиссальными модулями. Импортируйте модули, просматривайте контракты и анализируйте значения с лёгкостью.
 maintainer:
   name: Nicolas Kion
   github: nicolaskion
@@ -14,7 +14,7 @@ maintainer:
 
 ![](logo.png)
 
-A free web-based platform to seamlessly manage, analyze, and share abyssal modules. We provide a comprehensive inventory management system, live contracts, and an advanced calculator to help you make informed decisions and maximize your profits.
+Бесплатная веб-платформа для беспроблемного управления, анализа и обмена абиссальными модулями. Мы предоставляем комплексную систему управления инвентарём, живые контракты и продвинутый калькулятор, чтобы помочь вам принимать обоснованные решения и максимизировать прибыль.
 
 <div class="grid cards" markdown>
 
@@ -24,61 +24,61 @@ A free web-based platform to seamlessly manage, analyze, and share abyssal modul
 
 </div>
 
-## Contract Browser
+## Браузер контрактов
 
-The Contract Browser module provides a technical interface for querying and filtering live abyssal module contracts. Key features include:
+Модуль "Браузер контрактов" предоставляет технический интерфейс для запросов и фильтрации живых контрактов на абиссальные модули. Ключевые возможности включают:
 
-- **View Modes:** Toggle between grid and list views for optimal data presentation.
-- **Sorting & Filtering:** Sort contracts by price, module attributes, and availability. Apply filters by module type, meta group, and other parameters.
-- **Detailed Data:** Each listing displays attribute bars and key statistics for easy comparison.
+- **Режимы просмотра:** Переключение между видами сетки и списка для оптимального представления данных.
+- **Сортировка и фильтрация:** Сортировка контрактов по цене, атрибутам модуля и доступности. Применение фильтров по типу модуля, мета-группе и другим параметрам.
+- **Подробные данные:** Каждый список отображает полосы атрибутов и ключевую статистику для лёгкого сравнения.
 
 ![](filters.png)
 
-*Filtering options for live abyssal module contracts.*
+*Опции фильтрации для живых контрактов на абиссальные модули.*
 
-## Inventory Management
+## Управление инвентарём
 
-The Inventory Management system is designed to keep an accurate record of your abyssal modules. It supports multiple import methods:
+Система управления инвентарём предназначена для ведения точного учёта ваших абиссальных модулей. Она поддерживает несколько методов импорта:
 
-- **ESI Integration:** Automatically imports module data directly from EVE Online’s API.
-- **EveMail Import:** Processes module information sent via EVE Mail.
-- **Manual Import:** Accepts pasted chat messages to capture module details.
-  The interface displays modules with visual cues and attribute scores, making it simple to identify and manage valuable rolls.
+- **Интеграция ESI:** Автоматически импортирует данные модулей напрямую из API EVE Online.
+- **Импорт из EveMail:** Обрабатывает информацию о модулях, отправленную через почту EVE.
+- **Ручной импорт:** Принимает вставленные сообщения чата для захвата деталей модуля.
+  Интерфейс отображает модули с визуальными подсказками и оценками атрибутов, что упрощает идентификацию и управление ценными роллами.
 
 
 ![](inventory.png)
 
-*Lists of modules with visual cues and attribute scores.*
+*Списки модулей с визуальными подсказками и оценками атрибутов.*
 
-## Probability Calculator
+## Калькулятор вероятности
 
-This tool calculates the odds of achieving desired module attributes and estimates associated costs. It features:
+Этот инструмент рассчитывает шансы достижения желаемых атрибутов модуля и оценивает связанные затраты. Он включает:
 
-- **Statistical Analysis:** Computes the likelihood of rolling specific stats based on current market data.
-- **Cost Estimation:** Provides an expected cost value for obtaining certain module attributes.
-- **Data-Driven Insights:** Uses both inventory and market data to support informed decision-making during module mutation and trading.
+- **Статистический анализ:** Вычисляет вероятность выпадения определённых характеристик на основе текущих рыночных данных.
+- **Оценка затрат:** Предоставляет ожидаемое значение стоимости для получения определённых атрибутов модуля.
+- **Анализ на основе данных:** Использует как данные инвентаря, так и рыночные данные для поддержки принятия обоснованных решений при мутации и торговле модулями.
 
-## Trading System
+## Торговая система
 
-The built-in Trading System facilitates direct communication between players about module transactions. Its capabilities include:
+Встроенная торговая система облегчает прямое общение между игроками о сделках с модулями. Её возможности включают:
 
-- **In-Platform Messaging:** Allows users to negotiate, share module details, and coordinate trade offers without leaving MutaMarket.
-- **Transaction Coordination:** Simplifies the process of arranging trades and verifying module details.
-- **Integrated Workflow:** Seamlessly links trading communications with other management features.
+- **Сообщения в платформе:** Позволяет пользователям вести переговоры, делиться деталями модулей и координировать торговые предложения, не покидая MutaMarket.
+- **Координация сделок:** Упрощает процесс организации сделок и проверки деталей модулей.
+- **Интегрированный рабочий процесс:** Бесшовно связывает торговые коммуникации с другими функциями управления.
 
-## Collections
+## Коллекции
 
-Collections enable users to organize modules into custom groups for easier reference and sharing. Features include:
+Коллекции позволяют пользователям организовывать модули в пользовательские группы для более удобной ссылки и обмена. Возможности включают:
 
-- **Grouping & Organization:** Create user-defined sets (e.g., by ship fit, module type, or valuation).
-- **Annotation:** Add notes to individual modules within a collection for additional context.
-- **Visibility Settings:** Configure collections as private or public, allowing for controlled sharing with the community.
+- **Группировка и организация:** Создавайте пользовательские наборы (например, по сборке корабля, типу модуля или оценке).
+- **Аннотации:** Добавляйте заметки к отдельным модулям в коллекции для дополнительного контекста.
+- **Настройки видимости:** Настраивайте коллекции как приватные или публичные, позволяя контролируемое общение с сообществом.
 
-## Module Database
+## База данных модулей
 
-Our database is the comprehensive repository for abyssal module data. It offers:
+Наша база данных — это комплексное хранилище данных об абиссальных модулях. Она предлагает:
 
-- **Advanced Search:** Locate modules based on type, attributes, or custom criteria.
-- **Detailed Records:** Each module entry includes images, numerical attributes, and valuation estimates.
+- **Расширенный поиск:** Находите модули на основе типа, атрибутов или пользовательских критериев.
+- **Подробные записи:** Каждая запись модуля включает изображения, числовые атрибуты и оценки стоимости.
 
 

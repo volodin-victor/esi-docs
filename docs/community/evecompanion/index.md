@@ -4,17 +4,17 @@ search:
 
 title: EVECompanion
 type: service
-description: Monitor your characters, plan your capital jump routes and follow events in the EVE Online universe with this iOS companion app.
+description: Отслеживайте своих персонажей, планируйте маршруты прыжков капитальных кораблей и следите за событиями во вселенной EVE Online с помощью этого приложения-компаньона для iOS.
 maintainer:
   name: Jonas Schlabertz
   github: Schlabbi
 ---
 
-# EVECompanion iOS App
+# Приложение EVECompanion для iOS
 
 ![](icon.png)
 
-Monitor your characters, plan your capital jump routes and follow events in the EVE Online universe with this iOS companion app.
+Отслеживайте своих персонажей, планируйте маршруты прыжков капитальных кораблей и следите за событиями во вселенной EVE Online с помощью этого приложения-компаньона для iOS.
 
 <div class="grid cards" markdown>
 
@@ -23,24 +23,24 @@ Monitor your characters, plan your capital jump routes and follow events in the 
 
 </div>
 
-# Features
+# Возможности
 
-- **Character Tracking**: Monitor your characters' progress and status.
-- **Skill Queues**: Keep an eye on your skill training.
-- **Wallet Management**: Track your ISK and financial transactions.
-- **Mail Access**: Read your EVE Mails on the go.
-- **Contract Overview**: Stay updated on your contracts.
-- **Jump Clones**: Track your jump clones and their locations.
-- **Industry Jobs**: Stay informed about your industry jobs.
-- **Planetary Colonies**: Easily track all your planetary industry colonies.
-- **Assets**: Browse your assets.
-- **Sovereignty Campaigns**: Monitor upcoming and active sovereignty timers.
-- **Capital Navigation**: Plan and calculate jump routes on-device for quick and efficient capital ship travel.
-- **Item Database**: Explore the item database and view detailed information on individual items.
-- **Skill Notifications**: Get push notifications for completed skills and empty skill queue warnings.
-- **Demo Mode**: Explore all features without logging in.
+- **Отслеживание персонажей**: Отслеживайте прогресс и статус своих персонажей.
+- **Очереди навыков**: Следите за обучением навыков.
+- **Управление кошельком**: Отслеживайте свой ISK и финансовые транзакции.
+- **Доступ к почте**: Читайте свою почту EVE в пути.
+- **Обзор контрактов**: Будьте в курсе своих контрактов.
+- **Прыжковые клоны**: Отслеживайте свои прыжковые клоны и их местоположения.
+- **Производственные работы**: Будьте в курсе своих производственных работ.
+- **Планетарные колонии**: Легко отслеживайте все свои планеты с промышленностью.
+- **Активы**: Просматривайте свои активы.
+- **Кампании суверенитета**: Отслеживайте предстоящие и активные таймеры суверенитета.
+- **Навигация капитальных кораблей**: Планируйте и рассчитывайте маршруты прыжков на устройстве для быстрого и эффективного перемещения капитальных кораблей.
+- **База данных предметов**: Изучайте базу данных предметов и просматривайте подробную информацию об отдельных предметах.
+- **Уведомления о навыках**: Получайте push-уведомления о завершённых навыках и предупреждениях о пустой очереди навыков.
+- **Демо-режим**: Изучайте все возможности без входа в систему.
 
-## Character Monitoring
+## Мониторинг персонажей
 
 ![](characterlist.png)
 ![](charactersheet.png)
@@ -48,13 +48,13 @@ Monitor your characters, plan your capital jump routes and follow events in the 
 ![](walletjournal.png)
 ![](contracts.png)
 
-## Plan your capital jump routes
+## Планируйте маршруты прыжков капитальных кораблей
 
 ![](capitalnavigation_1.png)
 ![](capitalnavigation_2.png)
 ![](capitalnavigation_3.png)
 
-## Observe incursions and sov timers
+## Наблюдайте за вторжениями и таймерами суверенитета
 
 ![](incursions.png)
 ![](sovtimers.png)

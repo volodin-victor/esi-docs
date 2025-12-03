@@ -4,7 +4,7 @@ search:
 
 title: Überauth EVE Online
 type: resource
-description: A Hex package providing an EVE SSO strategy for Elixir.
+description: Пакет Hex, предоставляющий стратегию EVE SSO для Elixir.
 maintainer:
   name: Marcin Ruszkiewicz
   github: marcinruszkiewicz
@@ -12,7 +12,7 @@ maintainer:
 
 # Überauth EVE Online
 
-A Hex package providing EVE Online SSO OAuth2 strategy for Elixir and Phoenix applications using Überauth.
+Пакет Hex, предоставляющий стратегию OAuth2 EVE Online SSO для приложений Elixir и Phoenix с использованием Überauth.
 
 <div class="grid cards" markdown>
 

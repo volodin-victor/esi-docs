@@ -4,7 +4,7 @@ search:
 
 title: SMT
 type: service
-description: Slazanger's Map Tool
+description: Картографический инструмент Slazanger
 maintainer:
   name: Slazanger
   github: Slazanger
@@ -12,32 +12,32 @@ maintainer:
 
 # SMT
 
-![](smt-logo.png) SMT is standalone desktop map tool
+![](smt-logo.png) SMT — это автономный настольный картографический инструмент
 
 <div class="grid cards" markdown>
 - [:simple-discord: __Discord__](https://discord.gg/QSuJjNn){ .esi-card-link }
 - [:octicons-mark-github-16: __GitHub__](https://github.com/Slazanger/SMT){ .esi-card-link }
 </div>
 
-## Features
+## Возможности
 
-- **Character Tracking**: Track your characters across New Eden
-- **Improved Maps**: Region & Universe level maps much easier to use than the in-game map
-- **Improved Navigation**: Calculate the fastest routes across the map; use Ansiblex Gates, Thera, Turnur, Zarzakh to your advantage
-- **Data Overlay**: Overlay data from ESI & Community services.. track kills, storms, incursions, SOV, timers, wormholes
-- **SOV**: Easily see who owns what space, what relationship they are to you, what the adm's are, what the active sov campaign timers and stats are, whats coming out soon
-- **Overlay**: Simple overlay option to help optimise screen realestate
+- **Отслеживание персонажей**: Отслеживайте своих персонажей по всему Новому Эдему
+- **Улучшенные карты**: Карты уровня региона и вселенной, намного проще в использовании, чем внутриигровая карта
+- **Улучшенная навигация**: Рассчитывайте самые быстрые маршруты по карте; используйте врата Ansiblex, Thera, Turnur, Zarzakh в своих интересах
+- **Наложение данных**: Наложение данных из ESI и сервисов сообщества... отслеживайте убийства, штормы, вторжения, суверенитет, таймеры, червоточины
+- **Суверенитет**: Легко видеть, кто владеет каким пространством, какое у них отношение к вам, какие адмы, какие активные таймеры кампаний суверенитета и статистика, что скоро выйдет
+- **Оверлей**: Простая опция оверлея для оптимизации использования экранного пространства
 
 
-## Hunter/Hunted
-- **Hunting Mode**: See where the activity is across New Eden... find your target, check range maps, track bridgers and Hunt
-- **Anti-Hunting Mode**: Organise to defend against hunters.. display your intel, set alarms and notifications defend against incoming hunters
+## Охотник/Добыча
+- **Режим охоты**: Видеть, где активность по всему Новому Эдему... найти свою цель, проверить карты дальности, отслеживать мостов и охотиться
+- **Режим защиты от охоты**: Организуйтесь для защиты от охотников.. отображайте свою разведку, устанавливайте тревоги и уведомления для защиты от приближающихся охотников
 
-## Examples
+## Примеры
 
 ![](smt-regionview.png)
 ![](smt-regionview2.png)
 ![](smt-universeview.png)
 
 
-... And Plenty more..
+... И ещё многое другое..

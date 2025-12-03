@@ -4,7 +4,7 @@ search:
 
 title: EVE Workbench
 type: service
-description: A web based tool for the EVE community, allowing players to browse the market, create haul routes and browse & share fittings.
+description: Веб-инструмент для сообщества EVE, позволяющий игрокам просматривать рынок, создавать маршруты перевозки и просматривать и делиться сборками.
 maintainer:
   name: EVE Workbench Team
   github: EVE-Workbench
@@ -14,7 +14,7 @@ maintainer:
 
 ![](eveworkbench-logo.svg)
 
-EVE Workbench (EWB) is a website with multiple tools for EVE Online. The main tools are our **Fit browser**, **Market Browser**, **Appraisal tool** and more.
+EVE Workbench (EWB) — это веб-сайт с множеством инструментов для EVE Online. Основные инструменты: **Браузер сборок**, **Браузер рынка**, **Инструмент оценки** и другие.
 
 <div class="grid cards" markdown>
 - [:octicons-browser-16: __Website__](https://eveworkbench.com){ .esi-card-link }
@@ -22,22 +22,22 @@ EVE Workbench (EWB) is a website with multiple tools for EVE Online. The main to
 - [:octicons-mark-github-16: __GitHub__](https://github.com/EVE-Workbench){ .esi-card-link }
 </div>
 
-## Features
+## Возможности
 
-- **Fit Browser**: Browse through fits uploaded by the EVE Community or share your own created fits
-- **Market Browser**: A easy way to check for prices all around New Eden.
-- **Appraisal Tool**: Want to know how much your space junk is worth? Use our Appraisal Tool.
-- **Refinery**: Mined a lot of ore - or - salvaged a lot of ships? Use our Refinery Tool too see what the possible outcome is based on skill and structure traits.
-- **Trade Tool**: Aspire to be a hauler? Our Trade Tool can give you possible good trades between two systems.
-- **Fleet Browser**: Do you fly alot of (NPSI) fleets? Use our Fleet Composer and Browser to let your members see what fits they could fly for that said fleet. (Also used by Tooters Fleet every saturday)
+- **Браузер сборок**: Просматривайте сборки, загруженные сообществом EVE, или делитесь своими созданными сборками
+- **Браузер рынка**: Простой способ проверить цены по всему Новому Эдему.
+- **Инструмент оценки**: Хотите узнать, сколько стоит ваш космический хлам? Используйте наш Инструмент оценки.
+- **Переработка**: Накопали много руды или разобрали много кораблей? Используйте наш Инструмент переработки, чтобы увидеть возможный результат на основе навыков и характеристик структуры.
+- **Инструмент торговли**: Мечтаете стать перевозчиком? Наш Инструмент торговли может подсказать вам хорошие сделки между двумя системами.
+- **Браузер флотов**: Часто летаете в (NPSI) флотах? Используйте наш Составитель и Браузер флотов, чтобы ваши участники видели, какие сборки они могут использовать для этого флота. (Также используется флотом Tooters каждую субботу)
 
-!!! note "Big update coming soon"
+!!! note "Скоро большое обновление"
     
-    At this moment the team of EVE Workbench is busy with a massive rebuild of the entire website. Introducing new features and better UX.
-    Thats also why we've uploaded the new logo to this page.
+    В данный момент команда EVE Workbench занята масштабной перестройкой всего веб-сайта. Добавляются новые функции и улучшенный пользовательский опыт.
+    Именно поэтому мы загрузили новый логотип на эту страницу.
 
-    With the update some features will change a bit in a good way, but the new site can already be visited at our Preview website. 
+    С обновлением некоторые функции немного изменятся к лучшему, но новый сайт уже можно посетить на нашем Preview-сайте. 
 
-Already want to experience [EVE Workbench 2 (Preview)](https://preview.eveworkbench.com)?
+Уже хотите попробовать [EVE Workbench 2 (Preview)](https://preview.eveworkbench.com)?
 
 ![](eveworkbench-family.png)

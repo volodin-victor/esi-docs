@@ -4,7 +4,7 @@ search:
 
 title: Tritanium
 type: service
-description: IOS App for EVE Online. Show assets, skill, PI, market, database, mail, LP, industry and so on.
+description: Приложение для iOS для EVE Online. Показывает активы, навыки, PI, рынок, базу данных, почту, LP, производство и так далее.
 maintainer:
   name: EstamelGG
   github: EstamelGG
@@ -14,9 +14,9 @@ maintainer:
 
 ![](Tritanium.png)
 
-An IOS App for EVE Online. Show assets, skill, PI, market, database, mail, LP, industry and so on.
+Приложение для iOS для EVE Online. Показывает активы, навыки, PI, рынок, базу данных, почту, LP, производство и так далее.
 
-Page language:
+Языки страницы:
 
 - [中文](index_cn.md)
 - [English](index.md)
@@ -28,52 +28,52 @@ Page language:
 
 </div>
 
-# Function Overview
+# Обзор функций
 
-**Tritanium** provides multiple information and function:
+**Tritanium** предоставляет множество информации и функций:
 
-- Character info
-- Skill browser
-- Clone browser
-- Get and send mails
-- Assets
-- Loyalty points tracking
-- Search char\corp\alliance\structure
-- Market Orders
-- Market watch list
-- Attribute comparison
-- NPC information
-- Agent finder
-- Wormhole info
-- Incursions
-- Sovereignty
-- Multi-language reference
-- Jump Drive Navigation
-- Contracts
-- Wallet Transactions and Journal
-- Industry and mining ledger
-- Planetary Interaction
-- Corporation structure and moon mining
-- KillBoard.
-- Fitting Simulation
-- more...
+- Информация о персонаже
+- Браузер навыков
+- Браузер клонов
+- Получение и отправка почты
+- Активы
+- Отслеживание очков лояльности
+- Поиск персонажа/корпорации/альянса/структуры
+- Рыночные заказы
+- Список наблюдения за рынком
+- Сравнение атрибутов
+- Информация о НПС
+- Поиск агентов
+- Информация о червоточинах
+- Вторжения
+- Суверенитет
+- Многоязычная справка
+- Навигация прыжковых двигателей
+- Контракты
+- Транзакции и журнал кошелька
+- Журнал производства и добычи
+- Планетарная промышленность
+- Структуры корпорации и добыча на луне
+- Киллборд
+- Симулятор сборки
+- и многое другое...
 
-# Character Sheet
+# Лист персонажа
 
 ![char_sheet.png](char_sheet.png)
 
-# Database
+# База данных
 
 ![db.png](db.png)
 
-# Business
+# Бизнес
 
 ![bussiness.png](bussiness.png)
 
-# KillBoard
+# Киллборд
 
 ![kb.png](kb.png)
 
-# Fitting Simulation
+# Симулятор сборки
 
 ![fitting.png](fitting.png)

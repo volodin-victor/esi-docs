@@ -4,7 +4,7 @@ search:
 
 title: zKillboard.com
 type: service
-description: zKillboard.com is a killboard for the Massively Multiplayer Online Role Playing Game (MMORPG) EVE-Online.
+description: zKillboard.com — это киллборд для массовой многопользовательской онлайн-ролевой игры (MMORPG) EVE-Online.
 maintainer:
   name: Squizz Caphinator
   github: cvweiss
@@ -20,12 +20,12 @@ maintainer:
 
 </div>
 
-## About
+## О проекте
 
-zkillboard.com is a killboard for the Massively Multiplayer Online Role Playing Game (MMORPG) EVE-Online.
+zkillboard.com — это киллборд для массовой многопользовательской онлайн-ролевой игры (MMORPG) EVE-Online.
 
 <hr/>
 
-API documentation can be found [here](https://github.com/zKillboard/zKillboard/wiki).
+Документация API доступна [здесь](https://github.com/zKillboard/zKillboard/wiki).
 
-If you have questions or need assistance feel free to seek help in the #zkillboard-com channel on zkill's [Discord](https://discord.gg/sV2kkwg8UD).
+Если у вас есть вопросы или нужна помощь, обращайтесь в канал #zkillboard-com в [Discord](https://discord.gg/sV2kkwg8UD) zkill.

@@ -4,7 +4,7 @@ search:
 
 title: Theorycrafter
 type: service
-description: Theorycrafter is a next-gen fitting tool for ships in Eve Online – it aims to be fast, ergonomic and intuitive.
+description: Theorycrafter — инструмент нового поколения для создания сборок кораблей в Eve Online, который стремится быть быстрым, эргономичным и интуитивным.
 maintainer:
   name: Faffywaffy
   github: m-sasha
@@ -14,7 +14,7 @@ maintainer:
 
 ![](icon.png)
 
-Theorycrafter is a next-gen fitting tool for ships in Eve Online – it aims to be fast, ergonomic and intuitive.
+Theorycrafter — инструмент нового поколения для создания сборок кораблей в Eve Online, который стремится быть быстрым, эргономичным и интуитивным.
 
 <div class="grid cards" markdown>
 

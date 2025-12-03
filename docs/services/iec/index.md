@@ -1,10 +1,10 @@
 ---
 title: Image Export Collection
 ---
-# (Deprecated) Image Export Collection (IEC)
+# (Устарело) Коллекция экспорта изображений (IEC)
 
-Export for `Uprising (V21.03 - March 14th 2023)`
+Экспорт для `Uprising (V21.03 - 14 марта 2023)`
 
-- [Icons](https://web.ccpgamescdn.com/aws/developers/Uprising_V21.03_Icons.zip)
-- [Renders](https://web.ccpgamescdn.com/aws/developers/Uprising_V21.03_Renders.zip)
-- [Types](https://web.ccpgamescdn.com/aws/developers/Uprising_V21.03_Types.zip)
+- [Иконки](https://web.ccpgamescdn.com/aws/developers/Uprising_V21.03_Icons.zip)
+- [Рендеры](https://web.ccpgamescdn.com/aws/developers/Uprising_V21.03_Renders.zip)
+- [Типы](https://web.ccpgamescdn.com/aws/developers/Uprising_V21.03_Types.zip)

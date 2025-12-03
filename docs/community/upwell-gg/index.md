@@ -4,7 +4,7 @@ search:
 
 title: Upwell.gg
 type: service
-description: Share structure timers and pings with your alliance, corporation, and allies.
+description: Делитесь таймерами структур и пингами со своим альянсом, корпорацией и союзниками.
 maintainer:
   name: Tujiko Noriko
   github: nfinished
@@ -14,7 +14,7 @@ maintainer:
 
 ![](upwell.png)
 
-Share structure timers and pings with your alliance, corporation, and allies.
+Делитесь таймерами структур и пингами со своим альянсом, корпорацией и союзниками.
 
 <div class="grid cards" markdown>
 
@@ -23,8 +23,8 @@ Share structure timers and pings with your alliance, corporation, and allies.
 
 </div>
 
-## Features
+## Возможности
 
-- **Structure Timers**: Share structure timers with your groups and never miss a timer with integrated Discord pings.
-- **Pings**: Share pings across groups to notify multiple Discord servers and channels at once.
-- **Groups**: Create groups for your alliance, corporation, or coalition with strict access controls and permissions.
+- **Таймеры структур**: Делитесь таймерами структур со своими группами и никогда не пропускайте таймер с интегрированными пингами Discord.
+- **Пинги**: Делитесь пингами между группами для уведомления нескольких серверов и каналов Discord одновременно.
+- **Группы**: Создавайте группы для вашего альянса, корпорации или коалиции со строгим контролем доступа и разрешениями.

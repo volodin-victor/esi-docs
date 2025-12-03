@@ -1,39 +1,39 @@
-# X-Pages Pagination
+# Пагинация X-Pages
 
-X-Pages pagination uses page numbers to navigate through datasets, with pages starting at 1.
-This is a traditional pagination approach where you request specific page numbers to browse through the data.
+Пагинация X-Pages использует номера страниц для навигации по наборам данных, причём страницы начинаются с 1.
+Это традиционный подход к пагинации, при котором вы запрашиваете конкретные номера страниц для просмотра данных.
 
-## How pagination works
+## Как работает пагинация
 
-1. **Request a page**: Use the `page` request parameter to specify which page you want to retrieve.
-2. **Check total pages**: The `X-Pages` response header tells you how many pages are available in total.
-3. **Navigate through pages**: Request pages sequentially (1, 2, 3, etc.) until you've retrieved all available data.
+1. **Запрос страницы**: Используйте параметр запроса `page`, чтобы указать, какую страницу вы хотите получить.
+2. **Проверка общего количества страниц**: Заголовок ответа `X-Pages` сообщает вам, сколько страниц доступно всего.
+3. **Навигация по страницам**: Запрашивайте страницы последовательно (1, 2, 3 и т.д.), пока не получите все доступные данные.
 
-### Request parameters
+### Параметры запроса
 
-- `page`: The page number to retrieve. Pages start at 1.
+- `page`: Номер страницы для получения. Страницы начинаются с 1.
 
-### Response headers
+### Заголовки ответа
 
-- `X-Pages`: The total number of pages available in the dataset.
+- `X-Pages`: Общее количество страниц, доступных в наборе данных.
 
-## Caching considerations
+## Соображения по кешированию
 
-An important caveat with X-Pages pagination is caching behavior.
-If the cache expires between fetching two different pages, you may see duplicated items in your results.
+Важное предостережение при пагинации X-Pages — это поведение кеширования.
+Если срок действия кеша истекает между получением двух разных страниц, вы можете увидеть дублирующиеся элементы в результатах.
 
-This happens because:
+Это происходит потому что:
 
-- Page 1 might be cached with data from time T.
-- By the time you fetch page 2, the cache for page 1 has expired.
-- The server generates new data for page 1, which may overlap with what you already retrieved from page 2.
+- Страница 1 может быть кеширована с данными из момента времени T.
+- К моменту, когда вы получаете страницу 2, срок действия кеша для страницы 1 истёк.
+- Сервер генерирует новые данные для страницы 1, которые могут пересекаться с тем, что вы уже получили со страницы 2.
 
-### Solution: don't fetch close to expiry
+### Решение: не получайте данные близко к истечению срока
 
-Some implementations solve this by checking how close page 1 is to the cache expiration time.
-If page 1 is within a few seconds of expiring, they first wait for the cache to refresh.
-Only then do they fetch the entire set of pages.
+Некоторые реализации решают это, проверяя, насколько близка страница 1 к времени истечения кеша.
+Если страница 1 находится в пределах нескольких секунд до истечения срока, они сначала ждут обновления кеша.
+Только после этого они получают весь набор страниц.
 
-## Example
+## Пример
 
 --8<-- "snippets/examples/pagination-x-pages.md"

@@ -4,7 +4,7 @@ search:
 
 title: Neucore
 type: service
-description: A web application for EVE Online communities to organise their members into groups, monitor them and provide access to external services.
+description: Веб-приложение для сообществ EVE Online для организации участников в группы, мониторинга их и предоставления доступа к внешним сервисам.
 maintainer:
   name: Tian Khamez
   github: tkhamez
@@ -14,12 +14,11 @@ maintainer:
 
 ![Neucore](logo.svg)
 
-A web application for EVE Online communities to organise their members into groups, monitor them and 
-provide access to external services.
+Веб-приложение для сообществ EVE Online для организации участников в группы, мониторинга их и 
+предоставления доступа к внешним сервисам.
 
-This application focuses on providing core functionality related to player identities, 
-[ESI](https://developers.eveonline.com/api-explorer) access and an API that other applications can 
-build upon.
+Это приложение фокусируется на предоставлении основной функциональности, связанной с идентичностями игроков, 
+доступом к [ESI](https://developers.eveonline.com/api-explorer) и API, на котором могут строиться другие приложения.
 
 <div class="grid cards" markdown>
 
@@ -28,15 +27,15 @@ build upon.
 
 </div>
 
-## Features
+## Возможности
 
-Main features:
+Основные возможности:
 
-- Management of group memberships, manually and with various ways to automate membership.
-- API for various data including an ESI proxy for all characters.
-- Plugin system for service registration (e.g. Discord, Mumble) and general purposes.
-- Corporation member tracking and character watchlists.
-- ... [and much more](https://github.com/tkhamez/neucore/blob/main/doc/Documentation.md#features)
+- Управление членством в группах, вручную и различными способами автоматизации членства.
+- API для различных данных, включая прокси ESI для всех персонажей.
+- Система плагинов для регистрации сервисов (например, Discord, Mumble) и общих целей.
+- Отслеживание членов корпорации и списки наблюдения за персонажами.
+- ... [и многое другое](https://github.com/tkhamez/neucore/blob/main/doc/Documentation.md#features)
 
-For more information, see the [doc directory](https://github.com/tkhamez/neucore/tree/main/doc), 
-which also contains some screenshots.
+Для получения дополнительной информации см. [каталог документации](https://github.com/tkhamez/neucore/tree/main/doc), 
+который также содержит некоторые скриншоты.

@@ -4,7 +4,7 @@ search:
 
 title: Alliance Auth
 type: service
-description: An auth system for EVE Online to help in-game organizations manage online service access.
+description: Система аутентификации для EVE Online, помогающая внутриигровым организациям управлять доступом к онлайн-сервисам.
 maintainer:
   name: Alliance Auth Team
   gitlab: allianceauth
@@ -27,32 +27,32 @@ maintainer:
 
 - [:simple-discord: __Discord__](https://discord.gg/fjnHAmk){ .esi-card-link }
 - [:simple-gitlab: __GitLab__](https://gitlab.com/allianceauth/allianceauth){ .esi-card-link }
-- [:octicons-browser-16: __Documentation__](https://allianceauth.readthedocs.io/){ .esi-card-link }
+- [:octicons-browser-16: __Документация__](https://allianceauth.readthedocs.io/){ .esi-card-link }
 
 </div>
 
-## Description
+## Описание
 
-Alliance Auth (AA) is a web site that helps Eve Online organizations efficiently manage access to applications and services.
+Alliance Auth (AA) — это веб-сайт, который помогает организациям Eve Online эффективно управлять доступом к приложениям и сервисам.
 
-## Features
+## Возможности
 
-- Automatically grants or revokes user access to external services (e.g. Discord, Mumble) and web apps (e.g. SRP requests) based on the user's current membership to [in-game organizations](https://allianceauth.readthedocs.io/en/latest/features/core/states.html) and [groups](https://allianceauth.readthedocs.io/en/latest/features/core/groups.html)
+- Автоматически предоставляет или отзывает доступ пользователей к внешним сервисам (например, Discord, Mumble) и веб-приложениям (например, запросы SRP) на основе текущего членства пользователя во [внутриигровых организациях](https://allianceauth.readthedocs.io/en/latest/features/core/states.html) и [группах](https://allianceauth.readthedocs.io/en/latest/features/core/groups.html)
 
-- Provides a central web site where users can directly access web apps (e.g. SRP requests, Fleet Schedule) and manage their access to external services and groups.
+- Предоставляет центральный веб-сайт, где пользователи могут напрямую получать доступ к веб-приложениям (например, запросы SRP, расписание флота) и управлять своим доступом к внешним сервисам и группам.
 
-- Includes a set of connectors (called ["services"](https://allianceauth.readthedocs.io/en/latest/features/services/)) for integrating access management with many popular external applications / services like Discord, Mumble, Teamspeak 3, SMF and others
+- Включает набор коннекторов (называемых ["сервисами"](https://allianceauth.readthedocs.io/en/latest/features/services/)) для интеграции управления доступом со многими популярными внешними приложениями / сервисами, такими как Discord, Mumble, Teamspeak 3, SMF и другие
 
-- Includes a set of web [apps](https://allianceauth.readthedocs.io/en/latest/features/apps/) which add many useful functions, e.g.: fleet schedule, timer board, SRP request management, fleet activity tracker
+- Включает набор веб-[приложений](https://allianceauth.readthedocs.io/en/latest/features/apps/), которые добавляют множество полезных функций, например: расписание флота, доска таймеров, управление запросами SRP, трекер активности флота
 
-- Can be easily extended with additional services and apps. Many are provided by the community and can be found here: [Community Creations](https://gitlab.com/allianceauth/community-creations)
+- Может быть легко расширен дополнительными сервисами и приложениями. Многие предоставляются сообществом и могут быть найдены здесь: [Community Creations](https://gitlab.com/allianceauth/community-creations)
 
-- English :flag_gb:, Chinese :flag_cn:, German :flag_de:, Spanish :flag_es:, Korean :flag_kr:, Russian :flag_ru:, Italian :flag_it:, French :flag_fr:, Japanese :flag_jp: and Ukrainian :flag_ua: Localization
+- Локализация на английском :flag_gb:, китайском :flag_cn:, немецком :flag_de:, испанском :flag_es:, корейском :flag_kr:, русском :flag_ru:, итальянском :flag_it:, французском :flag_fr:, японском :flag_jp: и украинском :flag_ua: языках
 
-For further details about AA - including an installation guide and a full list of included services and plugin apps - please see the [official documentation](https://allianceauth.rtfd.io).
+Для получения дополнительной информации об AA - включая руководство по установке и полный список включенных сервисов и плагинов - см. [официальную документацию](https://allianceauth.rtfd.io).
 
-# Alliance Auth Community Creations
+# Сообщество Alliance Auth
 
-- Over 100+ Applications from 30+ Developers
+- Более 100+ приложений от 30+ разработчиков
 
 <https://gitlab.com/allianceauth/community-creations>

@@ -4,7 +4,7 @@ search:
 
 title: Innominate Appraisal
 type: service
-description: Web App for everyday Market PvP, Works on any devise with a browser. contains several features and appraisal methods for multiple market hubs.
+description: Веб-приложение для ежедневного маркет-PvP. Работает на любом устройстве с браузером. Содержит несколько функций и методов оценки для множества торговых центров.
 maintainer:
   name: Mezoology
   github: mezoology
@@ -14,7 +14,7 @@ maintainer:
 
 ![](icon.png)
 
-Web App for everyday Market PvP, Works on any devise with a browser. contains several features and appraisal methods for multiple market hubs.
+Веб-приложение для ежедневного маркет-PvP. Работает на любом устройстве с браузером. Содержит несколько функций и методов оценки для множества торговых центров.
 
 <div class="grid cards" markdown>
 
@@ -23,31 +23,31 @@ Web App for everyday Market PvP, Works on any devise with a browser. contains se
 
 </div>
 
-## Appraisal
+## Оценка
 
-Simple appraisal feature with advanced user input parsing, supports many input formats with 1-click to copy the Raw input, and more...
+Простая функция оценки с продвинутым парсингом пользовательского ввода, поддерживает множество форматов ввода с копированием исходного ввода одним кликом и многое другое...
 
 ![alt text](input.png)
 ![](appraisal.png)
 
 
-## Market Compare
+## Сравнение рынков
 
-Shopping List like, the user adds his items, and it calculates which market is cheaper, then sorts the items into 2 groups for each market.
+Подобно списку покупок: пользователь добавляет свои предметы, и система рассчитывает, какой рынок дешевле, затем сортирует предметы на 2 группы для каждого рынка.
 
 
 ![alt text](compare.png)
 
 
-## Ore Processing
+## Переработка руды
 
-Ore processing feature with full control over the formula options. appraises both the Raw input and the processed minerals against the selected Market hub.
+Функция переработки руды с полным контролем над опциями формул. Оценивает как исходный ввод, так и переработанные минералы относительно выбранного торгового центра.
 
 ![alt text](settings.png)
 ![](processed.png)
 ![](raw.png)
 
-## Development
+## Разработка
 
-We are working on adding more features and supporting more market hubs in the near future.
+Мы работаем над добавлением новых функций и поддержкой большего количества торговых центров в ближайшем будущем.
 

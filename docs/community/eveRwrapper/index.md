@@ -4,7 +4,7 @@ search:
 
 title: eveRwrapper
 type: resource
-description: A wrapper of the Eve Swagger Interface (ESI) to retrieve information from our favorite MMORPG.
+description: Обёртка для Eve Swagger Interface (ESI) для получения информации из нашей любимой MMORPG.
 maintainer:
   name: Thessale Buelle
   github: kandrsn99
@@ -17,16 +17,16 @@ maintainer:
 
 </div>
 
-## Description
+## Описание
 
-The main focus of this wrapper is to make it easy for fellow [R programming language](https://www.r-project.org/) enthusiasts to utilize the Eve Swagger Interface for writing scripts or web applications.
+Основная цель этой обёртки — упростить для энтузиастов языка программирования [R](https://www.r-project.org/) использование Eve Swagger Interface для написания скриптов или веб-приложений.
 
-## Features
+## Возможности
 
-- A well developed library for the Eve Swagger Interface in the [R programming language](https://www.r-project.org/) and all end-points in its entirety.
+- Хорошо разработанная библиотека для Eve Swagger Interface на языке программирования [R](https://www.r-project.org/) со всеми конечными точками в полном объёме.
 
-- Utilizes the leading package [httr2](https://httr2.r-lib.org/articles/httr2.html) for HTTP in the [R language](https://www.r-project.org/).
+- Использует ведущий пакет [httr2](https://httr2.r-lib.org/articles/httr2.html) для HTTP в [R](https://www.r-project.org/).
 
-- May be used in the development of [R Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) web applications.
+- Может использоваться при разработке веб-приложений [R Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/).
 
-- Some examples using the library may be found at https://github.com/kandrsn99/eveR or over at the Discord.
+- Некоторые примеры использования библиотеки можно найти на https://github.com/kandrsn99/eveR или в Discord.

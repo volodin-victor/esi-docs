@@ -1,51 +1,51 @@
 ---
 title: Image Server
 ---
-# EVE Image Server (EIS)
+# Сервер изображений EVE (EIS)
 
-The EVE Image Server provides a way to retrieve/use images from EVE Online in your applications.
+Сервер изображений EVE предоставляет способ получения/использования изображений из EVE Online в ваших приложениях.
 
-## Images
+## Изображения
 
-The Image server can be accessed at the following URL: `https://images.evetech.net/{category}/{id}/{variation}` with the following parameters:
+Доступ к серверу изображений можно получить по следующему URL: `https://images.evetech.net/{category}/{id}/{variation}` со следующими параметрами:
 
-- `{category}`: The category of the image you want to retrieve. This can be one of the following:
-    - `alliances`
-    - `characters`
-    - `corporations`
-    - `types`
-- `{id}`: The ID of the `{category}` you want to retrieve the image for.
-- `{variation}`: The variation of the image you want to retrieve.
-  If you don't specify a variation, the server will return a JSON array of available variations for the given `{category}` and `{id}`.
-  In general, alliances and corporations will have a `logo` variation, characters will have a `portrait` variation.
-  Types will have variations depending on what kind of type it is.
+- `{category}`: Категория изображения, которое вы хотите получить. Может быть одной из следующих:
+    - `alliances` (альянсы)
+    - `characters` (персонажи)
+    - `corporations` (корпорации)
+    - `types` (типы)
+- `{id}`: ID `{category}`, для которого вы хотите получить изображение.
+- `{variation}`: Вариация изображения, которую вы хотите получить.
+  Если вы не укажете вариацию, сервер вернет JSON-массив доступных вариаций для данных `{category}` и `{id}`.
+  В общем, альянсы и корпорации будут иметь вариацию `logo`, персонажи — вариацию `portrait`.
+  Типы будут иметь вариации в зависимости от того, что это за тип.
 
-### Query Parameters
+### Параметры запроса
 
-There are two supported query parameters: `size` and `tenant`.
+Поддерживаются два параметра запроса: `size` и `tenant`.
 
-Valid values for the `size` parameter include powers-of-two ranging between 32 and 1024.
-If this parameter is not provided, the server will return the image in its original size.
+Допустимые значения для параметра `size` включают степени двойки в диапазоне от 32 до 1024.
+Если этот параметр не указан, сервер вернет изображение в его исходном размере.
 
-The `tenant` parameter defines the server for which to request images. This defaults to `tranquility`, but also accepts `singularity`.
+Параметр `tenant` определяет сервер, для которого запрашиваются изображения. По умолчанию `tranquility`, но также принимает `singularity`.
 
-### Notes
+### Примечания
 
-- NPC faction logos are available in the `corporations` category using their faction ID.
-- The ID 1 can be used with alliances, corporations and characters to retrieve the default logo/portrait.
-- Images are returned as PNGs, with the exception of character portraits, which are returned as JPEGs.
-- You are welcome to point your clients and applications directly at the image service and use it as a CDN. You do not need to cache images locally.
+- Логотипы NPC-фракций доступны в категории `corporations`, используя их ID фракции.
+- ID 1 можно использовать с альянсами, корпорациями и персонажами для получения логотипа/портрета по умолчанию.
+- Изображения возвращаются в формате PNG, за исключением портретов персонажей, которые возвращаются в формате JPEG.
+- Вы можете направлять ваши клиенты и приложения напрямую к сервису изображений и использовать его как CDN. Вам не нужно кешировать изображения локально.
 
-## Examples
+## Примеры
 
-|                 Category  | Variation | Example                                                                                |
-| ------------------------: | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                  Alliance | Logo      | [![Alliance Logo](https://images.evetech.net/alliances/99011477/logo?size=64)](https://images.evetech.net/alliances/99011477/logo?size=64)                |
-|               Corporation | Logo      | [![Corporation Logo](https://images.evetech.net/corporations/1686954550/logo?size=64)](https://images.evetech.net/corporations/1686954550/logo?size=64)   |
-| Corporation (NPC Faction) | Logo      | [![Corporation Logo](https://images.evetech.net/corporations/500001/logo?size=64)](https://images.evetech.net/corporations/500001/logo?size=64)           |
-|                 Character | Portrait  | [![Character Portrait](https://images.evetech.net/characters/91072482/portrait?size=64)](https://images.evetech.net/characters/91072482/portrait?size=64) |
-|                      Type | Render    | [![Type Render](https://images.evetech.net/types/22456/render?size=64)](https://images.evetech.net/types/22456/render?size=64)                            |
-|                      Type | Icon      | [![Type Render](https://images.evetech.net/types/22456/icon?size=64)](https://images.evetech.net/types/22456/icon?size=64)                                |
-|                      Type | BPO       | [![Type Render](https://images.evetech.net/types/11568/bp?size=64)](https://images.evetech.net/types/11568/bp?size=64)                                    |
-|                      Type | BPC       | [![Type Render](https://images.evetech.net/types/11568/bpc?size=64)](https://images.evetech.net/types/11568/bpc?size=64)                                  |
-|                      Type | Relic     | [![Type Render](https://images.evetech.net/types/30752/relic?size=64)](https://images.evetech.net/types/30752/relic?size=64)                              |
+|                 Категория | Вариация  | Пример                                                                                |
+| ------------------------: | --------- | ------------------------------------------------------------------------------------- |
+|                  Альянс   | Logo      | [![Alliance Logo](https://images.evetech.net/alliances/99011477/logo?size=64)](https://images.evetech.net/alliances/99011477/logo?size=64)                |
+|               Корпорация  | Logo      | [![Corporation Logo](https://images.evetech.net/corporations/1686954550/logo?size=64)](https://images.evetech.net/corporations/1686954550/logo?size=64)   |
+| Корпорация (NPC-фракция)  | Logo      | [![Corporation Logo](https://images.evetech.net/corporations/500001/logo?size=64)](https://images.evetech.net/corporations/500001/logo?size=64)           |
+|                 Персонаж  | Portrait  | [![Character Portrait](https://images.evetech.net/characters/91072482/portrait?size=64)](https://images.evetech.net/characters/91072482/portrait?size=64) |
+|                      Тип  | Render    | [![Type Render](https://images.evetech.net/types/22456/render?size=64)](https://images.evetech.net/types/22456/render?size=64)                            |
+|                      Тип  | Icon      | [![Type Render](https://images.evetech.net/types/22456/icon?size=64)](https://images.evetech.net/types/22456/icon?size=64)                                |
+|                      Тип  | BPO       | [![Type Render](https://images.evetech.net/types/11568/bp?size=64)](https://images.evetech.net/types/11568/bp?size=64)                                    |
+|                      Тип  | BPC       | [![Type Render](https://images.evetech.net/types/11568/bpc?size=64)](https://images.evetech.net/types/11568/bpc?size=64)                                  |
+|                      Тип  | Relic     | [![Type Render](https://images.evetech.net/types/30752/relic?size=64)](https://images.evetech.net/types/30752/relic?size=64)                              |

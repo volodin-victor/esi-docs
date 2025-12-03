@@ -1,122 +1,122 @@
-# Map Data
+# Данные карты
 
-## General Information
+## Общая информация
 
-Map data is available in the [SDE](../../services/static-data/index.md) or through [ESI](../../services/esi/overview.md).
-Objects like regions, constellations, solarsystems, planets, moons, and other celestial bodies have a position.
+Данные карты доступны в [SDE](../../services/static-data/index.md) или через [ESI](../../services/esi/overview.md).
+Объекты, такие как регионы, созвездия, солнечные системы, планеты, луны и другие небесные тела, имеют позицию.
 
-There are two kinds of position, each using their own coordinate system:
+Существует два типа позиций, каждая использует свою собственную систему координат:
 
-* Relative to the center of the New Eden cluster. (Used by regions, constellations, solarsystems)<br>
-  The center of the cluster lies near Zarzakh, labelled "Point of No Return" on the in-game map. (See the red dot on the cluster map below)
+* Относительно центра кластера Нового Эдема. (Используется регионами, созвездиями, солнечными системами)<br>
+  Центр кластера находится рядом с Зарзахом, обозначенным "Точка невозврата" на внутриигровой карте. (См. красную точку на карте кластера ниже)
 
-* Relative to the center of a solarsystem. (used by planets, moons, stars, as well as other positions within a solarsystem such as killmails)<br>
-  The center of a solarsystem is it's star. The star objects themselves do not have an explicit position in the SDE or ESI, as their position is always `[0.0, 0.0, 0.0]`<br>
-  Not every solarsystem has a star object; for abyssal deadspace systems with neither star nor planet, the origin is an arbitrary point.
+* Относительно центра солнечной системы. (используется планетами, лунами, звездами, а также другими позициями внутри солнечной системы, такими как killmail'ы)<br>
+  Центр солнечной системы — это её звезда. Сами объекты звезд не имеют явной позиции в SDE или ESI, так как их позиция всегда `[0.0, 0.0, 0.0]`<br>
+  Не каждая солнечная система имеет объект звезды; для бездонных дедспейс-систем без звезды или планеты началом координат является произвольная точка.
 
-These coordinate systems have the same scale (1.0 = 1 meter), but different directions.
+Эти системы координат имеют один и тот же масштаб (1.0 = 1 метр), но разные направления.
 
-## Universe
+## Вселенная
 
-All regions, constellations, and solarsystems share a single coordinate system.
+Все регионы, созвездия и солнечные системы используют единую систему координат.
 
-The SDE contains map data in the `map`-prefixed files, such as `mapRegions`, `mapConstellations`, and `mapSolarSystems`.
-ESI provides this data through endpoints under the `/universe/` such as [`/universe/regions/`](/api-explorer#/operations/GetUniverseRegions).
+SDE содержит данные карты в файлах с префиксом `map`, таких как `mapRegions`, `mapConstellations` и `mapSolarSystems`.
+ESI предоставляет эти данные через конечные точки под `/universe/`, такие как [`/universe/regions/`](/api-explorer#/operations/GetUniverseRegions).
 
-For both SDE and ESI, data is provided for all kinds ('known space', 'wormhole space', 'abyssal space') of space. Different kinds of space can be identified by the [ID ranges](../../guides/id-ranges.md) for the regionID, constellationID or solarSystemID.
-Only the 'New Eden' solarsystems (`SolarSystemID` in the range `30,000,000 to 30,999,999`) are included on the in-game map.
+Как для SDE, так и для ESI данные предоставляются для всех видов ('известное пространство', 'пространство червоточин', 'бездонное пространство') космоса. Различные виды пространства можно идентифицировать по [диапазонам ID](../../guides/id-ranges.md) для regionID, constellationID или solarSystemID.
+Только солнечные системы 'Нового Эдема' (`SolarSystemID` в диапазоне `30,000,000 до 30,999,999`) включены на внутриигровую карту.
 
-### Map
+### Карта
 
-When displayed by the in-game map & most community maps, the mapping convention is to look "top down" oriented with the region of 'Venal' at the top as a "Space&nbsp;North". In this orientation, the coordinates have the following directions:
+При отображении на внутриигровой карте и большинстве карт сообщества используется условность отображения "сверху вниз" с ориентацией региона 'Венал' наверху как "Космический&nbsp;Север". В этой ориентации координаты имеют следующие направления:
 
-* `+X` is East/Right, `-X` is West/Left.
-* `+Y` is Up, `-Y` is Down.
-* `+Z` is North/Forward, `-Z` is South/Backward
-
-!!! note
-
-    This forms a **Left**-Handed coordinate system. If you are using a 3D graphics or geometry library, it may expect either Left- or Right-Handed coordinates. Using incorrect handedness results in a 'mirrored' image which rotations alone cannot correct. You can convert handedness by negating a single axis. (e.g. `[X, Y, -Z]`)
-
-![New Eden map](./cluster_map.png)
-
-### Route calculation
-
-See [Route Calculation](../route-calculation.md) for details how to calculate a route in New Eden.
-
-### Jump drives
-
-Unlike stargate connections, jump drives can reach any valid system within range in a single jump. Jump drives allow jumping *to* any low- and nullsec system, with the exclusion of Pochven and the Jove regions. Ships can also jump *from* high-sec space into low- or nullsec.
-Jump drive range is determined by the ship the player is piloting and their 'Jump Drive Calibration' skill.
-
-A graph can be built by linking each solarsystem to every other solar system that may be jumped to.
-For a given system<sub>1</sub> and system<sub>2</sub> and their positions (x, y, z), the systems are in jump range if:
-
-$\sqrt{\left(x_1-x_2\right)^2+\left(y_1-y_2\right)^2+\left(z_1-z_2\right)^2}\le\ (Jump\ range\ in\ LY\ \ast\ {9\,460\,000\,000\,000\,000.0})$
-
-!!! warning "Caution"
-
-    For the purposes of jump drive range calculation, a single lightyear is exactly `9,460,000,000,000,000.0` (9.46 × 10^15) meters, slightly less than the real world scientific definition of a lightyear.
-    Using the incorrect value may cause routes to include impossible jumps.
-
-
-## Solarsystem
-
-Each individual solar system in the game has its own isolated coordinate system, with planets & other celestial objects having their positions given relative to the star.
-
-When matching the 'Space North' orientation as used by the in-game map (see above), the coordinate system is as follows:
-
-In this orientation, the coordinates have the following directions:
-
-* `+X` is West/Left, `-X` is East/Right.
-* `+Y` is Up, `-Y` is Down.
-* `+Z` is North/Forward, `-Z` is South/Backward.
+* `+X` — Восток/Вправо, `-X` — Запад/Влево.
+* `+Y` — Вверх, `-Y` — Вниз.
+* `+Z` — Север/Вперед, `-Z` — Юг/Назад
 
 !!! note
 
-    This is different to the Universe's coordinate system, and is **Right**-Handed.
+    Это образует **Левостороннюю** систему координат. Если вы используете библиотеку 3D-графики или геометрии, она может ожидать либо лево-, либо правостороннюю систему координат. Использование неправильной системы приводит к "зеркальному" изображению, которое невозможно исправить только поворотами. Вы можете преобразовать систему координат, инвертируя одну ось. (например, `[X, Y, -Z]`)
 
-![Jita System map](./system_map.png)
+![Карта Нового Эдема](./cluster_map.png)
 
-### Combining the coordinate systems
+### Расчет маршрута
 
-Both coordinate systems have the same scale but different axes. To get the position of a planet within the larger 'universe' coordinate system, it's position can be added to that of the parent star with the x coordinate negated:
+См. [Расчет маршрута](../route-calculation.md) для деталей о том, как рассчитать маршрут в Новом Эдеме.
+
+### Прыжковые двигатели
+
+В отличие от соединений звездными вратами, прыжковые двигатели могут достичь любой допустимой системы в пределах дальности одним прыжком. Прыжковые двигатели позволяют прыгать *в* любую лоу- и нульсек систему, за исключением Почвена и регионов Джов. Корабли также могут прыгать *из* хай-сека в лоу- или нульсек.
+Дальность прыжкового двигателя определяется кораблем, которым управляет игрок, и его навыком 'Jump Drive Calibration'.
+
+Граф может быть построен путем связывания каждой солнечной системы с каждой другой солнечной системой, в которую можно совершить прыжок.
+Для заданной системы<sub>1</sub> и системы<sub>2</sub> и их позиций (x, y, z) системы находятся в пределах дальности прыжка, если:
+
+$\sqrt{\left(x_1-x_2\right)^2+\left(y_1-y_2\right)^2+\left(z_1-z_2\right)^2}\le\ (Дальность\ прыжка\ в\ СГ\ \ast\ {9\,460\,000\,000\,000\,000.0})$
+
+!!! warning "Внимание"
+
+    Для целей расчета дальности прыжкового двигателя один световой год составляет точно `9,460,000,000,000,000.0` (9.46 × 10^15) метров, немного меньше, чем реальное научное определение светового года.
+    Использование неправильного значения может привести к включению невозможных прыжков в маршруты.
+
+
+## Солнечная система
+
+Каждая отдельная солнечная система в игре имеет свою собственную изолированную систему координат, где планеты и другие небесные объекты имеют свои позиции относительно звезды.
+
+При соответствии ориентации 'Космический Север', используемой внутриигровой картой (см. выше), система координат выглядит следующим образом:
+
+В этой ориентации координаты имеют следующие направления:
+
+* `+X` — Запад/Влево, `-X` — Восток/Вправо.
+* `+Y` — Вверх, `-Y` — Вниз.
+* `+Z` — Север/Вперед, `-Z` — Юг/Назад.
+
+!!! note
+
+    Это отличается от системы координат Вселенной и является **Правосторонней**.
+
+![Карта системы Jita](./system_map.png)
+
+### Комбинирование систем координат
+
+Обе системы координат имеют одинаковый масштаб, но разные оси. Чтобы получить позицию планеты в более крупной системе координат 'вселенной', её позицию можно добавить к позиции родительской звезды с инвертированной координатой x:
 x = x<sub>system</sub> - x<sub>planet</sub>
 y = y<sub>system</sub> + y<sub>planet</sub>
 z = z<sub>system</sub> + z<sub>planet</sub>
 
-!!! note "Note: Floating point precision"
+!!! note "Примечание: Точность чисел с плавающей точкой"
 
-    32-bit floating point numbers do not have enough precision to handle both the 'large' scale of the interstellar distances and the 'small' scale of interplanetary distances when combining the position of stars and the celestial bodies orbiting them as described above.
+    32-битные числа с плавающей точкой не имеют достаточной точности для обработки как "большого" масштаба межзвездных расстояний, так и "малого" масштаба межпланетных расстояний при комбинировании позиций звезд и небесных тел, вращающихся вокруг них, как описано выше.
 
-    This problem can be mitigated by using 64-bit "double precision" floating point numbers.
+    Эта проблема может быть смягчена использованием 64-битных чисел с плавающей точкой "двойной точности".
 
-    In 3D rendering or other situations where 64-bit numbers are unavailable, "Floating Origin" techniques can also mitigate this problem.
+    В 3D-рендеринге или других ситуациях, где 64-битные числа недоступны, техники "Плавающего начала координат" также могут смягчить эту проблему.
 
 
-## Example: 2D map
+## Пример: 2D-карта
 
-To draw a 2D map of the universe, the 3D coordinates need to be transformed into 2D positions on an image. The transformation required varies depending on the coordinate system used by the image.
+Чтобы нарисовать 2D-карту вселенной, 3D-координаты необходимо преобразовать в 2D-позиции на изображении. Требуемое преобразование варьируется в зависимости от системы координат, используемой изображением.
 
-This example uses the common "top-left origin" coordinate system widely used in images & 2D graphics. Here the `(0,0)` origin lies in the top-left corner of the image, the X axis points **right** and the Y axis points **down**.
+Этот пример использует распространенную систему координат "начало в верхнем левом углу", широко используемую в изображениях и 2D-графике. Здесь начало `(0,0)` находится в верхнем левом углу изображения, ось X указывает **вправо**, а ось Y указывает **вниз**.
 
 ![](./image-coordinate-system.svg)
 
-These image axes map onto the axes of the universe data as follows:
+Эти оси изображения соответствуют осям данных вселенной следующим образом:
 
 * X<sub>img</sub> = X<sub>eve</sub>
 * Y<sub>img</sub> = -Z<sub>eve</sub>
-* The Y<sub>eve</sub> coordinate is discarded to flatten the map vertically.
+* Координата Y<sub>eve</sub> отбрасывается для вертикального выравнивания карты.
 
-After this, the coordinates must be moved and resized to fit within the image canvas. This can be done by calculating a bounding box, subtracting the position of the top-left corner of the bounding box from each coordinate, then dividing by width or height of the bounding box. This yields a position in the range 0 to 1, which can then be multiplied by the image width or height to get a final pixel position.
+После этого координаты должны быть перемещены и масштабированы для размещения в пределах холста изображения. Это можно сделать, вычислив ограничивающий прямоугольник, вычтя позицию верхнего левого угла ограничивающего прямоугольника из каждой координаты, затем разделив на ширину или высоту ограничивающего прямоугольника. Это дает позицию в диапазоне от 0 до 1, которую затем можно умножить на ширину или высоту изображения, чтобы получить окончательную пиксельную позицию.
 
 --8<-- "snippets/examples/map-2d-cluster.md"
 
-A 2D solarsystem map can be drawn through the same approach, but as the X-axis points in the opposite direction for celestial body coordinates, both the X<sub>eve</sub> and Z<sub>eve</sub> are negated:
+2D-карта солнечной системы может быть нарисована тем же способом, но поскольку ось X указывает в противоположном направлении для координат небесных тел, обе X<sub>eve</sub> и Z<sub>eve</sub> инвертируются:
 
 * X<sub>img</sub> = -X<sub>eve</sub>
 * Y<sub>img</sub> = -Z<sub>eve</sub>
 
 !!! tip
 
-    Use logarithmic scaling for maps of solarsystems, as the distances between objects span several orders of magnitude.
+    Используйте логарифмическое масштабирование для карт солнечных систем, так как расстояния между объектами охватывают несколько порядков величины.

@@ -4,7 +4,7 @@ search:
 
 title: EVE-SRP
 type: service
-description: Ship replacement program for EVE Online.
+description: Программа замены кораблей для EVE Online.
 maintainer:
   name: Tian Khamez
   github: tkhamez
@@ -12,7 +12,7 @@ maintainer:
 
 # EVE-SRP
 
-A web application to manage a **S**hip **R**eplacement **P**rogram for EVE Online.
+Веб-приложение для управления программой замены кораблей (**S**hip **R**eplacement **P**rogram) для EVE Online.
 
 <div class="grid cards" markdown>
 
@@ -21,17 +21,17 @@ A web application to manage a **S**hip **R**eplacement **P**rogram for EVE Onlin
 
 </div>
 
-## Features
+## Возможности
 
-- EVE SSO login.
-- Multiple divisions.
-- Permissions based on groups.
-- Custom providers for groups and alternative characters.
-- SRP requests with comments.
-- Base payout with modifiers.
-- Workflow with multiple statuses.
-- Lists with open, in progress and approved requests.
-- Search function for all requests.
-- Admin UI to manage divisions and set their permissions.
-- Various options to customise the installation (texts, logo).
-- Optional [zKillboard](https://github.com/zKillboard/zKillboard) integration.
+- Вход через EVE SSO.
+- Множество подразделений.
+- Разрешения на основе групп.
+- Пользовательские провайдеры для групп и альтернативных персонажей.
+- Запросы SRP с комментариями.
+- Базовая выплата с модификаторами.
+- Рабочий процесс с несколькими статусами.
+- Списки с открытыми, выполняющимися и одобренными запросами.
+- Функция поиска по всем запросам.
+- Административный интерфейс для управления подразделениями и настройки их разрешений.
+- Различные опции для настройки установки (тексты, логотип).
+- Опциональная интеграция с [zKillboard](https://github.com/zKillboard/zKillboard).

@@ -1,27 +1,27 @@
-# Contributors
+# Участники
 
-## CCP Developers
+## Разработчики CCP
 
-The following CCP developers are members of the [ESI Development Team](https://github.com/orgs/esi/teams/esi-maintainers). They are the ones working on ESI (among other projects).
+Следующие разработчики CCP являются членами [команды разработки ESI](https://github.com/orgs/esi/teams/esi-maintainers). Они работают над ESI (среди прочих проектов).
 
-| GitHub                                                    | CCP Dev Name    | Discord username |
-|-----------------------------------------------------------|-----------------|------------------|
-| [ccp-pinky](https://github.com/ccp-pinky)                 | CCP Pinky       | ccp_pinky        |
-| [steven-noorbergen](https://github.com/steven-noorbergen) | CCP Stroopwafel | ccp_stroopwafel  |
+| GitHub                                                    | Имя разработчика CCP | Discord username |
+|-----------------------------------------------------------|----------------------|------------------|
+| [ccp-pinky](https://github.com/ccp-pinky)                 | CCP Pinky            | ccp_pinky        |
+| [steven-noorbergen](https://github.com/steven-noorbergen) | CCP Stroopwafel      | ccp_stroopwafel  |
 
-## ESI Credits
+## Заслуги ESI
 
-The following people are not active members of the ESI team, but have made significant contributions to its capabilities.
+Следующие люди не являются активными членами команды ESI, но внесли значительный вклад в её возможности.
 
 CCP AquarHEAD, CCP Bartender, CCP Chimichanga, CCP Masterplan, CCP Mephysto, CCP PrismX, CCP SnowedIn, CCP Tellus, CCP Zoetrope
 
 o7
 
-## ESI Community Members
+## Члены сообщества ESI
 
-The following people are experienced members of EVE's third-party dev community, who will be helping triage issues and guide discussions. Please treat them (and all others) with respect.
+Следующие люди являются опытными членами сообщества сторонних разработчиков EVE, которые помогают сортировать проблемы и направлять обсуждения. Пожалуйста, относитесь к ним (и ко всем остальным) с уважением.
 
-| [GitHub](https://github.com/orgs/esi/teams/ecm)         | EVE Character     | Discord username |
+| [GitHub](https://github.com/orgs/esi/teams/ecm)         | Персонаж EVE      | Discord username |
 |---------------------------------------------------------|-------------------|------------------|
 | [andimiller](https://github.com/andimiller)             | Lucia Denniard    |                  |
 | [antihax](https://github.com/antihax)                   | croakroach        |                  |
@@ -37,6 +37,6 @@ The following people are experienced members of EVE's third-party dev community,
 | [rawrafox](https://github.com/rawrafox)                 | Aurora Morgan     |                  |
 | [w9jds](https://github.com/w9jds)                       | Chingy Chonga     | w9jds            |
 
-## Everyone else
+## Все остальные
 
-Last but not least, a big thanks to all others who have contributed by opening issues, taking part in discussions, or making ESI projects better one commit at a time.
+И последнее, но не менее важное: огромное спасибо всем остальным, кто внёс вклад, открывая issues, участвуя в обсуждениях или делая проекты ESI лучше по одному коммиту за раз.

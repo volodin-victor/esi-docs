@@ -4,7 +4,7 @@ search:
 
 title: elt
 type: service
-description: elt is a command line tool for looking up Eve Online objects. It's available for Windows, macOS and Linux.
+description: elt — это инструмент командной строки для поиска объектов Eve Online. Доступен для Windows, macOS и Linux.
 maintainer:
   name: Erik Kalkoken
   github: ErikKalkoken
@@ -12,7 +12,7 @@ maintainer:
 
 # elt - EVE Lookup Tool
 
-**elt** is a command line tool for looking up Eve Online objects. It's available for Windows, macOS and Linux.
+**elt** — это инструмент командной строки для поиска объектов Eve Online. Доступен для Windows, macOS и Linux.
 
 [![GitHub Release](https://img.shields.io/github/v/release/ErikKalkoken/elt)](https://github.com/ErikKalkoken/elt/elt)
 [![GitHub License](https://img.shields.io/github/license/ErikKalkoken/elt)](https://github.com/ErikKalkoken/elt?tab=MIT-1-ov-file#readme)
@@ -25,15 +25,15 @@ maintainer:
 
 </div>
 
-**elt** is a command line tool that looks up EVE Online objects from the game server and prints them in the terminal. It provides a convenient and fast alternative to using a browser or curl commands for quickly resolving Eve IDs or names in the terminal.
+**elt** — это инструмент командной строки, который ищет объекты EVE Online с игрового сервера и выводит их в терминале. Он предоставляет удобную и быструю альтернативу использованию браузера или команд curl для быстрого разрешения ID или имен Eve в терминале.
 
-For example:
+Например:
 
 ```sh
 elt "Jita"
 ```
 
-Will print
+Выведет
 
 ```plain
 Solar System:
@@ -44,4 +44,4 @@ Solar System:
 └──────────┴──────┴──────────────────┴────────────────────┴───────────┴─────────────┴────────────┘
 ```
 
-For more information please visit the [Github repository](https://github.com/ErikKalkoken/elt).
+Для получения дополнительной информации посетите [репозиторий Github](https://github.com/ErikKalkoken/elt).

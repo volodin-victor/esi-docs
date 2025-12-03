@@ -4,7 +4,7 @@ search:
 
 title: EVE-KILL.com
 type: service
-description: EVE-KILL.com is a killboard for EVE-Online, allowing players to track and share their in-game combat activities.
+description: EVE-KILL.com — это килборд для EVE-Online, позволяющий игрокам отслеживать и делиться своими внутриигровыми боевыми действиями.
 maintainer:
   name: Karbowiak
   github: karbowiak
@@ -21,98 +21,98 @@ maintainer:
 
 - [:simple-discord: __Discord__](https://discord.gg/R9gZRc4Jtn){ .esi-card-link }
 - [:simple-github: __GitHub__](https://github.com/EVE-KILL/Thessia){ .esi-card-link }
-- [:octicons-book-16: __Documentation__](https://github.com/EVE-KILL/Thessia/tree/main/docs/){ .esi-card-link }
+- [:octicons-book-16: __Документация__](https://github.com/EVE-KILL/Thessia/tree/main/docs/){ .esi-card-link }
 
 </div>
 
-## Overview
+## Обзор
 
-**EVE-KILL.com** is a dynamic killboard for EVE Online that empowers players to track, analyze, and share their combat activities. Offering real-time data, detailed analytics, and comprehensive statistics, it serves as a hub for the EVE community to gain insights into PVP and PVE engagements across New Eden.
+**EVE-KILL.com** — это динамический килборд для EVE Online, который позволяет игрокам отслеживать, анализировать и делиться своими боевыми действиями. Предлагая данные в реальном времени, детальную аналитику и всеобъемлющую статистику, он служит центром для сообщества EVE для получения insights о PVP и PVE столкновениях по всему Новому Эдему.
 
 
-## Resources & Navigation
+## Ресурсы и навигация
 
-| Resource | Description |
+| Ресурс | Описание |
 |----------|-------------|
-| [Home Page](https://eve-kill.com) | Main landing page |
-| [FAQ Page](https://eve-kill.com/faq) | Frequently Asked Questions |
-| [Status](https://eve-kill.com/status) | System status (queue details, database stats) |
-| [Statistics](https://eve-kill.com/stats) | Top alliances and corporations statistics |
-| [Campaigns](https://eve-kill.com/campaigns) | Warfare operations and campaign tracking |
-| [Battles](https://eve-kill.com/battles) | Detailed battle reports and analytics |
-| [Advanced Search](https://eve-kill.com/advancedsearch) | Powerful search across all game entities |
-| [Metenox](https://eve-kill.com/metenox) | Metenox moon goo data |
+| [Главная страница](https://eve-kill.com) | Основная лендинг-страница |
+| [FAQ](https://eve-kill.com/faq) | Часто задаваемые вопросы |
+| [Статус](https://eve-kill.com/status) | Статус системы (детали очереди, статистика БД) |
+| [Статистика](https://eve-kill.com/stats) | Статистика топовых альянсов и корпораций |
+| [Кампании](https://eve-kill.com/campaigns) | Военные операции и отслеживание кампаний |
+| [Битвы](https://eve-kill.com/battles) | Детальные боевые отчеты и аналитика |
+| [Расширенный поиск](https://eve-kill.com/advancedsearch) | Мощный поиск по всем игровым сущностям |
+| [Metenox](https://eve-kill.com/metenox) | Данные о лунной руде Metenox |
 
-## Key Features
+## Ключевые возможности
 
-### Killboard & Real-Time Tracking
+### Килборд и отслеживание в реальном времени
 
-- Instant killmail updates via websocket
-- Extensive killmail database with detailed combat records
-- Filters by security status (HighSec, LowSec, NullSec, W-Space, Abyssal, Pochven), ship class, and value thresholds
-- Activity-based filters including solo kills, NPC kills, citadel kills, and ship tech tiers (T1/T2/T3)
+- Мгновенные обновления киллмейлов через websocket
+- Обширная база данных киллмейлов с детальными боевыми записями
+- Фильтры по статусу безопасности (HighSec, LowSec, NullSec, W-Space, Abyssal, Pochven), классу кораблей и порогам стоимости
+- Фильтры на основе активности, включая соло-убийства, убийства NPC, убийства цитаделей и технологические уровни кораблей (T1/T2/T3)
 
-### Analytics & Statistics
+### Аналитика и статистика
 
-- Historical growth and performance metrics for characters, corporations, and alliances
-- Top lists for players, organizations, ships, and locations
+- Исторические метрики роста и производительности для персонажей, корпораций и альянсов
+- Топ-листы для игроков, организаций, кораблей и локаций
 
-### Battle & Campaign Tools
+### Инструменты битв и кампаний
 
-- Automated battle detection and detailed engagement reports
-- Battle Generator for custom reports by system and timeframe
-- Campaign Creator for tracking warfare operations with public/private options
-- Advanced filtering and time-based tracking for campaigns
+- Автоматическое обнаружение битв и детальные отчеты о столкновениях
+- Генератор битв для пользовательских отчетов по системе и временному интервалу
+- Создатель кампаний для отслеживания военных операций с публичными/приватными опциями
+- Расширенная фильтрация и временное отслеживание для кампаний
 
-### Advanced Search & Scanning Tools
+### Расширенный поиск и инструменты сканирования
 
-- Powerful query builder for precise searches across entities and items
-- D-Scan Analyzer for directional scanner data
-- Local Scan Tool to analyze local chat participants
+- Мощный конструктор запросов для точного поиска по сущностям и предметам
+- Анализатор D-сканирования для данных направленного сканера
+- Инструмент сканирования локала для анализа участников локального чата
 
-### Profiles & Community Features
+### Профили и функции сообщества
 
-- Detailed profiles for characters, corporations and alliances
-- Character achievements highlighting individual combat milestones
-- EVE SSO integration for secure login
-- Commenting system on killmails
+- Детальные профили для персонажей, корпораций и альянсов
+- Достижения персонажей, подсвечивающие индивидуальные боевые вехи
+- Интеграция EVE SSO для безопасного входа
+- Система комментариев на киллмейлах
 
-### Technical & Data Coverage
+### Технические возможности и покрытие данных
 
-- Translated to all languages supported by EVE Online
-- Comprehensive REST API with Swagger/Scalar documentation
-- Mobile-responsive design
+- Переведено на все языки, поддерживаемые EVE Online
+- Всеобъемлющий REST API с документацией Swagger/Scalar
+- Мобильно-адаптивный дизайн
 
-## Screenshots
+## Скриншоты
 
-### Frontpage
+### Главная страница
 
 ![Frontpage](home.png)
 
-### Character Dashboard
+### Панель персонажа
 
 ![Character Dashboard](character-home.png)
 
-### Character Achievements
+### Достижения персонажа
 
 ![Character Achievements](character-achievements.png)
 
-### Battles Index
+### Индекс битв
 
 ![Battles Index](battles-index.png)
 
-### Battles Dashboard
+### Панель битв
 
 ![Battles Dashboard](battles-dashboard.png)
 
-### Campaigns Index
+### Индекс кампаний
 
 ![Campaigns Index](campaigns-index.png)
 
-### Campaigns Dashboard
+### Панель кампаний
 
 ![Campaigns Dashboard](campaigns-dashboard.png)
 
-### Stats
+### Статистика
 
 ![Stats](stats.png)

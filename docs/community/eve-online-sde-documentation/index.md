@@ -4,16 +4,16 @@ search:
 
 title: EVE Online SDE Documentation
 type: resource
-description: Online documentation for the SDE schema, with JSON Schema definitions and code snippets
+description: Онлайн-документация схемы SDE с определениями JSON Schema и фрагментами кода
 maintainer:
   name: Nohus
   github: nohus
 ---
 
-# EVE Online SDE Documentation
+# Документация EVE Online SDE
 
-Online documentation for the SDE schema, with JSON Schema definitions and code snippets.
-It is generated and published automatically whenever a new version of the SDE is released, so it is always up to date.
+Онлайн-документация схемы SDE с определениями JSON Schema и фрагментами кода.
+Генерируется и публикуется автоматически при каждом выпуске новой версии SDE, поэтому всегда актуальна.
 
 <div class="grid cards" markdown>
 

@@ -1,146 +1,146 @@
-Repository for the [EVE Developer Documentation](https://developers.eveonline.com/docs/) website.
+Репозиторий для сайта [документации разработчиков EVE](https://developers.eveonline.com/docs/).
 
-# Local environment
+# Локальное окружение
 
-This project works best when you have a local environment set up, preferably via WSL2.
-This will allow you to run the project locally and see the change you make in real-time.
+Этот проект лучше всего работает, когда у вас настроено локальное окружение, предпочтительно через WSL2.
+Это позволит вам запустить проект локально и видеть изменения, которые вы вносите, в реальном времени.
 
-### Fork the repository
+### Форк репозитория
 
-Submitting a pull request with your changes is the preferred way to contribute to this project.
-To do this, you will need to fork the repository so you can make changes to your own copy of the project.
+Отправка pull request с вашими изменениями — предпочтительный способ внести вклад в этот проект.
+Для этого вам нужно будет сделать форк репозитория, чтобы вы могли внести изменения в свою собственную копию проекта.
 
-This assumes you have a GitHub account already, so if you don't, you'll need to create one.
+Предполагается, что у вас уже есть аккаунт GitHub, поэтому, если его нет, вам нужно будет его создать.
 
-Head to [this page](https://github.com/esi/esi-docs/fork) and follow the instructions there to fork the repository.
+Перейдите на [эту страницу](https://github.com/esi/esi-docs/fork) и следуйте инструкциям, чтобы сделать форк репозитория.
 
-### Clone the repository
+### Клонирование репозитория
 
-Now that you have your own clone, you will need to clone it on your local machine.
-If you are using Visual Studio Code, you can do this by clicking the `Clone Repository` button on the start page.
+Теперь, когда у вас есть собственный клон, вам нужно будет клонировать его на локальную машину.
+Если вы используете Visual Studio Code, вы можете сделать это, нажав кнопку `Clone Repository` на стартовой странице.
 
-If you are using the command line, you can do this by running the following command:
+Если вы используете командную строку, вы можете сделать это, выполнив следующую команду:
 
 ```bash
-git clone <path-to-your-fork>
+git clone <путь-к-вашему-форку>
 cd esi-docs
 ```
 
-### Creating a virtual environment
+### Создание виртуального окружения
 
-This project uses python, so it is recommended to create a virtual environment to manage the dependencies.
-This ensures that you don't clutter your system python installation with dependencies that are only needed
-for this project.
+Этот проект использует python, поэтому рекомендуется создать виртуальное окружение для управления зависимостями.
+Это гарантирует, что вы не засорите системную установку python зависимостями, которые нужны только
+для этого проекта.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-When you are starting a new terminal session, you will need to activate the virtual environment again.
-You can do this by navigating to the project directory and running the `source .venv/bin/activate` command.
+Когда вы начинаете новую сессию терминала, вам нужно будет снова активировать виртуальное окружение.
+Вы можете сделать это, перейдя в директорию проекта и выполнив команду `source .venv/bin/activate`.
 
-Using make:
+Используя make:
 ```bash
 make init
 ```
 
-### Installing dependencies
+### Установка зависимостей
 
-Now that you have a virtual environment set up, you can install the dependencies for this project.
-This can be done by running the following command:
+Теперь, когда у вас настроено виртуальное окружение, вы можете установить зависимости для этого проекта.
+Это можно сделать, выполнив следующую команду:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Running the project
+### Запуск проекта
 
-Now that you have the dependencies installed, you can run the project locally.
-This can be done by running the following command:
+Теперь, когда зависимости установлены, вы можете запустить проект локально.
+Это можно сделать, выполнив следующую команду:
 
 ```bash
 mkdocs serve
 ```
 
-This will start a local webserver that you can access by navigating to `http://127.0.0.1:8000/docs/` in your browser.
+Это запустит локальный веб-сервер, к которому вы можете получить доступ, перейдя по адресу `http://127.0.0.1:8000/docs/` в вашем браузере.
 
-You can close the server by pressing `Ctrl+C` in the terminal.
+Вы можете закрыть сервер, нажав `Ctrl+C` в терминале.
 
-Using make:
+Используя make:
 ```bash
 make serve
 ```
 
-### Making changes
+### Внесение изменений
 
-While the server is running, you can make changes to the project and see them reflected in real-time.
-Edit the files under /docs/ and save them.
-The server will automatically rebuild the relevant pages and refresh the page for you.
+Пока сервер работает, вы можете вносить изменения в проект и видеть их отражение в реальном времени.
+Отредактируйте файлы в папке /docs/ и сохраните их.
+Сервер автоматически перестроит соответствующие страницы и обновит страницу для вас.
 
-# Best practices
+# Лучшие практики
 
-When creating a pull request, there are a few best practices that you should follow to help create a smooth review process.
-To help with this, we have created a checklist that you can use to ensure that your pull request meets the standards we wish to maintain.
+При создании pull request есть несколько лучших практик, которым вы должны следовать, чтобы создать плавный процесс проверки.
+Чтобы помочь в этом, мы создали контрольный список, который вы можете использовать, чтобы убедиться, что ваш pull request соответствует стандартам, которые мы хотим поддерживать.
 
-### Write small PRs
+### Пишите небольшие PR
 
-A pull request should fulfil a single purpose, and should not contain unrelated changes.
-This makes it easier to review the changes and understand the purpose of the pull request.
+Pull request должен выполнять одну цель и не должен содержать несвязанных изменений.
+Это облегчает проверку изменений и понимание цели pull request.
 
-### Review your own changes
+### Проверьте свои собственные изменения
 
-Before submitting, double-check your changes to ensure that you haven't missed anything.
-This includes checking for typos, broken links, and other issues that might have been introduced.
+Перед отправкой дважды проверьте свои изменения, чтобы убедиться, что вы ничего не пропустили.
+Это включает проверку на опечатки, битые ссылки и другие проблемы, которые могли быть введены.
 
-### Write good commit messages
+### Пишите хорошие сообщения коммитов
 
-Commit messages should be concise and descriptive.
-They don't need to be long, but they should provide enough context to understand the purpose of the commit.
+Сообщения коммитов должны быть краткими и описательными.
+Они не должны быть длинными, но должны предоставлять достаточно контекста для понимания цели коммита.
 
-If you are working locally, you can always squash your commits before submitting the pull request to avoid cluttering the commit history with unnecessary commits.
+Если вы работаете локально, вы всегда можете объединить свои коммиты перед отправкой pull request, чтобы избежать засорения истории коммитов ненужными коммитами.
 
-### Follow existing conventions
+### Следуйте существующим соглашениям
 
-When making changes, try to follow the existing conventions in the project.
-This includes things like naming conventions, file structure, and formatting.
-This helps maintain consistency, and makes it easier for others to understand your changes.
-If you feel like a convention should be changed, feel free to discuss it in the pull request, or create a separate discussion for that.
+При внесении изменений старайтесь следовать существующим соглашениям в проекте.
+Это включает такие вещи, как соглашения об именовании, структура файлов и форматирование.
+Это помогает поддерживать согласованность и облегчает другим понимание ваших изменений.
+Если вы считаете, что соглашение должно быть изменено, не стесняйтесь обсудить это в pull request или создать отдельное обсуждение для этого.
 
-# Notes about the review process.
+# Примечания о процессе проверки
 
-Pull request reviews are an important part of the contribution process.
-They help ensure that changes are of high quality, and that they meet the standards of the project.
-This often involves providing feedback, asking questions, and requesting changes.
+Проверка pull request является важной частью процесса внесения вклада.
+Они помогают гарантировать, что изменения имеют высокое качество и соответствуют стандартам проекта.
+Это часто включает предоставление обратной связи, задавание вопросов и запрос изменений.
 
-It is important to remember that that feedback is about the code, not the person.
-It is not a personal attack, but rather a way to improve the quality of the project.
-It is also important to remember that everyone makes mistakes, and that feedback is an opportunity to learn and grow.
-If you do not understand a comment, or if you disagree with it, feel free to ask for clarification or to discuss it further, but do so in a respectful and constructive manner.
+Важно помнить, что обратная связь касается кода, а не человека.
+Это не личная атака, а скорее способ улучшить качество проекта.
+Также важно помнить, что все совершают ошибки, и обратная связь — это возможность учиться и расти.
+Если вы не понимаете комментарий или не согласны с ним, не стесняйтесь просить разъяснений или обсудить это дальше, но делайте это уважительно и конструктивно.
 
-When reviewing a pull request, it is important to be respectful and constructive.
-This means providing feedback in a clear and concise manner, and avoiding personal attacks or negative language.
-It also means being open to feedback yourself, and being willing to learn from others.
+При проверке pull request важно быть уважительным и конструктивным.
+Это означает предоставление обратной связи ясным и кратким способом и избегание личных атак или негативного языка.
+Это также означает быть открытым к обратной связи самому и быть готовым учиться у других.
 
-It should be noted that this also means that sometimes pull requests will be rejected.
-A rejection does not mean that your contribution is not valued, but rather that it is not a good fit for the project at this point in time.
+Следует отметить, что это также означает, что иногда pull request будут отклонены.
+Отклонение не означает, что ваш вклад не ценится, а скорее то, что он не подходит для проекта в данный момент времени.
 
-# Conventions
+# Соглашения
 
-## Snippets
+## Сниппеты
 
-There are various places where we insert code snippets into the documentation to better visualize what's going on.
+Существуют различные места, где мы вставляем фрагменты кода в документацию, чтобы лучше визуализировать происходящее.
 
-Snippets are placed in the `snippets` folder, grouped in subfolders by topic. Each snippet is a separate file per language (based off of its extension), with a central (autogenerated) `.md` file that includes the snippets for each language. If you want to add a new language to a snippet, create the new file, and the build pipeline will automatically include it in the final documentation.
+Сниппеты размещаются в папке `snippets`, сгруппированные в подпапки по темам. Каждый сниппет — это отдельный файл для каждого языка (на основе его расширения), с центральным (автоматически сгенерированным) файлом `.md`, который включает сниппеты для каждого языка. Если вы хотите добавить новый язык к сниппету, создайте новый файл, и конвейер сборки автоматически включит его в финальную документацию.
 
-If you are adding the first snippet for a new language, it will need to be defined in `scripts/generate-snippets.py`, so that the build pipeline knows to include the file extension when searching for snippets, and what language to use for syntax highlighting.
+Если вы добавляете первый сниппет для нового языка, его нужно будет определить в `scripts/generate-snippets.py`, чтобы конвейер сборки знал, что нужно включить расширение файла при поиске сниппетов, и какой язык использовать для подсветки синтаксиса.
 
-When adding new snippets, write it in any supported/configured language, and include it as follows:
+При добавлении новых сниппетов напишите их на любом поддерживаемом/настроенном языке и включите следующим образом:
 
 ```markdown
 --8<-- "snippets/path/to-filename.md"
 ```
 
-Note the .md extension to use the autogenerated file, and the `--8<--` to indicate that this is a snippet include.
+Обратите внимание на расширение .md для использования автоматически сгенерированного файла и на `--8<--` для указания, что это включение сниппета.
 
-If a certain topic contains a lot of snippets, it might also be time to create a guide page for that topic, so that newer users can use that guide as a starting point.
+Если определённая тема содержит много сниппетов, возможно, также пришло время создать страницу руководства для этой темы, чтобы новые пользователи могли использовать это руководство в качестве отправной точки.

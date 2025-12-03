@@ -1,38 +1,38 @@
 ---
 collapse: nav
 ---
-# EVE Third-Party Developer Documentation
+# Документация для сторонних разработчиков EVE
 
-This documentation is intended for software developers who are interested in creating third-party tools and applications for EVE Online. Whether you're building simple utilities, complex integrations, or just experimenting, this documentation will help you get started.
+Эта документация предназначена для разработчиков программного обеспечения, заинтересованных в создании сторонних инструментов и приложений для EVE Online. Независимо от того, создаете ли вы простые утилиты, сложные интеграции или просто экспериментируете, эта документация поможет вам начать.
 
-This documentation assumes basic familiarity with programming and APIs but provides explanations and examples to help you get started, even if you're new to EVE Online's third-party ecosystem. Feel free to adapt the concepts here to suit your needs.
+Документация предполагает базовое знакомство с программированием и API, но содержит объяснения и примеры, которые помогут вам начать работу, даже если вы новичок в экосистеме сторонних разработчиков EVE Online. Не стесняйтесь адаптировать концепции под свои нужды.
 
-# Contributing
+# Участие в разработке
 
-This documentation is a community-driven resource, and contributions from developers are always welcome. Whether you’ve discovered an error, want to add missing information, or have ideas to make the documentation more useful, your input is highly valued.
+Эта документация является ресурсом, создаваемым сообществом, и вклад разработчиков всегда приветствуется. Обнаружили ошибку, хотите добавить недостающую информацию или у вас есть идеи, как сделать документацию более полезной — ваш вклад высоко ценится.
 
-## How to Contribute
-1. **Check the Repository**
-    This documentation is hosted in a [public repository]({{ config.repo_url }}), and every page on this documentation contains an “View source of this page” icon ( :material-file-eye-outline: ) that takes you directly to the source file on GitHub.
+## Как внести вклад
+1. **Проверьте репозиторий**
+    Эта документация размещена в [публичном репозитории]({{ config.repo_url }}), и каждая страница содержит значок "Просмотреть исходный код страницы" ( :material-file-eye-outline: ), который ведет непосредственно к исходному файлу на GitHub.
 
-2. **Propose Changes**
-    You can suggest updates by:
-    - Opening an issue to report a bug, inaccuracy, or missing content.
-    - Submitting a pull request with your proposed edits or additions. We use a [forking workflow](https://guides.github.com/activities/forking/) to manage contributions.
+2. **Предложите изменения**
+    Вы можете предложить обновления:
+    - Открыв issue для сообщения об ошибке, неточности или отсутствующем контенте.
+    - Отправив pull request с предложенными правками или дополнениями. Мы используем [forking workflow](https://guides.github.com/activities/forking/) для управления вкладами.
 
-3. **Be Clear and Concise**
-    When making changes, aim for accuracy and clarity. Avoid overly complex language or unnecessary detail.
+3. **Будьте четки и лаконичны**
+    При внесении изменений стремитесь к точности и ясности. Избегайте излишне сложного языка или ненужных деталей.
 
-4. **Ask for Help**
-    If you’re unsure how to contribute, don’t hesitate to reach out!
+4. **Просите помощи**
+    Если вы не уверены, как внести вклад, не стесняйтесь обращаться!
 
-## Suggestions for Contributions
-- Add examples or clarify existing ones.
-- Provide explanations for tricky concepts or common pitfalls.
-- Update sections to reflect changes in the API or policies.
-- Improve readability or fix typos and formatting errors.
+## Предложения по вкладу
+- Добавьте примеры или уточните существующие.
+- Предоставьте объяснения сложных концепций или распространенных ошибок.
+- Обновите разделы, чтобы отразить изменения в API или политиках.
+- Улучшите читаемость или исправьте опечатки и ошибки форматирования.
 
-## Why Contribute?
-By contributing to this documentation, you help improve the resources available to the entire EVE Online developer community. Whether you’re fixing a typo or writing a new section, your work makes it easier for others to build tools and applications for New Eden.
+## Зачем вносить вклад?
+Внося вклад в эту документацию, вы помогаете улучшить ресурсы, доступные всему сообществу разработчиков EVE Online. Исправляете ли вы опечатку или пишете новый раздел, ваша работа облегчает другим создание инструментов и приложений для Нового Эдема.
 
-Collaboration is what makes this resource strong, and every contribution — big or small — makes a difference!
+Сотрудничество — вот что делает этот ресурс сильным, и каждый вклад — большой или маленький — имеет значение!

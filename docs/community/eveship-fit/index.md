@@ -4,7 +4,7 @@ search:
 
 title: EVEShip.fit
 type: service
-description: EVEShip.fit - View, Create, and Share your EVE Online ship fits online
+description: EVEShip.fit — просматривайте, создавайте и делитесь сборками кораблей EVE Online в интернете
 maintainer:
   name: TrueBrain
   github: TrueBrain
@@ -12,8 +12,8 @@ maintainer:
 
 # EVEShip.fit
 
-EVEShip.fit is an online tool available on [https://eveship.fit](https://eveship.fit).
-It allows you to view fits (via EFT or import one from in-game), create new fits, and share links to fits with others.
+EVEShip.fit — это онлайн-инструмент, доступный на [https://eveship.fit](https://eveship.fit).
+Он позволяет просматривать сборки (через EFT или импортировать из игры), создавать новые сборки и делиться ссылками на сборки с другими.
 
 <div class="grid cards" markdown>
 
@@ -23,16 +23,16 @@ It allows you to view fits (via EFT or import one from in-game), create new fits
 
 </div>
 
-## Design goals
+## Цели дизайна
 
-EVEShip.fit is designed with the following goals:
+EVEShip.fit разработан со следующими целями:
 
-- Load quickly (< 500ms after first load), so it feels like a breeze to work with the tool.
-- Mimic in-game where possible, to give an uniform look&feel.
-- Make it easy to find better variants or to explore other designs.
-- Keep data local in the browser (as in: do not send data to a server for processing).
+- Быстрая загрузка (< 500 мс после первой загрузки), чтобы работать с инструментом было легко.
+- Максимально точно повторяет игру, чтобы обеспечить единообразный внешний вид и ощущения.
+- Облегчает поиск лучших вариантов или изучение других конструкций.
+- Хранит данные локально в браузере (то есть не отправляет данные на сервер для обработки).
 
-Additionally, make it easy for others to reuse parts of this project, to embed it on their own website.
+Кроме того, упрощает повторное использование частей этого проекта другими разработчиками для встраивания на их веб-сайты.
 
-It is completely Open Source, and you can use it for your own project if you so like.
-Either the calculation part for fits, the visualization, or both!
+Проект полностью с открытым исходным кодом, и вы можете использовать его в своём проекте, если хотите.
+Либо часть для расчётов сборок, либо визуализацию, либо то и другое!

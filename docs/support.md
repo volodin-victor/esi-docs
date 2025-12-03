@@ -1,11 +1,11 @@
-# Third-party developer support
+# Поддержка сторонних разработчиков
 
-Aside from the [Dev Insights Blog](/blog), there are a number of other social and support resources available to you.
+Помимо [блога Dev Insights](/blog), вам доступны другие социальные ресурсы и ресурсы поддержки.
 
-It is important to distinguish needing support for specific third-party applications, or for any of the services provided by CCP. If you need support for a third-party application, you should contact the developer of that application directly. If you need support for any of the services provided by CCP, we have resources available to you.
+Важно различать необходимость поддержки для конкретных сторонних приложений или для любых сервисов, предоставляемых CCP. Если вам нужна поддержка для стороннего приложения, вам следует связаться с разработчиком этого приложения напрямую. Если вам нужна поддержка для любых сервисов, предоставляемых CCP, у нас есть доступные для вас ресурсы.
 
-The official [EVE Online Discord](https://eveonline.com/discord) has a `#3rd-party-dev-and-esi` channel dedicated to third-party development. You can find both CCP members and third-party developers hanging out there.
+Официальный [Discord EVE Online](https://eveonline.com/discord) имеет канал `#3rd-party-dev-and-esi`, посвящённый сторонней разработке. Там вы можете найти как членов команды CCP, так и сторонних разработчиков.
 
-ESI has its own issues repository at [esi-issues](https://github.com/esi/esi-issues). From there you can raise issues or ask for new features.
+У ESI есть собственный репозиторий для сообщений об ошибках на [esi-issues](https://github.com/esi/esi-issues). Оттуда вы можете сообщать о проблемах или запрашивать новые функции.
 
-If you have been banned from ESI, responses to your requests will point you to the EVE Online support system. Please follow the instructions. Circumventing the ban can result in further action being taken, up to and including a permanent ban for all of your accounts.
+Если вы были заблокированы в ESI, ответы на ваши запросы направят вас в систему поддержки EVE Online. Пожалуйста, следуйте инструкциям. Обход блокировки может привести к дальнейшим действиям, вплоть до постоянного бана всех ваших аккаунтов.

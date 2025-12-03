@@ -1,54 +1,54 @@
-# Cursor-based Pagination
+# Пагинация на основе курсора
 
-Cursor-based pagination uses tokens to navigate through datasets, unlike traditional offset-based pagination that uses page numbers.
-Instead of requesting "page 1, page 2, page 3", you use tokens that represent specific positions in the data.
+Пагинация на основе курсора использует токены для навигации по наборам данных, в отличие от традиционной пагинации на основе смещения, которая использует номера страниц.
+Вместо запроса "страница 1, страница 2, страница 3", вы используете токены, которые представляют конкретные позиции в данных.
 
-Cursor-based pagination is available on a select few routes, and is slowly being added to others.
+Пагинация на основе курсора доступна на нескольких избранных маршрутах и постепенно добавляется к другим.
 
-## What are tokens?
+## Что такое токены?
 
-Tokens are encoded strings that contain information about a specific position in the dataset.
-They are designed to be used as-is without any interpretation or parsing by your application.
-Think of them as "bookmarks" that the server creates to remember exactly where you are in the data.
+Токены — это закодированные строки, которые содержат информацию о конкретной позиции в наборе данных.
+Они предназначены для использования как есть без какой-либо интерпретации или разбора вашим приложением.
+Думайте о них как о "закладках", которые сервер создаёт, чтобы помнить, где именно вы находитесь в данных.
 
-- **Don't try to decode them** - The internal structure and encoding of tokens is not meant to be understood by clients.
-- **Treat them as black boxes** - Just pass them back to the server exactly as you received them.
-- **They're position markers** - Each token represents a specific point in the ordered dataset.
-- **They're server-generated** - Only the server knows how to create and interpret these tokens.
+- **Не пытайтесь их декодировать** - Внутренняя структура и кодирование токенов не предназначены для понимания клиентами.
+- **Относитесь к ним как к чёрным ящикам** - Просто передавайте их обратно серверу точно так, как вы их получили.
+- **Это маркеры позиции** - Каждый токен представляет конкретную точку в упорядоченном наборе данных.
+- **Они генерируются сервером** - Только сервер знает, как создавать и интерпретировать эти токены.
 
-## How pagination works
+## Как работает пагинация
 
-1. **Initial request**: Make a request without pagination parameters to get the first batch of records.
-2. **Token-based navigation**: Use the returned tokens to move forward (`after`) or backward (`before`) through the dataset.
-3. **Change detection**: The `after` token can be used later to detect new or modified records.
+1. **Начальный запрос**: Сделайте запрос без параметров пагинации, чтобы получить первую партию записей.
+2. **Навигация на основе токенов**: Используйте возвращённые токены для перемещения вперёд (`after`) или назад (`before`) по набору данных.
+3. **Обнаружение изменений**: Токен `after` может быть использован позже для обнаружения новых или изменённых записей.
 
-### Request parameters
+### Параметры запроса
 
-- `limit`: The maximum amount of records to retrieve. This is a limit: you might receive fewer records.
-- `before`: Retrieve records that come just before the position specified by this token.
-- `after`: Retrieve records that come just after the position specified by this token.
+- `limit`: Максимальное количество записей для получения. Это лимит: вы можете получить меньше записей.
+- `before`: Получить записи, которые идут непосредственно перед позицией, указанной этим токеном.
+- `after`: Получить записи, которые идут непосредственно после позиции, указанной этим токеном.
 
-When you omit both `before` and `after` parameters, you get the most recent records (up to the specified `limit`).
+Когда вы опускаете оба параметра `before` и `after`, вы получаете самые последние записи (до указанного `limit`).
 
-For each route supporting cursor-based pagination, the API specification will mention how to set these request parameters.
+Для каждого маршрута, поддерживающего пагинацию на основе курсора, спецификация API упомянет, как установить эти параметры запроса.
 
-### Data ordering
+### Порядок данных
 
-Records returned by these listing routes are always ordered by the date they were last modified or created.
-A record cannot change without the last modified being updated.
+Записи, возвращаемые этими маршрутами списков, всегда упорядочены по дате последнего изменения или создания.
+Запись не может измениться без обновления даты последнего изменения.
 
-The most recent modified records are always last in the dataset.
-This means that using `before` returns older records, and using `after` returns newer records.
+Самые последние изменённые записи всегда находятся в конце набора данных.
+Это означает, что использование `before` возвращает более старые записи, а использование `after` возвращает более новые записи.
 
-## Initial Data Collection
+## Начальный сбор данных
 
-Start by making your first request without any pagination parameters:
+Начните с первого запроса без каких-либо параметров пагинации:
 
 ```http
 GET /<listing-route>
 ```
 
-You'll receive a response like this:
+Вы получите ответ, подобный этому:
 
 ```json
 {
@@ -63,46 +63,46 @@ You'll receive a response like this:
 }
 ```
 
-**What to do:**
+**Что делать:**
 
-1. Remember the `after` token for later.
-2. Store the data you retrieved.
-3. Make a new request with the `before` token.
-4. Go back to step 2 until you retrieve an empty list (no more records). You now have retrieved all data available in the dataset.
+1. Запомните токен `after` на потом.
+2. Сохраните полученные данные.
+3. Сделайте новый запрос с токеном `before`.
+4. Вернитесь к шагу 2, пока не получите пустой список (больше нет записей). Теперь вы получили все данные, доступные в наборе данных.
 
-## Monitor for new data
+## Мониторинг новых данных
 
-After your initial scan, monitor for changes using the `after` token.
+После начального сканирования отслеживайте изменения, используя токен `after`.
 
-1. Make a new request with the `after` token.
-2. Store the data you retrieved.
-3. Go back to step 1 until you retrieve an empty list (no more records). You are now up-to-date with the latest changes.
-4. Come back any time to check for new / modified records. Make sure to use the latest `after` token you retrieved.
+1. Сделайте новый запрос с токеном `after`.
+2. Сохраните полученные данные.
+3. Вернитесь к шагу 1, пока не получите пустой список (больше нет записей). Теперь вы в курсе последних изменений.
+4. Возвращайтесь в любое время для проверки новых / изменённых записей. Убедитесь, что используете последний полученный токен `after`.
 
-!!! note "Token lifetime"
+!!! note "Срок жизни токена"
 
-    Tokens remain valid for a long time.
-    Feel free to come back 24 hours later or a week later, and use the `after` token to check on what information you have missed.
+    Токены остаются действительными в течение длительного времени.
+    Не стесняйтесь вернуться через 24 часа или неделю позже и использовать токен `after`, чтобы проверить, какую информацию вы пропустили.
 
-!!! note "Fear of missing out"
+!!! note "Страх упустить данные"
 
-    With this system you don't have to fear missing out on data.
-    As long as you remember the `after` token you used last time, you always get the records that were updated since your last request.
+    С этой системой вам не нужно бояться упустить данные.
+    Пока вы помните токен `after`, который использовали в последний раз, вы всегда получаете записи, которые были обновлены с момента вашего последнего запроса.
 
-    Remember: records are sorted by last modified, and `after` returns anything updated after your last request.
+    Помните: записи отсортированы по дате последнего изменения, и `after` возвращает всё, что было обновлено после вашего последнего запроса.
 
-## Handling of Duplicates
+## Обработка дубликатов
 
-Records may appear multiple times across different requests.
-This is normal and indicates the record was modified between those requests.
-When using `after` it could happen because the record was updated.
-When using `before` it can happen because you received a (partially) cached page.
+Записи могут появляться несколько раз в разных запросах.
+Это нормально и указывает на то, что запись была изменена между этими запросами.
+При использовании `after` это может произойти, потому что запись была обновлена.
+При использовании `before` это может произойти из-за того, что вы получили (частично) кешированную страницу.
 
-To handle duplicates correctly:
+Чтобы правильно обработать дубликаты:
 
-- If you were using the `before` token, the record is older than what you have already stored. Keep your existing stored record.
-- If you were using the `after` token, the record is newer than what you have already stored. Replace your stored record with the retrieved record.
+- Если вы использовали токен `before`, запись старше, чем то, что вы уже сохранили. Сохраните вашу существующую сохранённую запись.
+- Если вы использовали токен `after`, запись новее, чем то, что вы уже сохранили. Замените вашу сохранённую запись полученной записью.
 
-## Example
+## Пример
 
 --8<-- "snippets/examples/pagination-cursor.md"

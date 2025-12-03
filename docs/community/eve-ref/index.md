@@ -4,7 +4,7 @@ search:
 
 title: EVE Ref
 type: service
-description: A reference site for EVE Online.
+description: Справочный сайт для EVE Online.
 maintainer:
   name: Kenneth Jørgensen
   github: autonomouslogic
@@ -12,7 +12,7 @@ maintainer:
 
 # EVE Ref
 
-EVE Ref a reference site for EVE Online.
+EVE Ref — справочный сайт для EVE Online.
 
 <div class="grid cards" markdown>
 
@@ -22,13 +22,13 @@ EVE Ref a reference site for EVE Online.
 
 </div>
 
-## Features
+## Возможности
 
-Information about any item in the game. Some examples:
+Информация о любом предмете в игре. Несколько примеров:
 
-* **Ships**: [Dominix](https://everef.net/types/645)
-* **Structures**: [Fortizar](https://everef.net/types/35833)
-* **Blueprints**: [Hulk Blueprint](https://everef.net/types/22545)
-* **Resources**: [Tritanium](https://everef.net/types/34)
-* **Injectors**: [Large Skill Injector](https://everef.net/types/40520)
-* **NPCs**: [CONCORD Police Commander](https://everef.net/types/11125)
+* **Корабли**: [Dominix](https://everef.net/types/645)
+* **Структуры**: [Fortizar](https://everef.net/types/35833)
+* **Чертежи**: [Чертеж Hulk](https://everef.net/types/22545)
+* **Ресурсы**: [Тританий](https://everef.net/types/34)
+* **Инжекторы**: [Большой инжектор навыков](https://everef.net/types/40520)
+* **НПС**: [Командир полиции CONCORD](https://everef.net/types/11125)

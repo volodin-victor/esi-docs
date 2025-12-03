@@ -4,7 +4,7 @@ search:
 
 title: EVE ESI Proxy
 type: resource
-description: An HTTP proxy for the ESI API.
+description: HTTP-прокси для ESI API.
 maintainer:
   name: Kenneth Jørgensen
   github: autonomouslogic
@@ -12,7 +12,7 @@ maintainer:
 
 # EVE ESI Proxy
 
-An HTTP proxy specifically designed for the ESI API.
+HTTP-прокси, специально разработанный для ESI API.
 
 <div class="grid cards" markdown>
 
@@ -21,34 +21,34 @@ An HTTP proxy specifically designed for the ESI API.
 
 </div>
 
-## Features
+## Возможности
 
-The ESI API is a great resource, but can be difficult to work with.
-The features below are all things you have to be acutely aware of.
-Using this proxy will let you get on with writing your application and not worry about the minutiae of ESI lore.
+ESI API — отличный ресурс, но с ним может быть сложно работать.
+Все перечисленные ниже функции — это вещи, о которых вы должны остро знать.
+Использование этого прокси позволит вам заняться написанием вашего приложения и не беспокоиться о деталях знаний ESI.
 
-* **Character login** is supported and OAuth is handled automatically
-* **Cache responses** to disk to improve request times and reduce load on the ESI itself
-* **Conditional requests** to refresh objects in the cache
-* **Rate limiting** to help avoid being banned, including different limits for the endpoints which have special undocumented limits
-* **Handle ESI error limit headers** to stop all requests if the limit is reached
-* **Retry failed requests** if a 5xx is returned
-* **User agent header** is automatically handled
-* **Fetching multiple pages concurrently** if no page (or page 0) is set in the request, merging all pages into a single response
+* **Вход персонажа** поддерживается, и OAuth обрабатывается автоматически
+* **Кеширование ответов** на диск для улучшения времени запросов и снижения нагрузки на сам ESI
+* **Условные запросы** для обновления объектов в кеше
+* **Ограничение скорости** для избежания бана, включая различные лимиты для конечных точек, имеющих специальные недокументированные ограничения
+* **Обработка заголовков лимита ошибок ESI** для остановки всех запросов при достижении лимита
+* **Повтор неудачных запросов** при возврате 5xx
+* **Заголовок user agent** обрабатывается автоматически
+* **Получение нескольких страниц параллельно**, если в запросе не установлена страница (или страница 0), объединяя все страницы в один ответ
 
-Caching, rate limiting, retries, etc. are all handled transparently.
+Кеширование, ограничение скорости, повторы и т.д. обрабатываются прозрачно.
 
-## Usage
-Run via Docker:
+## Использование
+Запуск через Docker:
 ```bash
 docker run -it -v eve-esi-proxy:/data -p 8182:8182 -m 2g -e "ESI_USER_AGENT=<your email>" autonomouslogic/eve-esi-proxy:latest
 ```
 
-Then you request data as you would on the ESI, just from localhost instead:
+Затем вы запрашиваете данные так же, как на ESI, просто с localhost:
 ```bash
 curl "http://localhost:8182/latest/status/"
 ```
-or
+или
 ```bash
 curl "http://localhost:8182/latest/markets/10000002/orders/?order_type=all"
 ```

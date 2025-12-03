@@ -4,7 +4,7 @@ search:
 
 title: EVE API for TypeScript
 type: resource
-description: TypeScript client library for EVE Online API (ESI).
+description: Клиентская библиотека TypeScript для API EVE Online (ESI).
 maintainer:
   name: Leigh Griffin
   github: lgriffin
@@ -16,70 +16,70 @@ maintainer:
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.5%2B-blue)](https://www.typescriptlang.org/)
 
-A modern, type-safe TypeScript implementation for the [EVE Online ESI API](https://esi.evetech.net/). Built with clean architecture principles, comprehensive error handling, and extensive testing.
+Современная типобезопасная реализация TypeScript для [EVE Online ESI API](https://esi.evetech.net/). Построена на принципах чистой архитектуры, с комплексной обработкой ошибок и обширным тестированием.
 
-## 🚀 Features
+## 🚀 Возможности
 
-- **Type-Safe**: Full TypeScript support with comprehensive type definitions
-- **Clean Architecture**: Separation of concerns with dependency injection
-- **Resilient**: Built-in error handling, retry logic, and circuit breakers
-- **High Performance**: Intelligent ETag caching for optimal bandwidth usage
-- **Testable**: Extensive test coverage with BDD scenarios
-- **Modern**: Uses latest TypeScript features and best practices
-- **Comprehensive**: Covers all ESI API endpoints with organized client structure
+- **Типобезопасность**: Полная поддержка TypeScript с комплексными определениями типов
+- **Чистая архитектура**: Разделение ответственности с внедрением зависимостей
+- **Отказоустойчивость**: Встроенная обработка ошибок, логика повторных попыток и автоматические выключатели
+- **Высокая производительность**: Интеллектуальное кеширование ETag для оптимального использования пропускной способности
+- **Тестируемость**: Обширное покрытие тестами со сценариями BDD
+- **Современность**: Использует новейшие возможности TypeScript и лучшие практики
+- **Полнота**: Покрывает все конечные точки ESI API с организованной структурой клиента
 
-## 📦 Installation
+## 📦 Установка
 
 ```bash
 npm install @lgriffin/esi.ts
 ```
 
-## 🔧 Getting Started
+## 🔧 Начало работы
 
-ESI.ts offers multiple ways to use the API depending on your needs:
+ESI.ts предлагает несколько способов использования API в зависимости от ваших потребностей:
 
-### 1. Full ESI Client (All APIs)
+### 1. Полный ESI-клиент (Все API)
 
-The complete `EsiClient` gives you access to all ESI endpoints:
+Полный `EsiClient` предоставляет доступ ко всем конечным точкам ESI:
 
 ```typescript
 import { EsiClient } from '@lgriffin/esi.ts';
 
-// Full client with all APIs available
+// Полный клиент со всеми доступными API
 const client = new EsiClient({
   clientId: 'your-app-name',
-  accessToken: 'your-access-token', // Optional - required for authenticated endpoints
-  timeout: 30000,                   // Optional - request timeout in ms
-  retryAttempts: 3                  // Optional - number of retry attempts
+  accessToken: 'your-access-token', // Опционально - требуется для аутентифицированных конечных точек
+  timeout: 30000,                   // Опционально - таймаут запроса в мс
+  retryAttempts: 3                  // Опционально - количество попыток повтора
 });
 ```
 
-### 2. Custom Lightweight Client (Selected APIs)
+### 2. Пользовательский облегчённый клиент (Выбранные API)
 
-Create a lightweight client with only the APIs you need:
+Создайте облегчённый клиент только с нужными вам API:
 
 ```typescript
 import { CustomEsiClient } from '@lgriffin/esi.ts';
 
-// Lightweight client with only specific APIs
+// Облегчённый клиент только с определёнными API
 const customClient = new CustomEsiClient({
   clientId: 'my-trading-bot',
-  clients: ['characters', 'market', 'universe'] // Only load what you need
+  clients: ['characters', 'market', 'universe'] // Загружайте только то, что вам нужно
 });
 
-// Access your selected APIs
+// Доступ к выбранным вами API
 const character = await customClient.characters?.getCharacterPublicInfo(123456);
 const prices = await customClient.market?.getMarketPrices();
 ```
 
-### 3. Builder Pattern for Custom Clients
+### 3. Паттерн Builder для пользовательских клиентов
 
-Use the builder pattern for more readable client construction:
+Используйте паттерн Builder для более читаемого построения клиента:
 
 ```typescript
 import { EsiClientBuilder } from '@lgriffin/esi.ts';
 
-// Build a custom client step by step
+// Построение пользовательского клиента шаг за шагом
 const client = new EsiClientBuilder()
   .addClient('characters')
   .addClient('corporations')
@@ -89,21 +89,21 @@ const client = new EsiClientBuilder()
   .build();
 ```
 
-### 4. Individual API Clients (Ultra Lightweight)
+### 4. Отдельные API-клиенты (Сверхлёгкий вариант)
 
-Create standalone clients for single API groups:
+Создавайте автономные клиенты для отдельных групп API:
 
 ```typescript
 import { EsiApiFactory } from '@lgriffin/esi.ts';
 
-// Just the Character API
+// Только API персонажей
 const characterClient = EsiApiFactory.createCharacterClient({
   clientId: 'character-lookup-tool'
 });
 
 const character = await characterClient.getCharacterPublicInfo(123456);
 
-// Just the Market API
+// Только API рынка
 const marketClient = EsiApiFactory.createMarketClient({
   clientId: 'market-analyzer'
 });
@@ -111,78 +111,78 @@ const marketClient = EsiApiFactory.createMarketClient({
 const prices = await marketClient.getMarketPrices();
 ```
 
-### 5. Direct API Class Instantiation
+### 5. Прямое создание экземпляров API-классов
 
-For maximum control, instantiate API clients directly:
+Для максимального контроля создавайте экземпляры API-клиентов напрямую:
 
 ```typescript
 import { CharacterClient, ApiClient, ApiClientBuilder } from '@lgriffin/esi.ts';
 
-// Create the underlying API client
+// Создание базового API-клиента
 const apiClient = new ApiClientBuilder()
   .withClientId('direct-api-client')
   .withBaseUrl('https://esi.evetech.net')
   .build();
 
-// Create the Character client directly
+// Создание клиента персонажей напрямую
 const characterClient = new CharacterClient(apiClient);
 const character = await characterClient.getCharacterPublicInfo(123456);
 ```
 
-## 📊 Client Architecture
+## 📊 Архитектура клиента
 
-### Available Client Types
+### Доступные типы клиентов
 
-All approaches above give you access to these organized API clients:
+Все перечисленные выше подходы предоставляют доступ к следующим организованным API-клиентам:
 
 ```typescript
-// Available clients:
-client.alliance      // Alliance information
-client.characters    // Character data
-client.corporations  // Corporation management
-client.market        // Market data and trading
-client.universe      // Universe information (systems, stations, items)
-client.fleets        // Fleet management
-client.industry      // Manufacturing and industry
-client.mail          // In-game mail
-client.contacts      // Contact management
-client.assets        // Asset management
-client.wallet        // Wallet operations
-client.killmails     // Killmail data
-client.location      // Character location
-client.skills        // Character skills (if available)
-client.factions      // Faction warfare
-client.wars          // War information
-client.sovereignty   // Sovereignty data
-client.incursions    // Incursion information
-client.opportunities // Opportunities system
-client.fittings      // Ship fittings
-client.clones        // Clone management
-client.loyalty       // Loyalty points
-client.bookmarks     // Bookmark management
-client.calendar      // Calendar events
-client.contracts     // Contract system
-client.insurance     // Insurance information
-client.route         // Route planning
-client.search        // Search functionality
-client.status        // Server status
-client.ui            // UI interactions
+// Доступные клиенты:
+client.alliance      // Информация об альянсах
+client.characters    // Данные персонажей
+client.corporations  // Управление корпорациями
+client.market        // Рыночные данные и торговля
+client.universe      // Информация о вселенной (системы, станции, предметы)
+client.fleets        // Управление флотами
+client.industry      // Производство и индустрия
+client.mail          // Внутриигровая почта
+client.contacts      // Управление контактами
+client.assets        // Управление активами
+client.wallet        // Операции с кошельком
+client.killmails     // Данные киллмейлов
+client.location      // Местоположение персонажа
+client.skills        // Навыки персонажа (если доступны)
+client.factions      // Фракционная война
+client.wars          // Информация о войнах
+client.sovereignty   // Данные о суверенитете
+client.incursions    // Информация о вторжениях
+client.opportunities // Система возможностей
+client.fittings      // Сборки кораблей
+client.clones        // Управление клонами
+client.loyalty       // Очки лояльности
+client.bookmarks     // Управление закладками
+client.calendar      // Календарные события
+client.contracts     // Система контрактов
+client.insurance     // Информация о страховании
+client.route         // Планирование маршрутов
+client.search        // Функция поиска
+client.status        // Статус сервера
+client.ui            // Взаимодействие с UI
 ```
 
-## 🎯 Choosing the Right Approach
+## 🎯 Выбор правильного подхода
 
-### When to Use Each Method
+### Когда использовать каждый метод
 
-| Approach | Best For | Memory Usage | Startup Time |
+| Подход | Лучше всего для | Использование памяти | Время запуска |
 |----------|----------|--------------|--------------|
-| **Full EsiClient** | Complete applications, multiple API usage | High | Slower |
-| **CustomEsiClient** | Focused applications, selected APIs | Medium | Medium |
-| **EsiApiFactory** | Single-purpose tools, microservices | Low | Fast |
-| **Direct Instantiation** | Libraries, embedded usage | Minimal | Fastest |
+| **Full EsiClient** | Полные приложения, использование нескольких API | Высокое | Медленнее |
+| **CustomEsiClient** | Сфокусированные приложения, выбранные API | Среднее | Среднее |
+| **EsiApiFactory** | Инструменты одного назначения, микросервисы | Низкое | Быстро |
+| **Direct Instantiation** | Библиотеки, встроенное использование | Минимальное | Быстрее всего |
 
-### Practical Examples by Use Case
+### Практические примеры по случаям использования
 
-#### Character Lookup Tool (Ultra Lightweight)
+#### Инструмент поиска персонажей (Сверхлёгкий вариант)
 
 ```typescript
 import { EsiApiFactory } from '@lgriffin/esi.ts';
@@ -191,13 +191,13 @@ const characterClient = EsiApiFactory.createCharacterClient({
   clientId: 'character-lookup-v1'
 });
 
-// Just character operations
+// Только операции с персонажами
 const character = await characterClient.getCharacterPublicInfo(123456);
 const portrait = await characterClient.getCharacterPortrait(123456);
 console.log(`${character.body.name} - ${portrait.body.px128x128}`);
 ```
 
-#### Trading Bot (Selected APIs)
+#### Торговый бот (Выбранные API)
 
 ```typescript
 import { EsiClientBuilder } from '@lgriffin/esi.ts';
@@ -208,12 +208,12 @@ const tradingBot = new EsiClientBuilder()
   .withAccessToken(process.env.EVE_ACCESS_TOKEN)
   .build();
 
-// Only the APIs you need are loaded
+// Загружаются только нужные вам API
 const prices = await tradingBot.market?.getMarketPrices();
 const wallet = await tradingBot.wallet?.getCharacterWallet(characterId);
 ```
 
-#### Corporation Management Dashboard (Custom Client)
+#### Панель управления корпорацией (Пользовательский клиент)
 
 ```typescript
 import { CustomEsiClient } from '@lgriffin/esi.ts';
@@ -224,41 +224,41 @@ const corpManager = new CustomEsiClient({
   clients: ['corporations', 'characters', 'assets', 'wallet', 'mail']
 });
 
-// Efficient corp management with only needed APIs
+// Эффективное управление корпорацией только с нужными API
 const corp = await corpManager.corporations?.getCorporationInfo(corpId);
 const members = await corpManager.corporations?.getCorporationMembers(corpId);
 ```
 
-## 📋 Common Usage Patterns
+## 📋 Типичные паттерны использования
 
-### Public Data (No Authentication Required)
+### Публичные данные (Аутентификация не требуется)
 
 ```typescript
-// Get alliance information
+// Получить информацию об альянсе
 const alliance = await client.alliance.getAllianceById(99005338);
 console.log(`Alliance: ${alliance.name} [${alliance.ticker}]`);
 
-// Get character public information
+// Получить публичную информацию о персонаже
 const character = await client.characters.getCharacterPublicInfo(1689391488);
 console.log(`Character: ${character.name}`);
 
-// Get corporation information
+// Получить информацию о корпорации
 const corporation = await client.corporations.getCorporationInfo(98742334);
 console.log(`Corporation: ${corporation.name} [${corporation.ticker}]`);
 
-// Get market prices
+// Получить рыночные цены
 const prices = await client.market.getMarketPrices();
 console.log(`Found ${prices.length} market prices`);
 
-// Get solar system information
+// Получить информацию о солнечной системе
 const system = await client.universe.getSystemById(30000142);
 console.log(`System: ${system.name} (Security: ${system.security_status})`);
 ```
 
-### Authenticated Data (Access Token Required)
+### Аутентифицированные данные (Требуется токен доступа)
 
 ```typescript
-// Initialize with access token
+// Инициализация с токеном доступа
 const authenticatedClient = new EsiClient({
   clientId: 'your-app-name',
   accessToken: 'your-character-access-token'
@@ -266,27 +266,27 @@ const authenticatedClient = new EsiClient({
 
 const characterId = 1689391488;
 
-// Get character's assets
+// Получить активы персонажа
 const assets = await authenticatedClient.assets.getCharacterAssets(characterId);
 console.log(`Character has ${assets.length} assets`);
 
-// Get character's wallet balance
+// Получить баланс кошелька персонажа
 const wallet = await authenticatedClient.wallet.getCharacterWallet(characterId);
 console.log(`Wallet balance: ${wallet.toLocaleString()} ISK`);
 
-// Get character's mail
+// Получить почту персонажа
 const mail = await authenticatedClient.mail.getCharacterMail(characterId);
 console.log(`Character has ${mail.length} mail messages`);
 
-// Get character's market orders
+// Получить рыночные заказы персонажа
 const orders = await authenticatedClient.market.getCharacterOrders(characterId);
 console.log(`Character has ${orders.length} active market orders`);
 ```
 
-### Complex Workflows
+### Сложные рабочие процессы
 
 ```typescript
-// Character Profile Assembly
+// Сборка профиля персонажа
 async function getCompleteCharacterProfile(characterId: number) {
   const [character, portrait, corporation, location] = await Promise.all([
     client.characters.getCharacterPublicInfo(characterId),
@@ -305,7 +305,7 @@ async function getCompleteCharacterProfile(characterId: number) {
   };
 }
 
-// Market Analysis
+// Анализ рынка
 async function analyzeMarketData(regionId: number, typeId: number) {
   const [prices, orders, history] = await Promise.all([
     client.market.getMarketPrices(),
@@ -326,46 +326,46 @@ async function analyzeMarketData(regionId: number, typeId: number) {
 }
 ```
 
-## 📊 Error Handling
+## 📊 Обработка ошибок
 
-The library provides comprehensive error handling with specific error types:
+Библиотека предоставляет комплексную обработку ошибок с конкретными типами ошибок:
 
 ```typescript
 import { ApiError, ApiErrorType } from '@lgriffin/esi.ts';
 
 try {
-  const alliance = await client.alliance.getAllianceById(99999999); // Invalid ID
+  const alliance = await client.alliance.getAllianceById(99999999); // Неверный ID
 } catch (error) {
   if (error instanceof ApiError) {
     switch (error.type) {
       case ApiErrorType.NOT_FOUND:
-        console.log('Alliance not found');
+        console.log('Альянс не найден');
         break;
       case ApiErrorType.RATE_LIMITED:
-        console.log('Rate limited - retry after:', error.retryAfter);
+        console.log('Ограничение скорости - повторить после:', error.retryAfter);
         break;
       case ApiErrorType.SERVER_ERROR:
-        console.log('ESI server error:', error.statusCode);
+        console.log('Ошибка сервера ESI:', error.statusCode);
         break;
       case ApiErrorType.NETWORK_ERROR:
-        console.log('Network connectivity issue');
+        console.log('Проблема с сетевым подключением');
         break;
       case ApiErrorType.AUTHENTICATION_ERROR:
-        console.log('Invalid or expired access token');
+        console.log('Неверный или истёкший токен доступа');
         break;
       default:
-        console.log('Unexpected error:', error.message);
+        console.log('Неожиданная ошибка:', error.message);
     }
   }
 }
 ```
 
-### Graceful Error Handling in Complex Workflows
+### Корректная обработка ошибок в сложных рабочих процессах
 
 ```typescript
 async function safeCharacterLookup(characterId: number) {
   try {
-    // Use Promise.allSettled for partial success scenarios
+    // Использование Promise.allSettled для сценариев частичного успеха
     const results = await Promise.allSettled([
       client.characters.getCharacterPublicInfo(characterId),
       client.characters.getCharacterPortrait(characterId),
@@ -385,158 +385,158 @@ async function safeCharacterLookup(characterId: number) {
     if (results[2].status === 'fulfilled') {
       profile.location = results[2].value;
     } else if (results[2].status === 'rejected') {
-      console.log('Location unavailable (character may be offline)');
+      console.log('Местоположение недоступно (персонаж может быть оффлайн)');
     }
 
     return profile;
   } catch (error) {
-    console.error('Failed to get character data:', error);
+    console.error('Не удалось получить данные персонажа:', error);
     return null;
   }
 }
 ```
 
-## ⚡ Performance & Caching
+## ⚡ Производительность и кеширование
 
-### Intelligent ETag Caching
+### Интеллектуальное кеширование ETag
 
-ESI.ts includes a sophisticated ETag caching system that automatically optimizes API calls by avoiding unnecessary data transfers. This feature is **enabled by default** and works transparently with all GET requests.
+ESI.ts включает сложную систему кеширования ETag, которая автоматически оптимизирует API-вызовы, избегая ненужных передач данных. Эта функция **включена по умолчанию** и работает прозрачно со всеми GET-запросами.
 
-#### How ETag Caching Works
+#### Как работает кеширование ETag
 
-ETags (Entity Tags) are unique identifiers returned by ESI servers that represent the current version of a resource. When data hasn't changed, the server returns a `304 Not Modified` status instead of the full data, dramatically reducing bandwidth usage and improving response times.
+ETags (Entity Tags) — это уникальные идентификаторы, возвращаемые серверами ESI, которые представляют текущую версию ресурса. Когда данные не изменились, сервер возвращает статус `304 Not Modified` вместо полных данных, значительно снижая использование пропускной способности и улучшая время отклика.
 
-#### Basic Usage (Automatic)
+#### Базовое использование (Автоматическое)
 
 ```typescript
 import { EsiClient } from '@lgriffin/esi.ts';
 
-// ETag caching is enabled by default
+// Кеширование ETag включено по умолчанию
 const client = new EsiClient({
   clientId: 'my-eve-app'
 });
 
-// First call - downloads and caches data
+// Первый вызов - загружает и кеширует данные
 const alliances1 = await client.alliance.getAlliances();
 
-// Second call - returns cached data if unchanged (304 response)
-const alliances2 = await client.alliance.getAlliances(); // ⚡ Lightning fast!
+// Второй вызов - возвращает кешированные данные, если они не изменились (ответ 304)
+const alliances2 = await client.alliance.getAlliances(); // ⚡ Очень быстро!
 ```
 
-#### Custom Cache Configuration
+#### Пользовательская конфигурация кеша
 
 ```typescript
 const client = new EsiClient({
   clientId: 'my-eve-app',
-  enableETagCache: true, // Default: true
+  enableETagCache: true, // По умолчанию: true
   etagCacheConfig: {
-    maxEntries: 1000,      // Max cached responses (default: 1000)
-    defaultTtl: 300000,    // Cache TTL in ms (default: 5 minutes)
-    cleanupInterval: 60000, // Cleanup frequency (default: 1 minute)
-    persistToStorage: true, // Save to localStorage (default: false)
-    storageKey: 'my-esi-cache' // Custom storage key
+    maxEntries: 1000,      // Максимальное количество кешированных ответов (по умолчанию: 1000)
+    defaultTtl: 300000,    // TTL кеша в мс (по умолчанию: 5 минут)
+    cleanupInterval: 60000, // Частота очистки (по умолчанию: 1 минута)
+    persistToStorage: true, // Сохранять в localStorage (по умолчанию: false)
+    storageKey: 'my-esi-cache' // Пользовательский ключ хранилища
   }
 });
 ```
 
-#### Cache Management
+#### Управление кешем
 
 ```typescript
-// Get cache statistics
+// Получить статистику кеша
 const stats = client.getCacheStats();
 console.log(`Cache: ${stats.totalEntries}/${stats.maxEntries} entries`);
-console.log(`Hit rate optimization: ${stats.hitRate}%`);
+console.log(`Оптимизация процента попаданий: ${stats.hitRate}%`);
 
-// Clear cache manually
+// Очистить кеш вручную
 client.clearCache();
 
-// Update cache settings at runtime
+// Обновить настройки кеша во время выполнения
 client.updateCacheConfig({
   maxEntries: 2000,
-  defaultTtl: 600000 // 10 minutes
+  defaultTtl: 600000 // 10 минут
 });
 
-// Disable caching for specific use cases
+// Отключить кеширование для конкретных случаев использования
 const client = new EsiClient({
-  enableETagCache: false // Disable caching entirely
+  enableETagCache: false // Полностью отключить кеширование
 });
 ```
 
-#### Performance Benefits
+#### Преимущества производительности
 
-- **🚀 Faster Response Times**: Cached responses return instantly
-- **📉 Reduced Bandwidth**: Avoid downloading unchanged data
-- **🔋 Server-Friendly**: Reduces load on ESI servers
-- **💰 Cost Effective**: Lower data usage for mobile/metered connections
-- **🎯 Smart Caching**: Only caches GET requests with ETags
+- **🚀 Более быстрое время отклика**: Кешированные ответы возвращаются мгновенно
+- **📉 Снижение использования пропускной способности**: Избегание загрузки неизменённых данных
+- **🔋 Дружелюбность к серверу**: Снижение нагрузки на серверы ESI
+- **💰 Экономичность**: Меньшее использование данных для мобильных/ограниченных подключений
+- **🎯 Умное кеширование**: Кешируются только GET-запросы с ETags
 
-#### Cache Behavior
+#### Поведение кеша
 
-| Scenario | Behavior | Performance Impact |
+| Сценарий | Поведение | Влияние на производительность |
 |----------|----------|-------------------|
-| First API call | Downloads data, stores ETag | Normal speed |
-| Data unchanged | Returns cached data (304) | ⚡ **~95% faster** |
-| Data changed | Downloads new data, updates cache | Normal speed |
-| Cache expired | Downloads fresh data | Normal speed |
-| Cache full | Evicts oldest entries automatically | Minimal impact |
+| Первый API-вызов | Загружает данные, сохраняет ETag | Обычная скорость |
+| Данные не изменились | Возвращает кешированные данные (304) | ⚡ **~95% быстрее** |
+| Данные изменились | Загружает новые данные, обновляет кеш | Обычная скорость |
+| Кеш истёк | Загружает свежие данные | Обычная скорость |
+| Кеш заполнен | Автоматически удаляет самые старые записи | Минимальное влияние |
 
-#### Advanced ETag Features
+#### Расширенные возможности ETag
 
 ```typescript
-// Monitor cache performance
+// Мониторинг производительности кеша
 client.on('cacheHit', (url, etag) => {
-  console.log(`Cache hit for ${url} with ETag ${etag}`);
+  console.log(`Попадание в кеш для ${url} с ETag ${etag}`);
 });
 
 client.on('cacheMiss', (url) => {
-  console.log(`Cache miss for ${url} - downloading fresh data`);
+  console.log(`Промах кеша для ${url} - загрузка свежих данных`);
 });
 
-// Programmatic cache inspection
+// Программная проверка кеша
 const cache = client.getETagCache();
 if (cache) {
   const entry = cache.get('https://esi.evetech.net/latest/alliances');
   if (entry) {
-    console.log(`Cached data age: ${Date.now() - entry.timestamp}ms`);
+    console.log(`Возраст кешированных данных: ${Date.now() - entry.timestamp}мс`);
     console.log(`ETag: ${entry.etag}`);
   }
 }
 ```
 
-#### When ETag Caching Helps Most
+#### Когда кеширование ETag помогает больше всего
 
-- **📊 Market Data**: Price lists that update periodically
-- **🏢 Corporation/Alliance Info**: Relatively static organizational data  
-- **🌌 Universe Data**: Star system, station, and type information
-- **👥 Character Lists**: Member rosters and public information
-- **📈 Statistics**: Aggregate data that updates on intervals
+- **📊 Рыночные данные**: Списки цен, которые обновляются периодически
+- **🏢 Информация о корпорациях/альянсах**: Относительно статические организационные данные  
+- **🌌 Данные вселенной**: Информация о солнечных системах, станциях и типах
+- **👥 Списки персонажей**: Реестры членов и публичная информация
+- **📈 Статистика**: Агрегированные данные, которые обновляются с интервалами
 
-#### Implementation Details
+#### Детали реализации
 
-- **Architecture**: Implemented at the core `ApiRequestHandler` level
-- **Scope**: Works with ALL GET requests automatically
-- **Compatibility**: Fully backward compatible - existing code works unchanged
-- **Thread Safety**: Uses atomic operations for cache management
-- **Memory Efficient**: Automatic cleanup and size management
-- **Storage Options**: In-memory (default) or persistent localStorage
+- **Архитектура**: Реализовано на уровне основного `ApiRequestHandler`
+- **Область действия**: Работает со ВСЕМИ GET-запросами автоматически
+- **Совместимость**: Полностью обратно совместимо — существующий код работает без изменений
+- **Потокобезопасность**: Использует атомарные операции для управления кешем
+- **Эффективное использование памяти**: Автоматическая очистка и управление размером
+- **Варианты хранения**: В памяти (по умолчанию) или постоянное localStorage
 
-## 🔧 Advanced Configuration
+## 🔧 Расширенная конфигурация
 
-### Custom Timeout and Retry Logic
+### Пользовательские таймауты и логика повторных попыток
 
 ```typescript
 const client = new EsiClient({
   clientId: 'my-eve-app',
-  timeout: 60000,      // 60 second timeout
-  retryAttempts: 5,    // Retry up to 5 times
-  baseUrl: 'https://esi.evetech.net' // Custom ESI endpoint (optional)
+  timeout: 60000,      // Таймаут 60 секунд
+  retryAttempts: 5,    // Повторять до 5 раз
+  baseUrl: 'https://esi.evetech.net' // Пользовательская конечная точка ESI (опционально)
 });
 ```
 
-### Using Environment Variables
+### Использование переменных окружения
 
 ```typescript
-// Set environment variables
+// Установить переменные окружения
 // ESI_CLIENT_ID=your-app-name
 // ESI_ACCESS_TOKEN=your-token
 // ESI_TIMEOUT=30000
@@ -548,9 +548,9 @@ const client = new EsiClient({
 });
 ```
 
-## 🚀 Real-World Examples
+## 🚀 Примеры из реального мира
 
-### EVE Market Trading Bot (Lightweight Version)
+### Торговый бот EVE Market (Облегчённая версия)
 
 ```typescript
 import { EsiClientBuilder } from '@lgriffin/esi.ts';
@@ -559,7 +559,7 @@ class MarketBot {
   private client: any; // CustomEsiClient
 
   constructor(accessToken: string) {
-    // Only load the APIs we actually need
+    // Загружаем только действительно нужные нам API
     this.client = new EsiClientBuilder()
       .addClients(['market', 'universe'])
       .withClientId('market-bot-v1')
@@ -593,14 +593,14 @@ class MarketBot {
 
       return null;
     } catch (error) {
-      console.error('Failed to analyze market:', error);
+      console.error('Не удалось проанализировать рынок:', error);
       return null;
     }
   }
 }
 ```
 
-### Corporation Management Dashboard (Custom Client)
+### Панель управления корпорацией (Пользовательский клиент)
 
 ```typescript
 import { CustomEsiClient } from '@lgriffin/esi.ts';
@@ -609,7 +609,7 @@ class CorporationManager {
   private client: CustomEsiClient;
 
   constructor(accessToken: string) {
-    // Only load corporation-related APIs
+    // Загружаем только API, связанные с корпорациями
     this.client = new CustomEsiClient({
       clientId: 'corp-manager',
       accessToken,
@@ -632,7 +632,7 @@ class CorporationManager {
       };
     } catch (error) {
       if (error instanceof ApiError && error.type === ApiErrorType.AUTHENTICATION_ERROR) {
-        throw new Error('Insufficient permissions to access corporation data');
+        throw new Error('Недостаточно прав для доступа к данным корпорации');
       }
       throw error;
     }
@@ -640,12 +640,12 @@ class CorporationManager {
 }
 ```
 
-### Simple Character Lookup (Direct API)
+### Простой поиск персонажа (Прямой API)
 
 ```typescript
 import { EsiApiFactory } from '@lgriffin/esi.ts';
 
-// Ultra-lightweight: just one API, one function
+// Сверхлёгкий вариант: только один API, одна функция
 async function lookupCharacter(characterId: number) {
   const characterClient = EsiApiFactory.createCharacterClient({
     clientId: 'simple-lookup'
@@ -655,17 +655,17 @@ async function lookupCharacter(characterId: number) {
   return character.body.name;
 }
 
-// Usage
+// Использование
 const name = await lookupCharacter(1689391488);
 console.log(name); // "deiseman"
 ```
 
-### Direct API Class Usage
+### Использование API-классов напрямую
 
 ```typescript
 import { CharacterClient, ApiClientBuilder } from '@lgriffin/esi.ts';
 
-// Maximum control - build exactly what you need
+// Максимальный контроль - создайте именно то, что вам нужно
 const apiClient = new ApiClientBuilder()
   .setClientId('direct-usage')
   .setLink('https://esi.evetech.net')
@@ -673,22 +673,22 @@ const apiClient = new ApiClientBuilder()
 
 const characterClient = new CharacterClient(apiClient);
 
-// Direct usage without any wrapper
+// Прямое использование без обёртки
 const character = await characterClient.getCharacterPublicInfo(123456);
 const portrait = await characterClient.getCharacterPortrait(123456);
 ```
 
-### Microservice Example (Single Responsibility)
+### Пример микросервиса (Единственная ответственность)
 
 ```typescript
 import { EsiApiFactory } from '@lgriffin/esi.ts';
 
-// A microservice that only needs market data
+// Микросервис, которому нужны только рыночные данные
 class PriceService {
   private marketClient;
 
   constructor() {
-    // Only load what this service needs
+    // Загружаем только то, что нужно этому сервису
     this.marketClient = EsiApiFactory.createMarketClient({
       clientId: 'price-service-v1'
     });
@@ -714,53 +714,53 @@ class PriceService {
 }
 ```
 
-## 🧪 Testing
+## 🧪 Тестирование
 
-### Running Tests
+### Запуск тестов
 
 ```bash
-# Run unit tests
+# Запустить модульные тесты
 npm test
 
-# Run unit tests with coverage
+# Запустить модульные тесты с покрытием
 npm run coverage
 
-# Run BDD tests (behavioral scenarios)
+# Запустить BDD тесты (поведенческие сценарии)
 npm run bdd
 
-# Run specific BDD test suites
+# Запустить конкретные наборы BDD тестов
 npm run bdd:alliance
 npm run bdd:character
 npm run bdd:market
 
-# Run all tests
+# Запустить все тесты
 npm run test:all
 ```
 
-## 🚀 Working Examples
+## 🚀 Рабочие примеры
 
-### Try the Examples
+### Попробуйте примеры
 
-ESI.ts includes working examples that demonstrate real API usage:
+ESI.ts включает рабочие примеры, демонстрирующие реальное использование API:
 
 ```bash
-# Run the complete character profile example
+# Запустить полный пример профиля персонажа
 npm run example
 
-# Run flexible API usage examples (all 5 approaches)
+# Запустить примеры гибкого использования API (все 5 подходов)
 npm run examples:flexible
 ```
 
-### Character Profile Example
+### Пример профиля персонажа
 
-The main example (`npm run example`) demonstrates:
-- ✅ Complete character profile assembly
-- ✅ Parallel API calls for efficiency
-- ✅ Error handling and graceful degradation
-- ✅ Resource cleanup
-- ✅ Performance timing
+Основной пример (`npm run example`) демонстрирует:
+- ✅ Полную сборку профиля персонажа
+- ✅ Параллельные API-вызовы для эффективности
+- ✅ Обработку ошибок и корректную деградацию
+- ✅ Очистку ресурсов
+- ✅ Замер производительности
 
-**Sample Output:**
+**Пример вывода:**
 ```
 🚀 ESI.ts Character Profile Example
 =====================================
@@ -795,18 +795,18 @@ The main example (`npm run example`) demonstrates:
 ✅ Character profile retrieved successfully!
 ```
 
-### Flexible API Examples
+### Примеры гибкого использования API
 
-The flexible examples (`npm run examples:flexible`) demonstrate:
-- ✅ Full ESI Client (all APIs)
-- ✅ Custom lightweight client (selected APIs)
-- ✅ Builder pattern usage
-- ✅ Individual API clients
-- ✅ Direct API class instantiation
-- ✅ Performance comparisons
-- ✅ Microservice example
+Примеры гибкого использования (`npm run examples:flexible`) демонстрируют:
+- ✅ Полный ESI-клиент (все API)
+- ✅ Пользовательский облегчённый клиент (выбранные API)
+- ✅ Использование паттерна Builder
+- ✅ Отдельные API-клиенты
+- ✅ Прямое создание экземпляров API-классов
+- ✅ Сравнение производительности
+- ✅ Пример микросервиса
 
-**Sample Output:**
+**Пример вывода:**
 ```
 🚀 ESI.ts Flexible API Usage Examples
 =====================================
@@ -839,21 +839,21 @@ The flexible examples (`npm run examples:flexible`) demonstrate:
 💎 Tritanium average price: 3.78 ISK
 ```
 
-### Example Files
+### Файлы примеров
 
-| File | Purpose | Command |
+| Файл | Назначение | Команда |
 |------|---------|---------|
-| `src/index.ts` | Character profile assembly | `npm run example` |
-| `demo/flexible-examples.ts` | All flexible API patterns | `npm run examples:flexible` |
+| `src/index.ts` | Сборка профиля персонажа | `npm run example` |
+| `demo/flexible-examples.ts` | Все гибкие паттерны использования API | `npm run examples:flexible` |
 
-### Learning Path
+### Путь обучения
 
-1. **Start Here**: Run `npm run example` to see a complete real-world workflow
-2. **Explore Options**: Run `npm run examples:flexible` to see all the different ways to use the API
-3. **Choose Your Approach**: Pick the method that best fits your use case
-4. **Build Your App**: Use the examples as templates for your own application
+1. **Начните здесь**: Запустите `npm run example`, чтобы увидеть полный рабочий процесс из реального мира
+2. **Изучите варианты**: Запустите `npm run examples:flexible`, чтобы увидеть все различные способы использования API
+3. **Выберите подход**: Выберите метод, который лучше всего подходит для вашего случая использования
+4. **Создайте приложение**: Используйте примеры как шаблоны для своего приложения
 
-### Testing Your Applications
+### Тестирование ваших приложений
 
 ```typescript
 import { EsiClient } from '@lgriffin/esi.ts';
@@ -873,7 +873,7 @@ describe('My EVE Application', () => {
   });
 
   it('should handle character lookup', async () => {
-    // Mock data for testing
+    // Мок-данные для тестирования
     jest.spyOn(client.characters, 'getCharacterPublicInfo')
       .mockResolvedValue(TestDataFactory.createCharacterInfo({
         character_id: 123456,
@@ -886,28 +886,28 @@ describe('My EVE Application', () => {
 });
 ```
 
-## 🛠️ Resource Management
+## 🛠️ Управление ресурсами
 
-### Proper Cleanup
+### Корректная очистка
 
 ```typescript
-// Always clean up resources when done
+// Всегда очищайте ресурсы после завершения
 async function myApplication() {
   const client = new EsiClient({
     clientId: 'my-app'
   });
 
   try {
-    // Your application logic here
+    // Ваша логика приложения здесь
     const alliance = await client.alliance.getAllianceById(99005338);
     console.log(alliance.name);
   } finally {
-    // Important: Always shutdown the client
+    // Важно: всегда завершайте работу клиента
     await client.shutdown();
   }
 }
 
-// Or use a try-with-resources pattern
+// Или используйте паттерн try-with-resources
 class EsiClientManager {
   private client: EsiClient;
 
@@ -924,25 +924,25 @@ class EsiClientManager {
   }
 }
 
-// Usage
+// Использование
 const manager = new EsiClientManager({ clientId: 'my-app' });
 const result = await manager.use(async (client) => {
   return await client.alliance.getAllianceById(99005338);
 });
 ```
 
-## 🤝 Contributing
+## 🤝 Участие в разработке
 
-1. Fork the repository
-2. Create a feature branch
-3. Write tests for your changes
-4. Ensure all tests pass: `npm test && npm run bdd`
-5. Open a Pull Request
+1. Форкните репозиторий
+2. Создайте ветку с новой функцией
+3. Напишите тесты для ваших изменений
+4. Убедитесь, что все тесты проходят: `npm test && npm run bdd`
+5. Откройте Pull Request
 
-## 📄 License
+## 📄 Лицензия
 
-GPL-3.0-or-later - see the [LICENSE](LICENSE) file for details.
+GPL-3.0-or-later - см. файл [LICENSE](LICENSE) для подробностей.
 
 ---
 
-**Happy coding, capsuleers! o7**
+**Приятного программирования, капсулёры! o7**

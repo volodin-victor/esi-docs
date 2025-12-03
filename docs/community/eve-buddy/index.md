@@ -4,7 +4,7 @@ search:
 
 title: EVE Buddy
 type: service
-description: EVE Buddy is a companion app for Eve Online players available on Windows, macOS, Linux and Android.
+description: EVE Buddy — это приложение-компаньон для игроков Eve Online, доступное на Windows, macOS, Linux и Android.
 maintainer:
   name: Erik Kalkoken
   github: ErikKalkoken
@@ -12,7 +12,7 @@ maintainer:
 
 # EVE Buddy
 
-EVE Buddy is a multi-platform companion app for Eve Online players. It is available on Windows, macOS, Linux and Android.
+EVE Buddy — мультиплатформенное приложение-компаньон для игроков Eve Online. Доступно на Windows, macOS, Linux и Android.
 
 [![GitHub Release](https://img.shields.io/github/v/release/ErikKalkoken/evebuddy)](https://github.com/ErikKalkoken/evebuddy/releases)
 [![GitHub License](https://img.shields.io/github/license/ErikKalkoken/evebuddy)](https://github.com/ErikKalkoken/evebuddy?tab=MIT-1-ov-file#readme)
@@ -26,48 +26,48 @@ EVE Buddy is a multi-platform companion app for Eve Online players. It is availa
 
 </div>
 
-## Features
+## Возможности
 
-The following is an overview of EVE Buddy's key features. All features are available for both desktop and mobile:
+Ниже приведен обзор ключевых возможностей EVE Buddy. Все функции доступны как для десктопа, так и для мобильных устройств:
 
-- __Character monitor__: Check current information about each of your characters, e.g. inspect the training queue of a character or browse it's assets.
-- __Corporation monitor__: Check current information about each of your corporations: e.g. check corporation wallets or see all current members.
-- __Overviews__: Keep track of and get unique insights about all your characters and corporations with consolidated views, e.g. find assets across of your characters or see which character has manufacturing slots available.
-- __Notifications__: Get notified on your desktop or mobile about new EVE communications and other important updates, e.g. a structure was attacked or a training queue became empty.
-- __New Eden search__: Search live on the game server, similar to in-game search bar, e.g. search for characters, corporations solar systems.
-- __Information windows__: Show additional information for most objects on screen, similar to in-game information windows, e.g. the sender of a mail
-- __Mail client__: Send and receive EVE mails for all your characters
-- __Run in Background__: The app can run in the background and continue to notify you while you are doing something else (e.g. play Eve Online)
-- __Theming__: Configurable color theme, e.g. light and dark.
+- __Мониторинг персонажей__: Проверяйте текущую информацию о каждом из ваших персонажей, например, осматривайте очередь обучения персонажа или просматривайте его активы.
+- __Мониторинг корпораций__: Проверяйте текущую информацию о каждой из ваших корпораций: например, проверяйте кошельки корпораций или просматривайте всех текущих членов.
+- __Обзоры__: Отслеживайте и получайте уникальные данные обо всех ваших персонажах и корпорациях с консолидированными представлениями, например, находите активы всех ваших персонажей или смотрите, у какого персонажа доступны слоты производства.
+- __Уведомления__: Получайте уведомления на рабочий стол или мобильное устройство о новых коммуникациях EVE и других важных обновлениях, например, структура была атакована или очередь обучения опустела.
+- __Поиск по Новому Эдему__: Поиск в реальном времени на игровом сервере, аналогично внутриигровой поисковой строке, например, поиск персонажей, корпораций, солнечных систем.
+- __Информационные окна__: Показывайте дополнительную информацию для большинства объектов на экране, аналогично внутриигровым информационным окнам, например, отправитель письма
+- __Почтовый клиент__: Отправляйте и получайте почту EVE для всех ваших персонажей
+- __Работа в фоне__: Приложение может работать в фоновом режиме и продолжать уведомлять вас, пока вы делаете что-то еще (например, играете в Eve Online)
+- __Темы__: Настраиваемая цветовая тема, например, светлая и темная.
 
-## Screenshots
+## Скриншоты
 
-This section contains screenshots from the desktop and mobile version for a selection of features.
+Этот раздел содержит скриншоты десктопной и мобильной версий для выборки функций.
 
-### Desktop
+### Десктоп
 
-Screenshots from the desktop version (Linux Ubuntu).
+Скриншоты десктопной версии (Linux Ubuntu).
 
-#### Asset search across all characters
+#### Поиск активов по всем персонажам
 
 ![assets](desktop_asset_search.png)
 
-#### Industry slots
+#### Слоты производства
 
 ![assets](desktop_industry_slots.png)
 
-### Mobile
+### Мобильная версия
 
-Screenshots from the mobile version (Google Pixel).
+Скриншоты мобильной версии (Google Pixel).
 
-#### Home screen
+#### Главный экран
 
 <img src="mobile_home.png" width="300" height="666" alt="Mobile Home">
 
-### Training overview
+### Обзор обучения
 
 <img src="mobile_training.png" width="300" height="666" alt="Mobile Home">
 
-## More information
+## Дополнительная информация
 
-For more information please visit our website on Github or please join our Discord server if you have any questions.
+Для получения дополнительной информации посетите наш веб-сайт на Github или присоединяйтесь к нашему серверу Discord, если у вас есть вопросы.

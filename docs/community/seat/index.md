@@ -4,7 +4,7 @@ search:
 
 title: SeAT
 type: service
-description: SeAT is a simple Corporation and API management tool for collecting and utilising all ESI data.
+description: SeAT — это простой инструмент управления корпорациями и API для сбора и использования всех данных ESI.
 maintainer:
   name: EveSeat Team
   github: eveseat
@@ -24,57 +24,56 @@ maintainer:
 
 </div>
 
-## Description
+## Описание
 
-SeAT is a simple, [EVE Online](https://www.eveonline.com/) Corporation and API management tool. SeAT allows you to keep an eye on all things related to your characters, corporations and alliances; from wallets, to mail, to assets for both characters and corporations. It is intended to be installed on a public server and installed for members of your organisation to access.
+SeAT — это простой инструмент управления корпорациями и API для [EVE Online](https://www.eveonline.com/). SeAT позволяет отслеживать всё, что связано с вашими персонажами, корпорациями и альянсами: от кошельков до почты, от активов персонажей до активов корпораций. Предназначен для установки на публичном сервере для доступа членов вашей организации.
 
-It is also commonly used by individuals to manage their own accounts; aw well as by alliances and coalitions for API based member management, counter-intelligence and administration. There are installations with the number of registered characters ranging from single digits all the way to in excess of 30,000.
+Также часто используется отдельными игроками для управления собственными аккаунтами, а также альянсами и коалициями для управления членами на основе API, контрразведки и администрирования. Существуют установки с количеством зарегистрированных персонажей от однозначных чисел до более 30 000.
 
+## Возможности
 
-## Features
+- Потребляет данные ESI зарегистрированных персонажей от публичных данных до всех доступных областей чтения ESI. Это включает данные персонажей, корпораций и альянсов.
 
-- Consumes ESI data of registered characters from onl publicData up to all available read scopes of ESI. This includes character, corp and alliance data.
+- Расширенный контроль доступа на основе ролей для управления разрешениями на просмотр и изменение данных в приложении. Подробнее о [Ролях](https://eveseat.github.io/docs/admin_guides/authorizations/).
 
-- Advanced role based access control to allow permissions over viewing and modifying data over the application. See info on [Roles](https://eveseat.github.io/docs/admin_guides/authorizations/).
+- Позволяет автоматизировать роли/разрешения на основе данных API, а также использовать ручные методы. Подробнее о [Отрядах](https://eveseat.github.io/docs/admin_guides/squads/).
 
-- Allows automation of roles / permissions based on API data as well as manual methods. See info on [Squads](https://eveseat.github.io/docs/admin_guides/squads/).
+- Пакеты сообщества для расширения функциональности инструментами, такими как программы SRP, связывание и управление аккаунтами Discord/Teamspeak (и других), планирование и управление производством. См. список [здесь](https://eveseat.github.io/docs/community_packages/#package-list)
 
-- Community Packages to extend functionality with tools such as SRP programs, Discord / Teamspeak (and others) account linking and management, industry planning and management. See the list [here](https://eveseat.github.io/docs/community_packages/#package-list)
+- Простая установка Docker доступна и рекомендуется! [Документация](https://eveseat.github.io/docs/installation/docker_installation/)
 
-- Easy to deploy docker installation available and recomended! [Docs](https://eveseat.github.io/docs/installation/docker_installation/)
+- Локализация на английском :flag_gb:, китайском :flag_cn:, французском :flag_fr:, немецком :flag_de:, японском :flag_jp:, корейском :flag_kr:, румынском :flag_ro: и русском :flag_ru: языках (разные уровни завершённости. См. [здесь](https://translations.eveseat.net/)).
 
-- English :flag_gb:, Chinese :flag_cn:, French :flag_fr:, German :flag_de:, Japanese :flag_jp:, Korean :flag_kr:, Romanian :flag_ro: and Russian :flag_ru: Localization (at varying levels of completion. See [here](https://translations.eveseat.net/)).
+Для получения дополнительной информации посетите нашу документацию или присоединяйтесь к обсуждению в Discord!
 
-For more info please see our documentation, or come and have a chat to us in Discord!
+## Скриншоты
 
-## Screenshots
-
-**User Home Page**
+**Главная страница пользователя**
 
 ![](seat-index.png)
 
-**Character Sheet Example**
+**Пример листа персонажа**
 
 ![](seat-charactersheet.png)
 
 
-**Corporation Extractions Example**
+**Пример извлечений корпорации**
 
 ![](seat-extractions.png)
 
-**Corporation Industry Example**
+**Пример производства корпорации**
 
 ![](seat-corpindustry.png)
 
-**Role Configuration Page**
+**Страница настройки ролей**
 
 ![](seat-roles.png)
 
-## Core Packages
+## Основные пакеты
 
-For the **actual** SeAT source, please refer to the following package repositories:  
+Для получения **реального** исходного кода SeAT обратитесь к следующим репозиториям пакетов:  
 
-| Package Name   | Version       | Downloads |
+| Имя пакета   | Версия       | Загрузки |
 |----------------|:--------------|:----------|
 | [api](https://github.com/eveseat/api) | [![Latest Stable Version](https://poser.pugx.org/eveseat/api/v/stable)](https://packagist.org/packages/eveseat/api) | [![Total Downloads](https://poser.pugx.org/eveseat/api/downloads)](https://packagist.org/packages/eveseat/api) |
 | [eveapi](https://github.com/eveseat/eveapi) | [![Latest Stable Version](https://poser.pugx.org/eveseat/eveapi/v/stable)](https://packagist.org/packages/eveseat/eveapi) | [![Total Downloads](https://poser.pugx.org/eveseat/eveapi/downloads)](https://packagist.org/packages/eveseat/eveapi) |
@@ -85,9 +84,9 @@ For the **actual** SeAT source, please refer to the following package repositori
 
 
 
-# Community Packages
+# Пакеты сообщества
 
-SeAT on its own provides powerful access to data available over ESI. However, in order to customise the use of this data and extend the functionality of SeAT there are also various plugins that can be installed and listed here!
+SeAT сам по себе предоставляет мощный доступ к данным, доступным через ESI. Однако для настройки использования этих данных и расширения функциональности SeAT существуют также различные плагины, которые можно установить и которые перечислены здесь!
 <div class="grid cards" markdown>
 - [:octicons-plug-16: __Community Packages__](https://eveseat.github.io/docs/community_packages/#package-list){ .esi-card-link }
 </div>

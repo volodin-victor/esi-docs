@@ -1,45 +1,45 @@
 ---
-title: Overview
+title: Обзор
 ---
 # EVE Swagger Interface (ESI)
 
-The ESI API is the official RESTful API for EVE third-party development. You can find all the endpoints and try them out in the [API Explorer](/api-explorer). Some endpoints have additional details on [this page](../endpoints/).
+API ESI — это официальный RESTful API для сторонней разработки в EVE. Вы можете найти все конечные точки и опробовать их в [API Explorer](/api-explorer). Некоторые конечные точки имеют дополнительные детали на [этой странице](../endpoints/).
 
-## Authentication
+## Аутентификация
 
-While some ESI endpoints are public, many require authentication, which is handled by [SSO](../../sso/). The route descriptions in the API Explorer indicate which endpoints require authentication, and with which scopes.
+Хотя некоторые конечные точки ESI являются публичными, многие требуют аутентификации, которая обрабатывается через [SSO](../../sso/). Описания маршрутов в API Explorer указывают, какие конечные точки требуют аутентификации и с какими областями доступа (scopes).
 
-## Versioning
+## Версионирование
 
-Every ESI request can include an `X-Compatibility-Date` header using the ISO format - `YYYY-MM-DD`.
-This header tells ESI, "This application's ESI implementation was updated or reviewed at this date – give me the API behavior as it was at that date".
-If applications cannot set custom headers, the `compatibility_date` query parameter will do the same.
-If a request does not set a compatibility date, the oldest available compatibility date is used.
+Каждый запрос ESI может включать заголовок `X-Compatibility-Date` в формате ISO - `YYYY-MM-DD`.
+Этот заголовок сообщает ESI: "Реализация ESI этого приложения была обновлена или проверена на эту дату — дайте мне поведение API, каким оно было на эту дату".
+Если приложения не могут устанавливать пользовательские заголовки, параметр запроса `compatibility_date` сделает то же самое.
+Если запрос не устанавливает дату совместимости, используется самая старая доступная дата совместимости.
 
-The date cannot be in the future, neither can it below a minimum threshold (the "oldest" versions available).
-If this minimum bar is raised, this will be clearly communicated via dev-blogs.
+Дата не может быть в будущем и не может быть ниже минимального порога (самые "старые" доступные версии).
+Если этот минимальный порог будет повышен, об этом будет четко сообщено через dev-блоги.
 
-The API changes date at 11:00 UTC.
-So if you want to use the date of today, use (pseudocode): `now() - 11 * 60 * 60`, to get the current date of the API.
+Дата изменения API — 11:00 UTC.
+Поэтому, если вы хотите использовать сегодняшнюю дату, используйте (псевдокод): `now() - 11 * 60 * 60`, чтобы получить текущую дату API.
 
-### Breaking changes
+### Критические изменения
 
-Any breaking changes will be released under a new `X-Compatibility-Date`. Breaking changes include:
+Любые критические изменения будут выпущены под новой датой `X-Compatibility-Date`. Критические изменения включают:
 
-- Removing of request parameters.
-- Removing of response fields / response headers / enum values.
-- Adding or changing request parameters that are (now) required.
-- Changing the type of request parameters / response fields / response headers.
+- Удаление параметров запроса.
+- Удаление полей ответа / заголовков ответа / значений enum.
+- Добавление или изменение параметров запроса, которые (теперь) обязательны.
+- Изменение типа параметров запроса / полей ответа / заголовков ответа.
 
-Any non-breaking changes will not introduce a new `X-Compatibility-Date`. Non-breaking changes include:
+Любые некритические изменения не приведут к введению новой даты `X-Compatibility-Date`. Некритические изменения включают:
 
-- Adding of optional request parameters.
-- Adding of response fields / response headers / enum values.
+- Добавление необязательных параметров запроса.
+- Добавление полей ответа / заголовков ответа / значений enum.
 
-## Support
+## Поддержка
 
-ESI has its own issues repository at [esi-issues](https://github.com/esi/esi-issues). From there you can raise issues or ask for new features. Also see the general [support page](../../../support/).
+У ESI есть собственный репозиторий для сообщений об ошибках на [esi-issues](https://github.com/esi/esi-issues). Оттуда вы можете сообщать о проблемах или запрашивать новые функции. Также см. общую [страницу поддержки](../../../support/).
 
-## ESI Bans
+## Баны ESI
 
-If you have been banned from ESI, responses to your requests will point you to the EVE Online support system. Please follow the instructions. Circumventing the ban can result in further action being taken, up to and including a permanent ban for all of your accounts.
+Если вы были заблокированы в ESI, ответы на ваши запросы направят вас в систему поддержки EVE Online. Пожалуйста, следуйте инструкциям. Обход блокировки может привести к дальнейшим действиям, вплоть до постоянного бана всех ваших аккаунтов.

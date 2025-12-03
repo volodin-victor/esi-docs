@@ -1,3 +1,3 @@
-# Developer license agreement
+# Лицензионное соглашение для разработчиков
 
-The developer license agreement must be signed before you can create third-party applications. If you wish to re-read the agreement, you can do so [here](/license-agreement).
+Лицензионное соглашение для разработчиков должно быть подписано перед созданием сторонних приложений. Если вы хотите перечитать соглашение, вы можете сделать это [здесь](/license-agreement).

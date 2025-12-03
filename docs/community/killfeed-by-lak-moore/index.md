@@ -4,7 +4,7 @@ search:
 
 title: KillFeed by Lak Moore
 type: service
-description: Discord bot to post filtered killmails from the Massively Multiplayer Online Role Playing Game (MMORPG) EVE-Online using data from zKillboard and Janice.
+description: Discord-бот для публикации отфильтрованных киллмейлов из массовой многопользовательской онлайн-ролевой игры (MMORPG) EVE-Online с использованием данных из zKillboard и Janice.
 maintainer:
   name: Lak Moore
   github: LakMoore
@@ -12,7 +12,7 @@ maintainer:
 
 # KillFeed by Lak Moore
 
-Eve Online zKillboard Discord Bot.
+Discord-бот для zKillboard Eve Online.
 
 <div class="grid cards" markdown>
 
@@ -21,42 +21,42 @@ Eve Online zKillboard Discord Bot.
 
 </div>
 
-## About
+## О проекте
 
-Use the Discord link below to add the bot to your Discord server and use the simple commands to apply filters of interest.  The bot will then post matching killmails from zKillboard.com into that Discord channel.
+Используйте ссылку Discord ниже, чтобы добавить бота на ваш Discord-сервер, и используйте простые команды для применения интересующих фильтров. Бот будет публиковать подходящие киллмейлы с zKillboard.com в этот канал Discord.
 
-[Add the bot to your server](https://discord.com/api/oauth2/authorize?client_id=1041057662432968745&permissions=2048&scope=applications.commands%20bot)
+[Добавить бота на ваш сервер](https://discord.com/api/oauth2/authorize?client_id=1041057662432968745&permissions=2048&scope=applications.commands%20bot)
 
-| Command      | Description                                                                                                                                                                                                       |
+| Команда      | Описание                                                                                                                                                                                                       |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /init        | Intialise the channel and set up the bot, needs Send Message and Manage Message permissions.  Note: the bot does not have Read Permissions on messages so cannot read any messages in any channel on your server. | 
-| /add         | Add a rule to the filter in this channel.                                                                                                                                                                         |
-| /remove      | Remove a rule from the filter in this channel.                                                                                                                                                                    |
-| /show        | Choose whether to show Killmails, Lossmails or both.                                                                                                                                                              |
-| /filter_mode | Choose whether to apply boolean OR or AND to the filters in this channel.                                                                                                                                         |
-| /min_isk     | Only show results above a minimum value in ISK.                                                                                                                                                                   |
+| /init        | Инициализирует канал и настраивает бота, требуются права "Отправлять сообщения" и "Управлять сообщениями". Примечание: бот не имеет права "Читать сообщения", поэтому не может читать сообщения ни в одном канале на вашем сервере. | 
+| /add         | Добавить правило к фильтру в этом канале.                                                                                                                                                                         |
+| /remove      | Удалить правило из фильтра в этом канале.                                                                                                                                                                    |
+| /show        | Выбрать, показывать ли Killmails, Lossmails или оба.                                                                                                                                                              |
+| /filter_mode | Выбрать, применять ли булево ИЛИ или И к фильтрам в этом канале.                                                                                                                                         |
+| /min_isk     | Показывать только результаты выше минимального значения в ISK.                                                                                                                                                                   |
 
-Filters available include:
+Доступные фильтры включают:
 
- - Character
- - Corporation
- - Alliance
- - Ship Type
- - Region
- - Constellation
- - System
- - Minimum ISK value
- - Kill/Loss/All
+ - Персонаж
+ - Корпорация
+ - Альянс
+ - Тип корабля
+ - Регион
+ - Созвездие
+ - Система
+ - Минимальное значение в ISK
+ - Убийства/Потери/Все
 
-Filters can be ANDed or ORed to capture everything or fine tune your requirements.
+Фильтры можно объединять через И или ИЛИ для захвата всего или точной настройки ваших требований.
 
-Current bot stats (as at 19th October 2025):
+Текущая статистика бота (по состоянию на 19 октября 2025 года):
 
- - Serving KillMails on 66 servers.
- - First server stats recorded 2 years ago
- - Polled zKill 13,381,362 times
- - Received 11,078,460 killmails from zKill
- - Posted 19,675,183 killmails into Discord
- - Appraised 1,792,910.6B ISK with Janice
+ - Обслуживает KillMails на 66 серверах.
+ - Первая статистика сервера записана 2 года назад
+ - Опрошено zKill 13,381,362 раз
+ - Получено 11,078,460 киллмейлов с zKill
+ - Опубликовано 19,675,183 киллмейлов в Discord
+ - Оценено 1,792,910.6B ISK с помощью Janice
 
-Join the [KillFeed by Lak Moore Discord](https://discord.gg/m4pyj2q8X9) for support and feature requests.
+Присоединяйтесь к [Discord KillFeed by Lak Moore](https://discord.gg/m4pyj2q8X9) для поддержки и запросов функций.

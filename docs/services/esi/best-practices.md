@@ -1,62 +1,62 @@
 ---
-title: Best Practices for ESI
+title: Лучшие практики для ESI
 ---
-# Best Practices for ESI
+# Лучшие практики для ESI
 
-The following are some best practices when you interact with ESI. Not all are hard requirements, but they are highly recommended to ensure a smooth experience for both you and CCP. Remember that the ESI API is a shared resource, do not abuse it.
+Ниже приведены некоторые лучшие практики при взаимодействии с ESI. Не все из них являются строгими требованиями, но они настоятельно рекомендуются для обеспечения плавного опыта как для вас, так и для CCP. Помните, что API ESI — это общий ресурс, не злоупотребляйте им.
 
-## User Agents
+## User Agent
 
-All ESI requests **should** contain User Agent information indicating the application making the request. This information can be used by CCP to identify the source of requests, and in some cases, to contact the developers if there are issues with the application.
+Все запросы ESI **должны** содержать информацию User Agent, указывающую на приложение, делающее запрос. Эта информация может быть использована CCP для идентификации источника запросов и, в некоторых случаях, для связи с разработчиками, если есть проблемы с приложением.
 
-It should be noted that for browser applications, you may not be able to set the `User-Agent` header directly [1]. In this case, you should use the `X-User-Agent` header instead. If neither of these options is available, you can use the `user_agent` query parameter [2].
+Следует отметить, что для браузерных приложений вы можете быть не в состоянии установить заголовок `User-Agent` напрямую [1]. В этом случае вам следует использовать заголовок `X-User-Agent`. Если ни один из этих вариантов недоступен, вы можете использовать параметр запроса `user_agent` [2].
 
-A simple flowchart to help you decide how to send your user agent information:
+Простая блок-схема, которая поможет вам решить, как отправить информацию о вашем user agent:
 
 {% raw %}
 ``` mermaid
 flowchart LR
-    Q1{{Can you set HTTP headers?}}
-    Q2{{Is your app a browser application?}}
-    A1[Use 'User-Agent' Header]
-    A2["Use 'X-User-Agent' Header [1]"]
-    A3["Use 'user_agent' Query Parameter [2]"]
-    Q1 -->|Yes| Q2
-    Q1 -->|No| A3
-    Q2 -->|Yes| A2
-    Q2 -->|No| A1
+    Q1{{Можете ли вы устанавливать HTTP заголовки?}}
+    Q2{{Ваше приложение браузерное?}}
+    A1[Используйте заголовок 'User-Agent']
+    A2["Используйте заголовок 'X-User-Agent' [1]"]
+    A3["Используйте параметр запроса 'user_agent' [2]"]
+    Q1 -->|Да| Q2
+    Q1 -->|Нет| A3
+    Q2 -->|Да| A2
+    Q2 -->|Нет| A1
 ```
 {% endraw %}
 
-!!! note "[1] `User-Agent` vs `X-User-Agent` Header"
+!!! note "[1] Заголовок `User-Agent` vs `X-User-Agent`"
 
-    The `User-Agent` header used to be [forbidden](https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header), but no longer is. However, Chrome and Chromium-based browsers still silently drop the header from Fetch requests. This is why we recommend using `X-User-Agent` for browser applications instead.
+    Заголовок `User-Agent` раньше был [запрещён](https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header), но больше таковым не является. Однако Chrome и браузеры на основе Chromium всё ещё молча удаляют этот заголовок из Fetch-запросов. Вот почему мы рекомендуем использовать `X-User-Agent` для браузерных приложений.
 
-!!! note "[2] `user_agent` Query Parameter"
+!!! note "[2] Параметр запроса `user_agent`"
 
-    If you are unable to set request headers, you can use the `user_agent` query parameter to still send your user agent information. Keep in mind that like any other query parameter, this will need to be URL-encoded.
+    Если вы не можете установить заголовки запроса, вы можете использовать параметр запроса `user_agent`, чтобы всё равно отправить информацию о вашем user agent. Имейте в виду, что, как и любой другой параметр запроса, это должно быть URL-кодировано.
 
-### Information to transmit
+### Информация для передачи
 
-The User Agent information you send should contain one or more of the following :
+Информация User Agent, которую вы отправляете, должна содержать одно или несколько из следующего:
 
-- An Email Address (**Strongly Preferred**) `(foo@example.com)`
-- App Name with version (**Strongly Preferred**) `AppName/1.2.3`
-- A URL to Source Code `(+https://github.com/your/repository)`
-- A Discord Username `(discord:username)`
-- An EVE Character `(eve:charactername)`
+- Адрес электронной почты (**Настоятельно рекомендуется**) `(foo@example.com)`
+- Имя приложения с версией (**Настоятельно рекомендуется**) `AppName/1.2.3`
+- URL исходного кода `(+https://github.com/your/repository)`
+- Имя пользователя Discord `(discord:username)`
+- Персонаж EVE `(eve:charactername)`
 
-While User Agents are not a defined web standard, the MDN provides a thoroughly documented set of examples <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent>; following these standards will ensure your useragent is well understood.
+Хотя User Agents не являются определённым веб-стандартом, MDN предоставляет тщательно задокументированный набор примеров <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent>; следование этим стандартам гарантирует, что ваш useragent будет хорошо понят.
 
-### Libraries/frameworks
+### Библиотеки/фреймворки
 
-If your application consists of multiple _products_ such as an upstream library, or if you are a plugin/extension of a larger app, you may like to list these in _narrow to broad_ order, with your useragent being more to less precise. You should _always_ include the source of the code generating the request.
+Если ваше приложение состоит из нескольких _продуктов_, таких как upstream-библиотека, или если вы являетесь плагином/расширением более крупного приложения, вы можете перечислить их в порядке _от узкого к широкому_, причём ваш useragent должен быть от более к менее точному. Вы **всегда** должны включать источник кода, генерирующего запрос.
 
 ```text
 PluginName/1.2.3 (foo@example.com; +https://github.com/) AppName/1.2.3 LibraryName/1.2.3
 ```
 
-### Examples
+### Примеры
 
 ```
 AllianceAuth/1.2.3 (foo@example.com; +https://gitlab.com/allianceauth/allianceauth) DjangoESI/1.2.3
@@ -65,29 +65,29 @@ eveseat:eveapi/5.0.22 (admin contact: foo@example) (https://github.com/eveseat/s
 RIFT/1.2.3 (foo@example.com)
 ```
 
-## Error Limit
+## Лимит ошибок
 
-ESI limits how many errors you’re allowed to get within a set time frame. Once you reach the error limit, all your request are automatically discarded until the end of the time frame. Failing to respect the error limit can get you banned from ESI. This system allows ESI to not use a fixed request rate limit.
+ESI ограничивает количество ошибок, которые вам разрешено получить в течение установленного периода времени. Как только вы достигнете лимита ошибок, все ваши запросы автоматически отбрасываются до конца временного интервала. Несоблюдение лимита ошибок может привести к блокировке в ESI. Эта система позволяет ESI не использовать фиксированное ограничение скорости запросов.
 
-Error limit headers:  
-`X-ESI-Error-Limit-Remain` errors left in this time frame.  
-`X-ESI-Error-Limit-Reset` seconds left until next time frame and errors reset to zero.
+Заголовки лимита ошибок:  
+`X-ESI-Error-Limit-Remain` — оставшиеся ошибки в этом временном интервале.  
+`X-ESI-Error-Limit-Reset` — оставшиеся секунды до следующего временного интервала и сброса ошибок до нуля.
 
-The details are explained in this blog post: [Error Rate Limiting](/blog/error-rate-limiting-imminent)
+Подробности объясняются в этом посте блога: [Error Rate Limiting](/blog/error-rate-limiting-imminent)
 
-## Caching
+## Кеширование
 
-The ESI acts as both an http handler for resources available in the monolith, and a cache manager of those resources' representation. You can get a benefit from the caching in several ways, depending on the request you send.
+ESI действует как HTTP-обработчик для ресурсов, доступных в монолите, и как менеджер кеша представлений этих ресурсов. Вы можете получить выгоду от кеширования несколькими способами, в зависимости от запроса, который вы отправляете.
 
-The `expires` header represents when the resource cache in ESI should expire, that is when updated data should be available.
-You should not update before that. If you update before, the best case scenario is that you will get a cached result, wasting resources on both side of the request. In the worst case scenario you will get new data, and it may count as circumventing the ESI caching. Circumventing the ESI caching can get you banned from ESI.
+Заголовок `expires` представляет момент, когда кеш ресурса в ESI должен истечь, то есть когда обновлённые данные должны стать доступными.
+Вы не должны обновлять данные до этого момента. Если вы обновите раньше, в лучшем случае вы получите кешированный результат, тратя ресурсы с обеих сторон запроса. В худшем случае вы получите новые данные, и это может считаться обходом кеширования ESI. Обход кеширования ESI может привести к блокировке в ESI.
 
-The `last-modified` header indicates when the data was last updated in the cache.
+Заголовок `last-modified` указывает, когда данные были последний раз обновлены в кеше.
 
-The `ETag` header is a hash of the content. Once you have received that header with a response, in a subsequent request you can add the `If-None-Match` header set to the last retrieved value. If the data did not change since the last cached value, the server will return a `304` response code instead of e.g. `200`, meaning there is no change to handle.
+Заголовок `ETag` — это хеш содержимого. Получив этот заголовок с ответом, в последующем запросе вы можете добавить заголовок `If-None-Match`, установленный на последнее полученное значение. Если данные не изменились с момента последнего кешированного значения, сервер вернёт код ответа `304` вместо, например, `200`, что означает, что нет изменений для обработки.
 
-Notes:
+Примечания:
 
-- When requesting a paginated resource, the `last-modified` header should be the same for all the pages of a single resource. Checking this constraint allows you to validate the data retrieved, typically by avoiding the case where the data is refreshed between the calls to two different pages. This issue can also happen outside of ESI cache refresh.
-- Some resources may not provide such headers, typically POST methods have no cache information, even when they still actually have an internal cache.
-- Static data should have the same shared caching information. That is, planets, moons, types, etc. paths should return the same caching headers.
+- При запросе пагинированного ресурса заголовок `last-modified` должен быть одинаковым для всех страниц одного ресурса. Проверка этого ограничения позволяет вам проверить полученные данные, обычно избегая случая, когда данные обновляются между вызовами двух разных страниц. Эта проблема также может произойти вне обновления кеша ESI.
+- Некоторые ресурсы могут не предоставлять таких заголовков, обычно методы POST не имеют информации о кеше, даже когда у них всё ещё фактически есть внутренний кеш.
+- Статические данные должны иметь одинаковую общую информацию о кешировании. То есть пути planets, moons, types и т.д. должны возвращать одинаковые заголовки кеширования.

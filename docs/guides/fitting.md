@@ -1,36 +1,36 @@
-# Fitting Formats
+# Форматы фиттингов
 
-There are several formats for representing fittings:
+Существует несколько форматов для представления фиттингов:
 
 ## EFT
 
-EFT stands for "EVE Fitting Tool", which used to be a popular third-party application for ship fitting.
-Although the application is long gone, the format it used has since been adopted by many tools and the game itself.
-This is the format used when the "Copy to Clipboard" action is used in the in-game fitting window, and the format expected for the "Import from Clipboard" action.
+EFT расшифровывается как "EVE Fitting Tool" — популярное когда-то стороннее приложение для сборки корабельных фитов.
+Хотя приложение давно исчезло, используемый им формат с тех пор был принят многими инструментами и самой игрой.
+Это формат, используемый при действии "Копировать в буфер обмена" в окне фиттинга в игре, и формат, ожидаемый для действия "Импорт из буфера обмена".
 
-### Format
+### Формат
 
-1. First line lists the hull and fitting name, in square brackets, separated by a comma
-2. Low slot modules
-3. Medium slot modules and charge (if available)
-4. High slot modules and charge (if available) (i.e., 125mm Railgun I, Antimatter Charge S)
-5. Rigs
-6. Subsystems
-7. Services (for structure fits)
-8. Drones / fighters in drone / fighter bay with amount (i.e., Warrior II x2)
-9. Items in cargo bay with amount (i.e., Antimatter Charge M x42)
+1. Первая строка указывает корпус и название фиттинга в квадратных скобках, разделенные запятой
+2. Модули низких слотов
+3. Модули средних слотов и заряды (если доступны)
+4. Модули высоких слотов и заряды (если доступны) (например, 125mm Railgun I, Antimatter Charge S)
+5. Риги
+6. Подсистемы
+7. Сервисы (для фитов структур)
+8. Дроны / файтеры в отсеке дронов/файтеров с количеством (например, Warrior II x2)
+9. Предметы в трюме с количеством (например, Antimatter Charge M x42)
 
-Sections 2–7 are separated by an empty line, sections 7–9 are separated by two empty lines.
+Разделы 2–7 разделены пустой строкой, разделы 7–9 разделены двумя пустыми строками.
 
-Drones and items in cargo can have counts indicated with a ` x42` suffix for 42 units, for example.
+Дроны и предметы в грузе могут иметь указанное количество с суффиксом ` x42` для 42 единиц, например.
 
-Modules can have the suffix `/offline` to indicate they are offline. However, although in-game imports these fits, the `/offline` suffix is ignored. The module will still be imported as online.
+Модули могут иметь суффикс `/offline`, чтобы указать, что они выключены. Однако, хотя игра импортирует эти фиты, суффикс `/offline` игнорируется. Модуль все равно будет импортирован как включенный.
 
-Empty slots are indicated by `[Empty <name> slot]` where `<name>` is one of `low`, `med`, `high`, `rig`, `service`, however this is not present when exporting from the game, but still considered valid when importing.
+Пустые слоты обозначаются как `[Empty <name> slot]`, где `<name>` — это одно из `low`, `med`, `high`, `rig`, `service`, однако это не присутствует при экспорте из игры, но все равно считается допустимым при импорте.
 
-Type names can be specified in any localized format, not only English.
+Названия типов могут быть указаны в любом локализованном формате, а не только на английском.
 
-### Example
+### Пример
 
 ```
 [Heron Navy Issue, Deepflow Rift Dredger]
@@ -59,12 +59,12 @@ Sisters Core Scanner Probe x8
 
 ## DNA
 
-Ship DNA is a compact format describing a fit in a single line.
-This is the format used when linking fits in chat in-game.
+Ship DNA — это компактный формат, описывающий фит в одной строке.
+Это формат, используемый при создании ссылок на фиты в чате в игре.
 
-### Format
+### Формат
 
-The formal grammar is as follows:
+Формальная грамматика выглядит следующим образом:
 
 ```
 DNA -> SHIP ':' HIGHS ':' MEDS ':' LOWS ':' RIGS ':' CHARGES
@@ -76,27 +76,27 @@ RIGS -> EMPTY | MODULE ( ':' MODULE )
 CHARGES -> EMPTY | CHARGE ( ':' CHARGE )
 MODULE -> MODULE_ID ( '_' ) ';' QUANTITY
 CHARGE -> CHARGE_ID ';' QUANTITY
-SHIP_TYPE_ID -> the typeID of a ship
-SUBSYSTEM_ID -> the typeID of the fitted subsystems
-MODULE_ID -> the typeID of the fitted module
-CHARGE_ID -> the typeID of a charge or a drone
-QUANTITY -> an integer quantity of the type
+SHIP_TYPE_ID -> typeID корабля
+SUBSYSTEM_ID -> typeID установленных подсистем
+MODULE_ID -> typeID установленного модуля
+CHARGE_ID -> typeID заряда или дрона
+QUANTITY -> целое число, количество типа
 ```
 
-Module IDs can be followed by an underscore to indicate they are unfitted. Charges are always considered unfitted.
+ID модулей могут сопровождаться символом подчеркивания, чтобы указать, что они не установлены. Заряды всегда считаются неустановленными.
 
-### Example
+### Пример
 
 `72904:4250;2:4258;1:11577;1:33199;1:33201;1:33197;1:9580;1:9568;1:1405;2:31220;1:31788;1:30488;8::`
 
-As a chat link:
+Как ссылка в чате:
 `<url=fitting:72904:4250;2:4258;1:11577;1:33199;1:33201;1:33197;1:9580;1:9568;1:1405;2:31220;1:31788;1:30488;8::>Deepflow Rift Dredger</url>`
 
 ## XML
 
-This is the format used when exporting fits to a file in-game, or importing from a file. The format supports multiple fits in a single data structure.
+Это формат, используемый при экспорте фитов в файл в игре или импорте из файла. Формат поддерживает несколько фитов в одной структуре данных.
 
-### Example
+### Пример
 
 ```xml
 <?xml version="1.0" ?>

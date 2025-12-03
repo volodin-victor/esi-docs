@@ -1,105 +1,105 @@
-# Route Calculation
+# Расчет маршрута
 
-When navigating New Eden, you need to find the best route from system A to system B. The in-game route planner offers several options to customize your pathfinding:
+При навигации по Новому Эдему вам нужно найти лучший маршрут от системы A до системы B. Внутриигровой планировщик маршрутов предлагает несколько опций для настройки поиска пути:
 
-- **Route preference**: shorter, safer, or less-secure.
-- **Security penalty**: how strictly to apply the route preference.
+- **Предпочтение маршрута**: короче, безопаснее или менее безопасный.
+- **Штраф за безопасность**: насколько строго применять предпочтение маршрута.
 
-If you want to implement this in your own application, there are two main approaches:
+Если вы хотите реализовать это в своем приложении, есть два основных подхода:
 
-1. **Use ESI** - Simple and straightforward, perfect for occasional route calculations.
-2. **Write your own** - More complex but preferred for applications that need to perform many route calculations.
+1. **Использовать ESI** - Просто и понятно, идеально для эпизодических расчетов маршрута.
+2. **Написать собственный** - Более сложно, но предпочтительно для приложений, которым нужно выполнять множество расчетов маршрутов.
 
-This guide covers both approaches, starting with the simpler ESI option.
+Это руководство охватывает оба подхода, начиная с более простого варианта ESI.
 
-## Using ESI
+## Использование ESI
 
-The simplest way to calculate routes is to use [EVE's ESI `/route` route](/api-explorer#/operations/PostRoute). This closely matches the in-game route planner behavior without requiring you to implement pathfinding algorithms.
+Самый простой способ рассчитать маршруты — использовать [ESI `/route` EVE](/api-explorer#/operations/PostRoute). Это близко соответствует поведению внутриигрового планировщика маршрутов без необходимости реализации алгоритмов поиска пути.
 
-The route accepts the following parameters (either via query-parameters or via request-body JSON):
+Маршрут принимает следующие параметры (либо через query-параметры, либо через JSON тела запроса):
 
-- **Origin system ID**: System to start the route from.
-- **Destination system ID**: System to end the route at.
-- **Route preference**: `Shorter`, `Safer`, or `LessSecure`.
-- **Security penalty**: Value controlling how strictly to apply the route preference.
+- **ID системы отправления**: Система, с которой начинается маршрут.
+- **ID системы назначения**: Система, в которой заканчивается маршрут.
+- **Предпочтение маршрута**: `Shorter`, `Safer` или `LessSecure`.
+- **Штраф за безопасность**: Значение, контролирующее, насколько строго применять предпочтение маршрута.
 
-This route returns a list of system IDs representing the calculated route.
+Этот маршрут возвращает список ID систем, представляющих рассчитанный маршрут.
 
-### Example Usage
+### Пример использования
 
 --8<-- "snippets/examples/esi-get-route.md"
 
-## Writing Your Own
+## Написание собственного
 
-When implementing your own route calculation system, you need to understand how pathfinding algorithms work and how to model New Eden's transportation network.
+При реализации собственной системы расчета маршрутов вам нужно понять, как работают алгоритмы поиска пути и как моделировать транспортную сеть Нового Эдема.
 
-### Pathfinding Algorithms
+### Алгоритмы поиска пути
 
-Pathfinding algorithms treat New Eden as a graph where:
+Алгоритмы поиска пути рассматривают Новый Эдем как граф, где:
 
-- **Nodes** represent solar systems.
-- **Edges** represent connections between systems (stargates, wormholes, etc.).
+- **Узлы** представляют солнечные системы.
+- **Ребра** представляют соединения между системами (звездные врата, червоточины и т.д.).
 
-The most common pathfinding algorithms are:
+Наиболее распространенные алгоритмы поиска пути:
 
-- **[Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)**: Guarantees finding the shortest path but can be slower for large graphs.
-- **[A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm)**: More efficient than Dijkstra when you have a good heuristic.
+- **[Алгоритм Дейкстры](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)**: Гарантирует нахождение кратчайшего пути, но может быть медленнее для больших графов.
+- **[Поиск A*](https://en.wikipedia.org/wiki/A*_search_algorithm)**: Более эффективен, чем Дейкстра, когда у вас есть хорошая эвристика.
 
-Most programming languages have libraries that implement these algorithms, or you can implement them yourself if you need more control over the behavior.
+Большинство языков программирования имеют библиотеки, реализующие эти алгоритмы, или вы можете реализовать их самостоятельно, если вам нужен больший контроль над поведением.
 
-!!! note "Important: A* Heuristic Considerations"
+!!! note "Важно: Соображения по эвристике A*"
 
-    A\* requires a heuristic function (H-value) that estimates the remaining cost to reach the destination. This heuristic must **never overestimate** the actual cost, or A\* won't guarantee finding the optimal route.
+    A\* требует эвристической функции (H-значение), которая оценивает оставшуюся стоимость для достижения пункта назначения. Эта эвристика **никогда не должна переоценивать** фактическую стоимость, иначе A\* не гарантирует нахождение оптимального маршрута.
 
-    In New Eden, creating an accurate heuristic is challenging because:
+    В Новом Эдеме создание точной эвристики затруднительно, потому что:
 
-    - Systems may appear closer in 3D space but require longer routes due to gate connections.
-    - "Pocket space" regions can create misleading distance calculations.
+    - Системы могут казаться ближе в 3D пространстве, но требовать более длинных маршрутов из-за соединений врат.
+    - Регионы "карманного пространства" могут создавать вводящие в заблуждение расчеты расстояния.
 
-    **Recommendation**: Set the heuristic value to zero for A\* in EVE route calculation. This effectively makes A\* behave like Dijkstra's algorithm, ensuring optimal routes.
+    **Рекомендация**: Установите эвристическое значение в ноль для A\* при расчете маршрута EVE. Это фактически заставляет A\* вести себя как алгоритм Дейкстры, обеспечивая оптимальные маршруты.
 
-### Reading Static Data
+### Чтение статических данных
 
-To build your route calculation system, you need data about systems, their connections, and their security status.
-This information is available in the [Static Data](../services/static-data/index.md) export (SDE).
+Для построения системы расчета маршрутов вам нужны данные о системах, их соединениях и статусе безопасности.
+Эта информация доступна в экспорте [Статических данных](../services/static-data/index.md) (SDE).
 
-The systems and their security status are available in the `mapSolarSystems` table.
-The static connections are available the `mapStargates` table.
+Системы и их статус безопасности доступны в таблице `mapSolarSystems`.
+Статические соединения доступны в таблице `mapStargates`.
 
-To create a graph for pathfinding:
+Для создания графа поиска пути:
 
-1. **Load all systems** from `mapSolarSystems` to get the systems and their security status.
-2. **Load all stargates** from `mapStargates` to get static connections between the systems.
-3. **Create bidirectional edges** between connected systems.
-4. **Add connections** for Ansiblex (player-owned jump bridges), Wormholes, or Shipcasters.
+1. **Загрузите все системы** из `mapSolarSystems`, чтобы получить системы и их статус безопасности.
+2. **Загрузите все звездные врата** из `mapStargates`, чтобы получить статические соединения между системами.
+3. **Создайте двунаправленные ребра** между связанными системами.
+4. **Добавьте соединения** для Ansiblex (прыжковых мостов, принадлежащих игрокам), червоточин или Shipcaster'ов.
 
-This graph can then be used with Dijkstra's algorithm or A* to find optimal routes based on your chosen cost function.
+Этот граф затем может быть использован с алгоритмом Дейкстры или A* для нахождения оптимальных маршрутов на основе выбранной вами функции стоимости.
 
-### Cost function
+### Функция стоимости
 
-The cost function is the heart of your route calculation system. It determines how "expensive" each system transition is, influencing which route the algorithm will choose.
-EVE Online provides three distinct cost function modes, each with different security preferences.
+Функция стоимости — это сердце вашей системы расчета маршрутов. Она определяет, насколько "дорогим" является каждый переход между системами, влияя на то, какой маршрут выберет алгоритм.
+EVE Online предоставляет три различных режима функции стоимости, каждый с разными предпочтениями безопасности.
 
-The snippet below serves as example for how cost functions can be used.
+Приведенный ниже фрагмент служит примером того, как можно использовать функции стоимости.
 
 --8<-- "snippets/formulae/route-pathfinder.md"
 
-#### Shorter
+#### Короче (Shorter)
 
-This mode finds the route with the fewest jumps, regardless of system security status.
+Этот режим находит маршрут с наименьшим количеством прыжков, независимо от статуса безопасности системы.
 
 --8<-- "snippets/formulae/route-shorter.md"
 
-#### Safer
+#### Безопаснее (Safer)
 
-This mode prioritizes routes through high-security space, making longer routes acceptable if they avoid dangerous systems.
-The lower the "security penalty" (0-100, default of 50), the more likely the route will use low-security or null-security space.
+Этот режим приоритизирует маршруты через высокобезопасное пространство, делая более длинные маршруты приемлемыми, если они избегают опасных систем.
+Чем ниже "штраф за безопасность" (0-100, по умолчанию 50), тем больше вероятность, что маршрут будет проходить через низкобезопасное или нулевое пространство.
 
 --8<-- "snippets/formulae/route-safer.md"
 
-#### Less-Secure
+#### Менее безопасный (Less-Secure)
 
-This mode finds routes that prefers low-security space.
-The lower the "security penalty" (0-100, default of 50), the more likely the route will use high-security or null-security space.
+Этот режим находит маршруты, которые предпочитают низкобезопасное пространство.
+Чем ниже "штраф за безопасность" (0-100, по умолчанию 50), тем больше вероятность, что маршрут будет использовать высокобезопасное или нулевое пространство.
 
 --8<-- "snippets/formulae/route-less-secure.md"

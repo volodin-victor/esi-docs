@@ -4,7 +4,7 @@ search:
 
 title: Marquette
 type: service
-description: Marquette is a market explorer and appraisal tool that gives capsuleers many filters and the ability to share appraisals.
+description: Marquette — это инструмент для исследования рынка и оценки, который предоставляет капсулёрам множество фильтров и возможность делиться оценками.
 url: https://marquette.ch
 maintainer:
   name: Aliénore Bouttefeux
@@ -15,7 +15,7 @@ maintainer:
 
 # Marquette
 
-Marquette is a marquette explorer tool and appraisal tool. It offers powerful location filter options.
+Marquette — это инструмент для исследования рынка и оценки. Он предлагает мощные опции фильтрации по местоположению.
 
 
 <div class="grid cards" markdown>
@@ -23,10 +23,10 @@ Marquette is a marquette explorer tool and appraisal tool. It offers powerful lo
 - [:octicons-git-branch-16: __Repository__](https://git.noxie.ch/Marquette/Marquette){ .esi-card-link }
 </div>
 
-## features
+## Возможности
 
-- Market explorer with the possibility to pin item for comparison
-- Show market history of items
-- Appraisal what can be shared
-- Detail information on appraisal that can show up to the 10 bests stations which match a location filter
-- blazing fast
+- Исследователь рынка с возможностью закрепить предмет для сравнения
+- Показывать историю рынка предметов
+- Оценка, которой можно поделиться
+- Подробная информация об оценке, которая может показать до 10 лучших станций, соответствующих фильтру местоположения
+- Очень быстрый

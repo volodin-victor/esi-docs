@@ -4,7 +4,7 @@ search:
 
 title: EVEMissioneer
 type: service
-description: An agent research tool for EVE Online.
+description: Инструмент для исследования агентов в EVE Online.
 maintainer:
   name: Robin Ellis
   github: robincakeellis
@@ -19,22 +19,22 @@ maintainer:
 
 </div>
 
-## Browse and find agents using EVEMissioneer.com
+## Просматривайте и находите агентов с помощью EVEMissioneer.com
 
-* Browse agents for corporations, systems, constellations and regions
-* View faction-specific agent lists: career; circle; COSMOS; data centers; epic arcs; research
-* Set powerful filters to limit the agents you see
-* Links to DOTLAN :: EveMaps, Eveeye, zKillboard, EVE Tycoon and others
+* Просматривайте агентов для корпораций, систем, созвездий и регионов
+* Просматривайте списки агентов по фракциям: карьера; круг; COSMOS; центры данных; эпические арки; исследования
+* Устанавливайте мощные фильтры для ограничения видимых агентов
+* Ссылки на DOTLAN :: EveMaps, Eveeye, zKillboard, EVE Tycoon и другие
 
-## Tools
+## Инструменты
 
-* Item comparison tool
-* Loyalty point store item finder
-* Implant planner
+* Инструмент сравнения предметов
+* Поиск предметов в магазинах очков лояльности
+* Планировщик имплантов
 
-## SSO integration:
+## Интеграция SSO:
 
-* Integration is entirely optional
-* Import your standings
-* Can enable geo-locator; waypoint setting; pilot LP
-* Nerdy medals and achievements
+* Интеграция полностью опциональна
+* Импортируйте свои отношения
+* Можно включить геолокатор; настройку путевых точек; LP пилота
+* Забавные медали и достижения

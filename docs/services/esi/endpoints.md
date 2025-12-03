@@ -1,6 +1,6 @@
 ---
-title: Endpoints
+title: Конечные точки
 ---
-# Endpoints
+# Конечные точки
 
-You can find all the endpoints and try them out in the [API Explorer](/api-explorer).
+Вы можете найти все конечные точки и опробовать их в [API Explorer](/api-explorer).

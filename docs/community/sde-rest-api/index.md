@@ -4,7 +4,7 @@ search:
 
 title: SDE REST API
 type: resource
-description: REST API for the EVE Static Data Export (SDE)
+description: REST API для статического экспорта данных EVE (SDE)
 maintainer:
   name: joaomlneto
   github: joaomlneto
@@ -20,10 +20,10 @@ maintainer:
 
 </div>
 
-## Description
+## Описание
 
-JitaSpace offers an ESI-like API for the [Static Data Export (SDE)](https://developers.eveonline.com/docs/resources/) at [sde.jita.space](https://sde.jita.space), allowing you to access _the missing bits_ in the same way!
+JitaSpace предлагает API, похожий на ESI, для [Static Data Export (SDE)](https://developers.eveonline.com/docs/resources/) на [sde.jita.space](https://sde.jita.space), позволяя вам получать доступ к _отсутствующим частям_ таким же образом!
 
-It parses all the data available in the [SDE](https://developers.eveonline.com/docs/resources/), complementing it with [Hoboleaks data](https://sde.hoboleaks.space), and provides a RESTful API to access it.
+Он парсит все данные, доступные в [SDE](https://developers.eveonline.com/docs/resources/), дополняя их [данными Hoboleaks](https://sde.hoboleaks.space), и предоставляет RESTful API для доступа к ним.
 
-![Swagger UI for the SDE REST API](sde_rest_api.png)
+![Swagger UI для SDE REST API](sde_rest_api.png)

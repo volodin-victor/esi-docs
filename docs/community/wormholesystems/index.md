@@ -4,7 +4,7 @@ search:
 
 title: WormholeSystems
 type: service
-description: A modern mapping platform designed specifically for the wormhole community in EVE Online. Developed by capsuleers for capsuleers, offering tools to enhance navigation and collaboration within wormhole space.
+description: Современная платформа для картографии, разработанная специально для сообщества червоточин в EVE Online. Разработана капсулёрами для капсулёров, предлагает инструменты для улучшения навигации и сотрудничества в пространстве червоточин.
 maintainer:
   name: WormholeSystems Team
   github: WormholeSystems
@@ -14,7 +14,7 @@ maintainer:
 
 ![](icon.png){ width="128" }
 
-A modern mapping platform designed specifically for the wormhole community in EVE Online. Developed by capsuleers for capsuleers, it offers a suite of tools to enhance navigation and collaboration within wormhole space.
+Современная платформа для картографии, разработанная специально для сообщества червоточин в EVE Online. Разработана капсулёрами для капсулёров, предлагает набор инструментов для улучшения навигации и сотрудничества в пространстве червоточин.
 
 <div class="grid cards" markdown>
 
@@ -24,60 +24,60 @@ A modern mapping platform designed specifically for the wormhole community in EV
 
 </div>
 
-## Interactive Maps
+## Интерактивные карты
 
-WormholeSystems provides real-time wormhole mapping with intuitive drag-and-drop controls, allowing users to visualize their chains effectively. Key features include:
+WormholeSystems предоставляет картографию червоточин в реальном времени с интуитивными элементами управления drag-and-drop, позволяя пользователям эффективно визуализировать свои цепи. Ключевые возможности включают:
 
-- **Real-time Updates:** Maps update automatically as new connections are discovered or existing ones change.
-- **Drag-and-Drop Interface:** Easily arrange and organize your wormhole connections with intuitive controls.
-- **Visual Chain Representation:** Clear visualization of wormhole chains and system relationships.
+- **Обновления в реальном времени:** Карты обновляются автоматически по мере обнаружения новых соединений или изменения существующих.
+- **Интерфейс drag-and-drop:** Легко упорядочивайте и организовывайте соединения червоточин с помощью интуитивных элементов управления.
+- **Визуальное представление цепей:** Чёткая визуализация цепей червоточин и отношений систем.
 
-## Collaborative Mapping
+## Совместное картографирование
 
-WormholeSystems enables seamless real-time collaboration with fellow players, facilitating coordinated exploration and operations:
+WormholeSystems обеспечивает бесшовное сотрудничество в реальном времени с другими игроками, способствуя скоординированным исследованиям и операциям:
 
-- **Real-time Synchronization:** All team members see updates instantly as connections are mapped.
-- **Multi-user Support:** Multiple capsuleers can work on the same map simultaneously.
-- **Coordinated Operations:** Perfect for fleet operations and group exploration activities.
+- **Синхронизация в реальном времени:** Все члены команды видят обновления мгновенно по мере картографирования соединений.
+- **Поддержка нескольких пользователей:** Несколько капсулёров могут работать над одной картой одновременно.
+- **Координированные операции:** Идеально для флотовых операций и групповых исследований.
 
-## Activity Monitoring
+## Мониторинг активности
 
-WormholeSystems offers real-time insights into activities within your chains and systems, keeping you informed of ongoing events:
+WormholeSystems предлагает информацию в реальном времени о деятельности в ваших цепях и системах, держа вас в курсе текущих событий:
 
-- **Real-time Activity Tracking:** Monitor what's happening in your mapped systems.
-- **Event Notifications:** Stay informed about important changes in your wormhole chains.
-- **System Intelligence:** Automatic insights about activities and potential threats.
+- **Отслеживание активности в реальном времени:** Отслеживайте, что происходит в ваших отображённых системах.
+- **Уведомления о событиях:** Будьте в курсе важных изменений в ваших цепях червоточин.
+- **Интеллект системы:** Автоматические данные о деятельности и потенциальных угрозах.
 
-## Access Control
+## Контроль доступа
 
-WormholeSystems features a unified access control system that simplifies permission management, ensuring secure and efficient collaboration:
+WormholeSystems имеет унифицированную систему контроля доступа, которая упрощает управление разрешениями, обеспечивая безопасное и эффективное сотрудничество:
 
-- **Role-based Permissions:** Control who can view, edit, or manage different aspects of your maps.
-- **Secure Collaboration:** Ensure only authorized members have access to sensitive wormhole intelligence.
-- **Easy Management:** Streamlined interface for managing team access and permissions.
+- **Разрешения на основе ролей:** Контролируйте, кто может просматривать, редактировать или управлять различными аспектами ваших карт.
+- **Безопасное сотрудничество:** Обеспечьте, чтобы только авторизованные члены имели доступ к чувствительной разведке червоточин.
+- **Лёгкое управление:** Упрощённый интерфейс для управления доступом команды и разрешениями.
 
-## Smart Routing
+## Умная маршрутизация
 
-WormholeSystems utilizes intelligent pathfinding through complex wormhole chains, incorporating mass calculations to optimize routes:
+WormholeSystems использует интеллектуальный поиск пути через сложные цепи червоточин, включая расчёты массы для оптимизации маршрутов:
 
-- **Intelligent Pathfinding:** Find the best routes through complex wormhole networks.
-- **Mass Calculations:** Automatically factor in wormhole mass limits when planning routes.
-- **Route Optimization:** Get the most efficient paths for your operations and logistics.
+- **Интеллектуальный поиск пути:** Найдите лучшие маршруты через сложные сети червоточин.
+- **Расчёты массы:** Автоматически учитывайте ограничения массы червоточин при планировании маршрутов.
+- **Оптимизация маршрутов:** Получите самые эффективные пути для ваших операций и логистики.
 
-## Signature Tracking
+## Отслеживание сигнатур
 
-WormholeSystems consolidates all necessary information about wormhole signatures in one place, streamlining the tracking process:
+WormholeSystems объединяет всю необходимую информацию о сигнатурах червоточин в одном месте, упрощая процесс отслеживания:
 
-- **Comprehensive Signature Database:** Track all discovered signatures with detailed information.
-- **Automatic Classification:** Smart identification and categorization of signature types.
-- **Historical Data:** Keep records of signature changes and lifecycle information.
+- **Комплексная база данных сигнатур:** Отслеживайте все обнаруженные сигнатуры с подробной информацией.
+- **Автоматическая классификация:** Умная идентификация и категоризация типов сигнатур.
+- **Исторические данные:** Ведите записи об изменениях сигнатур и информации о жизненном цикле.
 
-## Intelligence System
+## Система разведки
 
-The platform generates automatic notes and insights about your wormhole systems, ensuring you never miss critical details:
+Платформа генерирует автоматические заметки и данные о ваших системах червоточин, гарантируя, что вы никогда не пропустите важные детали:
 
-- **Automatic Intelligence Gathering:** System generates insights based on observed activities.
-- **Smart Annotations:** Automatic notes about system characteristics and potential opportunities.
-- **Critical Alerts:** Never miss important information about your mapped systems.
+- **Автоматический сбор разведданных:** Система генерирует данные на основе наблюдаемой деятельности.
+- **Умные аннотации:** Автоматические заметки о характеристиках системы и потенциальных возможностях.
+- **Критические предупреждения:** Никогда не пропускайте важную информацию о ваших отображённых системах.
 
 

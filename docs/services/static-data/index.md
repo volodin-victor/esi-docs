@@ -2,86 +2,86 @@
 title: Static Data
 ---
 
-# Static Data
+# Статические данные
 
-The Static Data Export (SDE) contains static game data that only changes with game updates.
-The latest SDE can be found at: [developers.eveonline.com/static-data/](https://developers.eveonline.com/static-data/)
+Экспорт статических данных (SDE) содержит статические игровые данные, которые изменяются только с обновлениями игры.
+Последний SDE можно найти здесь: [developers.eveonline.com/static-data/](https://developers.eveonline.com/static-data/)
 
-## Data formats
+## Форматы данных
 
-The SDE is available in two formats:
+SDE доступен в двух форматах:
 
 - [JSON Lines](https://jsonlines.org/)
 - [YAML](https://yaml.org/)
 
 ### JSON Lines
 
-JSON keys must be strings.
-When the dataset contains integer keys, these are converted to a list format where each entry contains:
+Ключи JSON должны быть строками.
+Когда набор данных содержит целочисленные ключи, они преобразуются в формат списка, где каждая запись содержит:
 
-- `_key`: The actual key value.
-- `_value`: The value (when the value is not an object).
+- `_key`: Фактическое значение ключа.
+- `_value`: Значение (когда значение не является объектом).
 
 ### YAML
 
-YAML supports integer keys, so it does not require the special encoding used in JSON Lines.
-Note that reading large YAML files can be memory-intensive and slow.
-When working with large datasets such as `mapMoons` and similar files, consider using the JSON Lines format.
+YAML поддерживает целочисленные ключи, поэтому не требует специального кодирования, используемого в JSON Lines.
+Обратите внимание, что чтение больших файлов YAML может быть ресурсоемким и медленным.
+При работе с большими наборами данных, такими как `mapMoons` и подобные файлы, рассмотрите возможность использования формата JSON Lines.
 
-## Schema
+## Схема
 
-You can find community-provided schemas and alternative formats in the [community resources](../../community/#libraries-and-resources) section.
+Вы можете найти предоставленные сообществом схемы и альтернативные форматы в разделе [ресурсы сообщества](../../community/#библиотеки-и-ресурсы).
 
-## Schema Changes
+## Изменения схемы
 
-Schema changes are documented at: [developers.eveonline.com/static-data/tranquility/schema-changelog.yaml](https://developers.eveonline.com/static-data/tranquility/schema-changelog.yaml)
+Изменения схемы документируются здесь: [developers.eveonline.com/static-data/tranquility/schema-changelog.yaml](https://developers.eveonline.com/static-data/tranquility/schema-changelog.yaml)
 
-## Automation
+## Автоматизация
 
-For automated access to the SDE:
+Для автоматического доступа к SDE:
 
-- **Latest Build Number**: [developers.eveonline.com/static-data/tranquility/latest.jsonl](https://developers.eveonline.com/static-data/tranquility/latest.jsonl).
-    - The latest build number is in the record with the key `sde`.
-- **Data URLs**: `https://developers.eveonline.com/static-data/tranquility/eve-online-static-data-<build-number>-<variant>.zip`.
-- **Changes**: `https://developers.eveonline.com/static-data/tranquility/changes/<build-number>.jsonl`.
-    - This contains the list of changes.
-      The record with key `_meta` contains `lastBuildNumber`, referring to the previous SDE.
+- **Последний номер сборки**: [developers.eveonline.com/static-data/tranquility/latest.jsonl](https://developers.eveonline.com/static-data/tranquility/latest.jsonl).
+    - Последний номер сборки находится в записи с ключом `sde`.
+- **URL данных**: `https://developers.eveonline.com/static-data/tranquility/eve-online-static-data-<build-number>-<variant>.zip`.
+- **Изменения**: `https://developers.eveonline.com/static-data/tranquility/changes/<build-number>.jsonl`.
+    - Это содержит список изменений.
+      Запись с ключом `_meta` содержит `lastBuildNumber`, ссылающийся на предыдущий SDE.
 
-Lastly, there are a few short-hand URLs to always fetch the latest version.
-This will redirect to the URL with the latest build number.
+Наконец, есть несколько сокращенных URL для всегда получения последней версии.
+Это перенаправит на URL с последним номером сборки.
 
 - JSON Lines: [developers.eveonline.com/static-data/eve-online-static-data-latest-jsonl.zip](https://developers.eveonline.com/static-data/eve-online-static-data-latest-jsonl.zip)
 - YAML: [developers.eveonline.com/static-data/eve-online-static-data-latest-yaml.zip](https://developers.eveonline.com/static-data/eve-online-static-data-latest-yaml.zip)
 
-## HTTP Caching
+## HTTP-кеширование
 
-All resources fully support ETag and Last-Modified headers.
-Resources will only update when they actually change.
-All non-static files are cached for 5 minutes.
+Все ресурсы полностью поддерживают заголовки ETag и Last-Modified.
+Ресурсы будут обновляться только при фактическом изменении.
+Все нестатические файлы кешируются на 5 минут.
 
-## Celestial names
+## Названия небесных объектов
 
-In the SDE there is generally no mention of the name of stars, planets, moons, asteroid belts, and NPC stations.
-This is because they can be deduced from the solar system name, and a few fields related to the celestial object.
+В SDE обычно не упоминается название звезд, планет, лун, поясов астероидов и NPC-станций.
+Это потому, что они могут быть выведены из названия солнечной системы и нескольких полей, связанных с небесным объектом.
 
-There are a few exceptions; in those cases the celestial has a `name` field with their name.
-In all other cases, follow the below table.
+Есть несколько исключений; в этих случаях небесный объект имеет поле `name` с их названием.
+Во всех остальных случаях следуйте таблице ниже.
 
-| Celestial                                      | Content                                           |
-|------------------------------------------------|---------------------------------------------------|
-| Stars                                          | `<solarSystemName>`                               |
-| Planets                                        | `<orbitName> <celestialIndex>`                    |
-| Moons                                          | `<orbitName> - Moon <orbitIndex>`                 |
-| Asteroid Belts                                 | `<orbitName> - Asteroid Belt <orbitIndex>`        |
-| Stations (where `useOperationName` is true)    | `<orbitName> - <corporationName> <operationName>` |
-| Stations (where `useOperationName` isn't true) | `<orbitName> - <corporationName>`                 |
-| Stargates                                      | `Stargate (<solarSystemName>)`                    |
+| Небесный объект                                     | Содержание                                           |
+|-----------------------------------------------------|------------------------------------------------------|
+| Звезды                                              | `<solarSystemName>`                                  |
+| Планеты                                             | `<orbitName> <celestialIndex>`                       |
+| Луны                                                | `<orbitName> - Moon <orbitIndex>`                    |
+| Пояса астероидов                                    | `<orbitName> - Asteroid Belt <orbitIndex>`           |
+| Станции (где `useOperationName` true)              | `<orbitName> - <corporationName> <operationName>`    |
+| Станции (где `useOperationName` не true)           | `<orbitName> - <corporationName>`                    |
+| Звездные врата                                      | `Stargate (<solarSystemName>)`                       |
 
-Note:
+Примечание:
 
-- For stars, use `solarSystemID` to look up the `solarSystemName` via `mapSolarSystems` (as `name`).
-- The `orbitName` is the name of the `orbitID` celestial, constructed via the table above.
-- The `celestialIndex` should be represented in Roman numerals.
-- For stations, use `ownerID` to look up the `corporationName` via `npcCorporations` (as `name`).
-- For stations, use `operationID` to look up the `operationName` via `stationOperations`.
-- For stargates, use `destination.solarSystemID` to look up the `solarSystemName` via `mapSolarSystems` (as `name`).
+- Для звезд используйте `solarSystemID` для поиска `solarSystemName` через `mapSolarSystems` (как `name`).
+- `orbitName` — это название небесного объекта `orbitID`, построенное через таблицу выше.
+- `celestialIndex` должен быть представлен римскими цифрами.
+- Для станций используйте `ownerID` для поиска `corporationName` через `npcCorporations` (как `name`).
+- Для станций используйте `operationID` для поиска `operationName` через `stationOperations`.
+- Для звездных врат используйте `destination.solarSystemID` для поиска `solarSystemName` через `mapSolarSystems` (как `name`).

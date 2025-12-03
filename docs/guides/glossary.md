@@ -1,78 +1,78 @@
-# Glossary
+# Глоссарий
 
-This document is a list of common or unusual terms used in EVE third-party development and their meanings.
+Этот документ содержит список общих или необычных терминов, используемых в сторонней разработке для EVE, и их значения.
 
-### APIs & Data sources
+### API и источники данных
 
 * [*ESI*](../services/esi/overview.md) — "EVE Swagger Interface"<br>
-  The official RESTful API for EVE third-party development.
+  Официальный RESTful API для сторонней разработки EVE.
 * [*SDE*](../services/static-data/index.md) — "Static Data Export"<br>
-  Export of static game data (only changing with game updates).
+  Экспорт статических игровых данных (изменяется только с обновлениями игры).
 * *CREST* — "Carbon RESTful API"<br>
-  Previous generation third-party development API (defunct since 2018).
+  API предыдущего поколения для сторонней разработки (упразднен в 2018 году).
 * *XML API*<br>
-  Previous generation third-party development API (defunct since 2018).
+  API предыдущего поколения для сторонней разработки (упразднен в 2018 году).
 * *IGB* — "In-Game Browser"<br>
-  In-game browser and related APIs (defunct since 2016).
+  Внутриигровой браузер и связанные API (упразднен в 2016 году).
 * *Static Data Dump*<br>
-  Prior version of the *SDE*.
+  Предыдущая версия *SDE*.
 
-### Data Formats
+### Форматы данных
 
 * [*EFT*](./fitting.md#eft) — "EVE Fitting Tool"<br>
-  Human-Readable format for ship fittings from the now-defunct third-party program of the same name, used in-game for fit copying and pasting.
+  Человекочитаемый формат для корабельных фиттингов из несуществующей ныне сторонней программы с таким же названием, используется в игре для копирования и вставки фитов.
 * [*Ship DNA*](./fitting.md#dna)<br>
-  Compact data format for ship fittings, used in-game for fit links.
+  Компактный формат данных для корабельных фиттингов, используется в игре для ссылок на фиты.
 * [*XML Fitting*](./fitting.md#xml)<br>
-  XML-based fitting format, used in-game for file-based fit export/import.
+  Формат фиттингов на основе XML, используется в игре для экспорта/импорта фитов через файлы.
 
-### Data Types
+### Типы данных
 
 * *Type*<br>
-  Game object. Types describe most "things" in the game; cargo items, ships, objects in space.<br>
-  Found in the SDE in `types.yaml`, through ESI under `/universe/types/`.
+  Игровой объект. Types (типы) описывают большинство "вещей" в игре: предметы груза, корабли, объекты в космосе.<br>
+  Находятся в SDE в `types.yaml`, через ESI под `/universe/types/`.
 * *Item*<br>
-  An individual instance of a type; e.g., Type 648 ("Badger") describes all Badger ships, any individual assembled ship has a unique `itemID`.<br>
-  An "object" as opposed to a "class" in programming terms.
+  Индивидуальный экземпляр типа; например, Type 648 ("Badger") описывает все корабли Badger, любой отдельный собранный корабль имеет уникальный `itemID`.<br>
+  "Объект" в противоположность "классу" в терминах программирования.
 * *Group*<br>
-  Collection of related *Types*.<br>
-  Not to be confused with *MetaGroup* or *MarketGroup*.<br>
-  Found in the SDE in `groups.yaml`, through ESI under `/universe/groups/`.
+  Коллекция связанных *Types*.<br>
+  Не путать с *MetaGroup* или *MarketGroup*.<br>
+  Находятся в SDE в `groups.yaml`, через ESI под `/universe/groups/`.
 * *Category*<br>
-  Collection of related *Groups*.<br>
-  Usually differentiates the "kind" of object; E.g. "Ship" and "Module" are different Categories.<br>
-  Found in the SDE in `categories.yaml`, through ESI under `/universe/categories/`.
+  Коллекция связанных *Groups*.<br>
+  Обычно различает "вид" объекта; например, "Ship" и "Module" — это разные Categories.<br>
+  Находятся в SDE в `categories.yaml`, через ESI под `/universe/categories/`.
 * *MetaGroup*<br>
-  Tech-tier such as T1/T2/T3/Faction.<br>
-  Not to be confused with regular item *Group* or *MarketGroup*.<br>
-  Found in the SDE in `metaGroups.yaml`, not available through ESI.
+  Технический уровень, такой как T1/T2/T3/Faction.<br>
+  Не путать с обычной *Group* предметов или *MarketGroup*.<br>
+  Находятся в SDE в `metaGroups.yaml`, недоступны через ESI.
 * *MarketGroup*<br>
-  A single tab (or tab group) in the market.<br>
-  Not to be confused with regular item *Group* or *MetaGroup*.<br>
-  Found in the SDE in `marketGroups.yaml`, through ESI under `/markets/groups/`.
+  Одна вкладка (или группа вкладок) на рынке.<br>
+  Не путать с обычной *Group* предметов или *MetaGroup*.<br>
+  Находятся в SDE в `marketGroups.yaml`, через ESI под `/markets/groups/`.
 * *Icon*<br>
-  Icon images, such as inventory icons, UI icons, overview icons, etc.<br>
-  Found in the SDE in `icons.yaml`, not available through ESI.
+  Изображения иконок, такие как иконки инвентаря, иконки UI, иконки обзора и т.д.<br>
+  Находятся в SDE в `icons.yaml`, недоступны через ESI.
 * *Graphic*<br>
-  Data about 3D models; Model geometry, textures, icons/renders of those models.<br>
-  Found in the SDE in `graphics.yaml`, through ESI under `/universe/graphics/`.
+  Данные о 3D-моделях: геометрия модели, текстуры, иконки/рендеры этих моделей.<br>
+  Находятся в SDE в `graphics.yaml`, через ESI под `/universe/graphics/`.
 * *Attribute*<br>
-  (Additional) properties of a *Type*, such as HP, maximum velocity, and other item stats.<br>
-  Found in the SDE in `dogmaAttributes.yaml`, through ESI under `/dogma/attributes/`.
+  (Дополнительные) свойства *Type*, такие как HP, максимальная скорость и другие характеристики предметов.<br>
+  Находятся в SDE в `dogmaAttributes.yaml`, через ESI под `/dogma/attributes/`.
 * *Effect*<br>
-  Game logic element. Describes interactions between attributes.<br>
-  Some properties are also stored as effects rather than attributes (E.g. which slot a module uses).<br>
-  Found in the SDE in `dogmaEffects.yaml`, through ESI under `/dogma/effects/`.
+  Элемент игровой логики. Описывает взаимодействия между атрибутами.<br>
+  Некоторые свойства также хранятся как эффекты, а не атрибуты (например, какой слот использует модуль).<br>
+  Находятся в SDE в `dogmaEffects.yaml`, через ESI под `/dogma/effects/`.
 
-### Technical & other terms
+### Технические и другие термины
 
 * *BSD* — "Branched Static Data"<br>
-  Old authoring format for game data, not all data has been ported over to the new *FSD* "File Static Data".<br>
-  No meaningful difference to *FSD* for users.<br>
+  Старый формат авторинга игровых данных, не все данные были перенесены в новый формат *FSD* "File Static Data".<br>
+  Нет значимой разницы с *FSD* для пользователей.<br>
 * *FSD* — "File Static Data"<br>
-  New authoring format for game data, not all data has been ported over.<br>
-  No meaningful difference to *BSD* for users.
+  Новый формат авторинга игровых данных, не все данные были перенесены.<br>
+  Нет значимой разницы с *BSD* для пользователей.
 * *Dogma*<br>
-  Collective term for *Attributes*, *Effects* and the game logic around them.
+  Собирательный термин для *Attributes*, *Effects* и игровой логики вокруг них.
 * *Monolith*<br>
-  The EVE Online servers (in particular, the database) for the game itself, as opposed to other services like *ESI*.
+  Серверы EVE Online (в частности, база данных) для самой игры, в отличие от других сервисов, таких как *ESI*.

@@ -4,7 +4,7 @@ search:
 
 title: RIFT Intel Fusion Tool
 type: service
-description: Desktop app for Windows, Linux and macOS. Intel channels monitoring, flexible alerts, advanced map, PI, assets and more.
+description: Настольное приложение для Windows, Linux и macOS. Мониторинг каналов разведки, гибкие уведомления, продвинутая карта, PI, активы и многое другое.
 maintainer:
   name: Nohus
   github: nohus
@@ -14,9 +14,9 @@ maintainer:
 
 ![](icon.png)
 
-All-in-one desktop app for Windows, Linux and macOS with an extensive feature set and a sleek UI blending in with EVE.
+Универсальное настольное приложение для Windows, Linux и macOS с обширным набором функций и стильным интерфейсом, гармонирующим с EVE.
 
-Make use of your ESI data locally, without sending it off to web services you don't control.
+Используйте свои данные ESI локально, не отправляя их на веб-сервисы, которые вы не контролируете.
 
 <div class="grid cards" markdown>
 
@@ -26,72 +26,72 @@ Make use of your ESI data locally, without sending it off to web services you do
 
 </div>
 
-## Map
+## Карта
 
-The built-in live map shows the information you want, including current and past intel reports, and kills from killboards.
-It's configurable, allowing to set up coloring, backgrounds cells, indicators, and info boxes to show any of tens of types of information.
-It also shows the location of your characters, and has all the interactive features you'd expect.
+Встроенная живая карта показывает нужную информацию, включая текущие и прошлые разведывательные отчёты и убийства с киллбордов.
+Она настраиваема, позволяя настроить цветовую схему, фоновые ячейки, индикаторы и информационные окна для отображения десятков типов информации.
+Также показывает местоположение ваших персонажей и имеет все интерактивные функции, которые вы ожидаете.
 
 ![](map.png)
 ![](map_industry_indices.png)
 ![](map_planets.png)
 
-## Planetary Industry
+## Планетарная промышленность
 
-View all your colonies with real-time details.
-Fast-forward to the future and see issues like storages getting full or production stopping before they happen and set up alerts for them.
-Export all your data to a spreadsheet, if that's your thing.
+Просматривайте все свои колонии с деталями в реальном времени.
+Перематывайте вперёд и видьте проблемы, такие как заполнение складов или остановка производства, до их возникновения, и настройте для них уведомления.
+Экспортируйте все свои данные в таблицу, если это вам нужно.
 
 ![](pi_details.png)
 ![](pi.png)
 ![](pi_alert.png)
 ![](pi_copy.png)
 
-## Characters
+## Персонажи
 
-RIFT works with multiple characters, and you can instantly view the status of each, including jump clones and implants.
-Includes a feature to easily copy in-game settings like window positions and buttons between your characters.
+RIFT работает с несколькими персонажами, и вы можете мгновенно просматривать статус каждого, включая прыжковые клоны и импланты.
+Включает функцию для легкого копирования внутриигровых настроек, таких как позиции окон и кнопки между вашими персонажами.
 
 ![](characters_merged_online.png)
 ![](characters_settings_copy.png)
 
-## Intel Reports
+## Разведывательные отчёты
 
-Are you in an alliance with intel chat channels? Monitor them all in one place with state-of-the-art parsing that presents
-intel reports in a visual way.
+Вы в альянсе с каналами чата разведки? Отслеживайте их все в одном месте с современным парсингом, который представляет
+разведывательные отчёты в визуальном виде.
 
 ![](intel_reports.png)
 
-## Intel Feed
+## Лента разведки
 
-View live intel, whether from intel reports or killboard feeds. Filter, sort and dig-in.
-Lookup any character or view it on the map with one click.
+Просматривайте разведку в реальном времени, будь то из разведывательных отчётов или лент киллбордов. Фильтруйте, сортируйте и изучайте.
+Ищите любого персонажа или просматривайте его на карте одним кликом.
 
 ![](standings.png)
 
-## Alerts
+## Уведомления
 
-Use customizable alerts to notify you of any event, whether it's someone mentioning your name in chat,
-a hostile being reported in a nearby system, or just play a sound when you get decloaked.
+Используйте настраиваемые уведомления для оповещения о любых событиях: упоминании вашего имени в чате,
+сообщении о враждебном игроке в соседней системе или просто воспроизведении звука при разоблачении.
 
 ![](alerts.png)
 ![](alert_15_jumps.png)
 ![](notification_contacts_label.png)
 
-## Contacts
+## Контакты
 
-View your contacts across all characters, including corporation and alliance contacts. Add, edit, remove, set standings,
-assign labels. Search for any entity or item in the game.
+Просматривайте свои контакты по всем персонажам, включая контакты корпорации и альянса. Добавляйте, редактируйте, удаляйте, устанавливайте отношения,
+назначайте метки. Ищите любую сущность или предмет в игре.
 
 ![](contacts.png)
 ![](contacts_add.png)
 ![](contacts_search.png)
 
-## Assets
+## Активы
 
-Browse through your assets from all characters.
-Sort, search, copy and view fittings, and find on which alt you misplaced that ship.
+Просматривайте свои активы от всех персонажей.
+Сортируйте, ищите, копируйте и просматривайте сборки, и находите, на каком альте вы забыли тот корабль.
 
 ![](assets.png)
 
-And many more features!
+И ещё множество функций!

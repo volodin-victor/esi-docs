@@ -4,17 +4,17 @@ search:
 
 title: EVE API for Golang
 type: resource
-description: Go client library for EVE Online's ESI API with OAuth2 authentication, PKCE support, and automatic spec updates.
+description: Клиентская библиотека Go для ESI API EVE Online с OAuth2 аутентификацией, поддержкой PKCE и автоматическим обновлением спецификаций.
 maintainer:
   name: fnt-eve
   github: fnt-eve
 ---
 
-# EVE API for Golang
+# EVE API для Golang
 
-A Go client library for the EVE Online ESI API, generated from the official OpenAPI specification.
+Клиентская библиотека Go для ESI API EVE Online, сгенерированная из официальной спецификации OpenAPI.
 
-This library is a spiritual successor to the original [goesi](https://github.com/antihax/goesi) package, updated to support CCP's OpenAPI 3.x+ specification. Generated using [Openapi Generator](https://github.com/openapitools/openapi-generator).
+Эта библиотека является духовным преемником оригинального пакета [goesi](https://github.com/antihax/goesi), обновленного для поддержки спецификации OpenAPI 3.x+ от CCP. Сгенерирована с помощью [Openapi Generator](https://github.com/openapitools/openapi-generator).
 
 <div class="grid cards" markdown>
 

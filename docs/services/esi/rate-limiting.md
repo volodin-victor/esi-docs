@@ -1,99 +1,99 @@
 ---
-title: Rate Limiting
+title: Ограничение скорости
 ---
-# Rate Limiting
+# Ограничение скорости
 
-ESI implements [floating window rate limiting](https://smudge.ai/blog/ratelimit-algorithms#sliding-windows) to ensure fair usage across all applications.
-The intention of the rate limit is to show third party developers where the line is; but please don't take it for a challenge to constantly find the line.
-In most cases you should be fine with far less requests than the rate limit allows you.
+ESI реализует [ограничение скорости с плавающим окном](https://smudge.ai/blog/ratelimit-algorithms#sliding-windows) для обеспечения справедливого использования всеми приложениями.
+Цель ограничения скорости — показать сторонним разработчикам, где проходит граница; но, пожалуйста, не воспринимайте это как вызов постоянно искать эту границу.
+В большинстве случаев вам будет достаточно гораздо меньшего количества запросов, чем позволяет ограничение скорости.
 
 !!! important
 
-    Rate limiting isn't active on all routes yet.
-    Check the OpenAPI Specs or the HTTP response headers for up-to-date information.
+    Ограничение скорости ещё не активно на всех маршрутах.
+    Проверяйте спецификации OpenAPI или заголовки HTTP-ответов для получения актуальной информации.
 
 !!! warning
 
-    For routes that do not have this new rate limiting enabled, there is still an older "error rate limit" active.
-    This allows at most 100 non-2xx/3xx responses per minute. After that, it will return 420s on all ESI routes, even those with the new rate limiting enabled.
+    Для маршрутов, на которых это новое ограничение скорости не включено, всё ещё действует старое "ограничение на ошибки".
+    Оно позволяет максимум 100 не-2xx/3xx ответов в минуту. После этого вы будете получать 420 на всех маршрутах ESI, даже на тех, где включено новое ограничение скорости.
 
 !!! important
 
-    Some routes also have a rate limiter deep in EVE Server code.
-    This can also cause 429s to be returned, without the rate limiter headers indicating why.
-    We are working on deprecating these, but in the mean time, be aware this can be the case.
+    Некоторые маршруты также имеют ограничитель скорости глубоко в коде сервера EVE.
+    Это также может привести к возврату 429, без указания причины в заголовках ограничителя скорости.
+    Мы работаем над упразднением этих ограничений, но пока имейте в виду, что это возможно.
 
-## Floating Window
+## Плавающее окно
 
-A floating window is a mathematical approximation where tokens consumed by a request are released back to your bucket after the window size has passed.
+Плавающее окно — это математическое приближение, при котором токены, потреблённые запросом, возвращаются в ваше хранилище после истечения размера окна.
 
-For example, with a 15-minute window:
+Например, с 15-минутным окном:
 
-- If you make a request at 10:00 AM that costs 2 tokens, those 2 tokens will be returned to your bucket around 10:15 AM.
-- If you make another request at 10:05 AM that costs 1 token, that token will be returned around 10:20 AM.
+- Если вы делаете запрос в 10:00, который стоит 2 токена, эти 2 токена вернутся в ваше хранилище около 10:15.
+- Если вы делаете ещё один запрос в 10:05, который стоит 1 токен, этот токен вернётся около 10:20.
 
-This creates a sliding window where your token consumption is tracked continuously, and tokens are freed up as time passes from when they were originally consumed.
+Это создаёт скользящее окно, где потребление ваших токенов отслеживается непрерывно, и токены освобождаются по мере прохождения времени с момента их первоначального потребления.
 
-## Bucket System
+## Система хранилищ
 
-Each `rate limit group` and `userID` pair is assigned their own bucket.
+Каждой паре `группы ограничения скорости` и `userID` назначается собственное хранилище.
 
-- `rate limit group`: Each route is assigned to a rate limit group. This is mentioned both in the response headers as in the API specifications.
+- `группа ограничения скорости`: Каждый маршрут назначен группе ограничения скорости. Это упоминается как в заголовках ответа, так и в спецификациях API.
 - `userID`:
-    - Authenticated routes: `<applicationID>:<characterID>` from the Access Token.
-    - Non-authenticated routes: `<sourceIP>` (or `<sourceIP>:<applicationID>` if an Access Token is supplied).
+    - Аутентифицированные маршруты: `<applicationID>:<characterID>` из Access Token.
+    - Неаутентифицированные маршруты: `<sourceIP>` (или `<sourceIP>:<applicationID>`, если предоставлен Access Token).
 
-On each request, ESI verifies that you haven't exceeded the maximum tokens allocated for your assigned bucket.
-If you have exceeded that limit, you receive a 429, together with a `Retry-After` header.
-This header indicates, in seconds, when you will have enough tokens to make a request that won't be rate limited.
+При каждом запросе ESI проверяет, что вы не превысили максимальное количество токенов, выделенных для вашего назначенного хранилища.
+Если вы превысили этот лимит, вы получаете 429 вместе с заголовком `Retry-After`.
+Этот заголовок указывает, в секундах, когда у вас будет достаточно токенов для запроса, который не будет ограничен по скорости.
 
 !!! note
 
-    The reason the `userID` is a combination of both the `applicationID` and `characterID`, is to ensure popular apps have to obey by the same limits as newly created apps.
-    Some token limits might look small, but remember: they are per applicationID/characterID pair.
+    Причина, по которой `userID` является комбинацией `applicationID` и `characterID`, заключается в том, чтобы гарантировать, что популярные приложения должны соблюдать те же ограничения, что и недавно созданные приложения.
+    Некоторые лимиты токенов могут выглядеть маленькими, но помните: они действуют для каждой пары applicationID/characterID.
 
-## Token System
+## Система токенов
 
-Every request consumes tokens based on the response status:
+Каждый запрос потребляет токены в зависимости от статуса ответа:
 
-| Status Code | Token Cost | Reasoning                                                        |
-|-------------|------------|------------------------------------------------------------------|
-| 2XX         | 2 tokens   |                                                                  |
-| 3XX         | 1 token    | Promote the use of `If-Modified-Since` and `If-Match`.           |
-| 4XX         | 5 tokens   | Discourage hitting user-errors. Does not apply to 429 responses. |
-| 5XX         | 0 tokens   | You shouldn't be penalized for server-side errors.               |
+| Код статуса | Стоимость в токенах | Обоснование                                                              |
+|-------------|---------------------|--------------------------------------------------------------------------|
+| 2XX         | 2 токена            |                                                                          |
+| 3XX         | 1 токен             | Поощряет использование `If-Modified-Since` и `If-Match`.                 |
+| 4XX         | 5 токенов           | Препятствует попаданию в пользовательские ошибки. Не применяется к 429.  |
+| 5XX         | 0 токенов           | Вы не должны быть наказаны за ошибки на стороне сервера.                 |
 
-## Rate Limit Headers
+## Заголовки ограничения скорости
 
-The following headers are included in HTTP response for routes under rate limiting:
+Следующие заголовки включены в HTTP-ответ для маршрутов с ограничением скорости:
 
-- `X-Ratelimit-Group`: Route group identifier.
-- `X-Ratelimit-Limit`: Total tokens per window (format: `150/15m`).
-    - `m`: minutes.
-    - `h`: hours.
-- `X-Ratelimit-Remaining`: Available tokens remaining.
-- `X-Ratelimit-Used`: Tokens consumed by this request.
+- `X-Ratelimit-Group`: Идентификатор группы маршрута.
+- `X-Ratelimit-Limit`: Общее количество токенов на окно (формат: `150/15m`).
+    - `m`: минуты.
+    - `h`: часы.
+- `X-Ratelimit-Remaining`: Оставшиеся доступные токены.
+- `X-Ratelimit-Used`: Токены, потреблённые этим запросом.
 
-And if you are rate-limited (429):
+И если вы ограничены по скорости (429):
 
-- `Retry-After`: indicates, in seconds, when to try again.
+- `Retry-After`: указывает, в секундах, когда повторить попытку.
 
-## OpenAPI Specs extension
+## Расширение спецификаций OpenAPI
 
-For each route that has rate limiting active, the OpenAPI specs announces this via the `x-rate-limit` extension.
-This contains three fields:
+Для каждого маршрута с активным ограничением скорости спецификации OpenAPI объявляют это через расширение `x-rate-limit`.
+Оно содержит три поля:
 
-- `group`: the rate limit group this route belongs to.
-- `window-size`: the size of the window.
-- `max-tokens`: the maximum amount of tokens allowed per `window-size`.
+- `group`: группа ограничения скорости, к которой принадлежит этот маршрут.
+- `window-size`: размер окна.
+- `max-tokens`: максимальное количество токенов, разрешённых на `window-size`.
 
-Each route in the same group will show the same `window-size` and `max-tokens`.
+Каждый маршрут в одной группе будет показывать одинаковые значения `window-size` и `max-tokens`.
 
-## Best Practices
+## Лучшие практики
 
-- Don't operate at the limit.
-- If the `X-Ratelimit-Remaining` is approaching zero, start to slow down.
-- Spread requests over time rather than bursting constantly.
-- If you need to burst, that is fine; just not every window-size.
-- Use staggered scheduling for periodic requests when possible. Ideally not `*/5` cronjobs. But rather: 5 minutes after the last job was finished.
-- Respect cache times to minimize unnecessary requests.
+- Не работайте на пределе.
+- Если `X-Ratelimit-Remaining` приближается к нулю, начните замедляться.
+- Распределяйте запросы во времени, а не постоянно делайте всплески.
+- Если вам нужен всплеск, это нормально; просто не каждое окно.
+- Используйте смещённое планирование для периодических запросов, когда это возможно. В идеале не `*/5` cronjobs, а скорее: через 5 минут после завершения последнего задания.
+- Уважайте время кеширования, чтобы минимизировать ненужные запросы.

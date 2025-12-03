@@ -4,7 +4,7 @@ search:
 
 title: Wanderer
 type: service 
-description: Wanderer is an EVE Online mapper tool, light and fast alternative to Pathfinder. You can self-host Wanderer Community Edition or have us manage Wanderer for you in the cloud.
+description: Wanderer — это инструмент для картографии EVE Online, лёгкая и быстрая альтернатива Pathfinder. Вы можете самостоятельно разместить Wanderer Community Edition или доверить нам управление Wanderer в облаке.
 maintainer:
   name: Wanderer Industries 
   github: wanderer-industries
@@ -13,7 +13,7 @@ maintainer:
 # `Wanderer - Mapping Tool`
 ![](logo.png)
 
-Wanderer is an EVE Online mapper tool, light and fast alternative to Pathfinder. You can self-host Wanderer Community Edition or have us manage Wanderer for you in the cloud.
+Wanderer — это инструмент для картографии EVE Online, лёгкая и быстрая альтернатива Pathfinder. Вы можете самостоятельно разместить Wanderer Community Edition или доверить нам управление Wanderer в облаке.
 
 <div class="grid cards" markdown>
 
@@ -26,38 +26,38 @@ Wanderer is an EVE Online mapper tool, light and fast alternative to Pathfinder.
 
 # Wanderer
 
-[Wanderer](https://wanderer.ltd/) is an EVE Online mapper tool, light and fast alternative to Pathfinder. You can self-host Wanderer Community Edition or have us manage Wanderer for you in the cloud. Made and hosted in the EU 🇪🇺
+[Wanderer](https://wanderer.ltd/) — это инструмент для картографии EVE Online, лёгкая и быстрая альтернатива Pathfinder. Вы можете самостоятельно разместить Wanderer Community Edition или доверить нам управление Wanderer в облаке. Сделано и размещено в ЕС 🇪🇺
 
 ![Wanderer](info.jpg)
 
-## Why Wanderer?
+## Почему Wanderer?
 
-Here's what makes Wanderer a great Pathfinder alternative:
+Вот что делает Wanderer отличной альтернативой Pathfinder:
 
-- **Clutter Free**: Wanderer provides simple interface and it cuts through the noise. No training necessary.
-- **Lightweight, fast and secure**: Wanderer is lightweight and fast. It uses a self-hosted database and a self-hosted server.
-- **See all your characaters on a single page**: Wanderer provides a simple interface to see all your characters on a single page.
-- **SPA support**: Wanderer is built with modern web frameworks in core.
-- **Active development**: Wanderer is actively developed and improved with new features and updates every week based on user feedback.
+- **Без лишнего**: Wanderer предоставляет простой интерфейс и убирает лишнее. Обучение не требуется.
+- **Лёгкий, быстрый и безопасный**: Wanderer лёгкий и быстрый. Он использует собственную базу данных и собственный сервер.
+- **Все ваши персонажи на одной странице**: Wanderer предоставляет простой интерфейс для просмотра всех ваших персонажей на одной странице.
+- **Поддержка SPA**: Wanderer построен на современных веб-фреймворках в основе.
+- **Активная разработка**: Wanderer активно разрабатывается и улучшается с новыми функциями и обновлениями каждую неделю на основе отзывов пользователей.
 
-Interested to learn more? [Check more on our website](https://wanderer.ltd/news).
+Хотите узнать больше? [Узнайте больше на нашем сайте](https://wanderer.ltd/news).
 
-### Can Wanderer be self-hosted?
+### Можно ли самостоятельно разместить Wanderer?
 
-Wanderer is [open source](https://wanderer.ltd/open-source-website-analytics) and we have a free as in beer and self-hosted solution called [Wanderer Community Edition (CE)](https://wanderer.ltd/news/self-hosted). Here are the differences between Wanderer and Wanderer CE:
+Wanderer имеет [открытый исходный код](https://wanderer.ltd/open-source-website-analytics), и у нас есть бесплатное и самостоятельное решение под названием [Wanderer Community Edition (CE)](https://wanderer.ltd/news/self-hosted). Вот различия между Wanderer и Wanderer CE:
 
 |  | Wanderer Cloud  | Wanderer Community Edition |
 | ------------- | ------------- | ------------- |
-| **Infrastructure management** | Easy and convenient. It takes 2 minutes to register your character and create a map. We manage everything so you don’t have to worry about anything and can focus on gameplay. | You do it all yourself. You need to get a server and you need to manage your infrastructure. You are responsible for installation, maintenance, upgrades, server capacity, uptime, backup, security, stability, consistency, loading time and so on.|
-| **Release schedule** | Continuously developed and improved with new features and updates multiple times per week. | Latest features and improvements won't be immediately available.|
-| **Server location** | All visitor data is exclusively processed on EU-owned cloud infrastructure. We keep your site data on a secure, encrypted and green energy powered server in Germany. This ensures that your site data is protected by the strict European Union data privacy laws and ensures compliance with GDPR. Your website data never leaves the EU. | You have full control and can host your instance on any server in any country that you wish. Host it on a server in your basement or host it with any cloud provider wherever you want, even those that are not GDPR compliant.|
+| **Управление инфраструктурой** | Легко и удобно. Регистрация персонажа и создание карты занимает 2 минуты. Мы управляем всем, так что вам не нужно ни о чём беспокоиться и можно сосредоточиться на игре. | Вы делаете всё сами. Вам нужен сервер, и вам нужно управлять своей инфраструктурой. Вы несёте ответственность за установку, обслуживание, обновления, производительность сервера, время работы, резервное копирование, безопасность, стабильность, согласованность, время загрузки и так далее.|
+| **График выпусков** | Постоянно разрабатывается и улучшается с новыми функциями и обновлениями несколько раз в неделю. | Последние функции и улучшения не будут сразу доступны.|
+| **Расположение сервера** | Все данные посетителей обрабатываются исключительно на облачной инфраструктуре, принадлежащей ЕС. Мы храним данные вашего сайта на безопасном, зашифрованном сервере, работающем на зелёной энергии в Германии. Это гарантирует, что данные вашего сайта защищены строгими законами Европейского Союза о защите данных и обеспечивает соответствие GDPR. Данные вашего веб-сайта никогда не покидают ЕС. | У вас есть полный контроль, и вы можете разместить свой экземпляр на любом сервере в любой стране, которую вы пожелаете. Разместите его на сервере в подвале или на любом облачном провайдере где угодно, даже тех, которые не соответствуют GDPR.|
 
-Interested in self-hosting Wanderer CE on your server? Take a look at our [Wanderer CE installation instructions](https://github.com/wanderer-industries/community-edition/).
+Интересуетесь самостоятельным размещением Wanderer CE на своём сервере? Ознакомьтесь с нашими [инструкциями по установке Wanderer CE](https://github.com/wanderer-industries/community-edition/).
 
-Wanderer CE is a community supported project and there are no guarantees that you will get support from the creators of Wanderer to troubleshoot your self-hosting issues. There is a [community supported forum](https://github.com/orgs/wanderer-industries/discussions/4) where you can ask for help.
+Wanderer CE — это проект, поддерживаемый сообществом, и нет гарантий, что вы получите поддержку от создателей Wanderer для устранения проблем с самостоятельным размещением. Есть [форум, поддерживаемый сообществом](https://github.com/orgs/wanderer-industries/discussions/4), где вы можете попросить о помощи.
 
-Our only source of funding is your donations.
+Наш единственный источник финансирования — ваши пожертвования.
 
-## Technology
+## Технологии
 
-Wanderer is a standard Elixir/Phoenix application backed by a PostgreSQL database for general data. On the frontend we use [TailwindCSS](https://tailwindcss.com/) for styling and React to make the map interactive.
+Wanderer — это стандартное приложение Elixir/Phoenix с базой данных PostgreSQL для общих данных. На фронтенде мы используем [TailwindCSS](https://tailwindcss.com/) для стилизации и React для интерактивности карты.

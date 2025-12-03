@@ -1,7 +1,7 @@
-# Planetary Industry
+# Планетарная промышленность
 
-## Extraction calculation
-To calculate the amount extracted from the ESI PI endpoint is more complex then just pulling from the ESI and using the values, snippets below walk through calculating each stage with its variations.
-<h3>Example</h3>
+## Расчет добычи
+Расчет количества добытого из конечной точки ESI PI сложнее, чем просто извлечение данных из ESI и использование значений. Приведенные ниже фрагменты кода проходят через расчет каждого этапа с его вариациями.
+<h3>Пример</h3>
 
 --8<-- "snippets/formulae/pi-extraction.md"

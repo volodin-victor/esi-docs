@@ -4,7 +4,7 @@ search:
 
 title: JitaSpace
 type: service
-description: All-in-one web application with an ever-expanding feature set of tools for EVE Online, from reading all your characters' EveMail in one place, to browsing the LP store offers.
+description: Универсальное веб-приложение с постоянно расширяющимся набором инструментов для EVE Online, от чтения всей почты EveMail ваших персонажей в одном месте до просмотра предложений магазинов LP.
 maintainer:
   name: joaomlneto
   github: joaomlneto
@@ -14,13 +14,13 @@ maintainer:
 
 ![](icon.png)
 
-All-in-one web application with an ever-expanding feature set of tools for EVE Online, combining the best of ESI data with a sleek UI.
-Add multiple characters and view all their data in one place.
+Универсальное веб-приложение с постоянно расширяющимся набором инструментов для EVE Online, сочетающее лучшее из данных ESI со стильным интерфейсом.
+Добавляйте несколько персонажей и просматривайте все их данные в одном месте.
 
-More tools coming soon, so check back often!
-If you have any suggestions, feel free to [reach out](https://www.jita.space/about).
+Скоро появятся новые инструменты, так что заходите почаще!
+Если у вас есть предложения, не стесняйтесь [связаться с нами](https://www.jita.space/about).
 
-_JitaSpace does not store any of your EVE data: everything is stored locally in your device._
+_JitaSpace не хранит никаких ваших данных EVE: всё хранится локально на вашем устройстве._
 
 <div class="grid cards" markdown>
 
@@ -29,15 +29,15 @@ _JitaSpace does not store any of your EVE data: everything is stored locally in 
 
 </div>
 
-## Character Tools
-View your EVEMail, Fittings and more from multiple characters in one place.
+## Инструменты для персонажей
+Просматривайте свою почту EVEMail, сборки и многое другое от нескольких персонажей в одном месте.
 
-![Overview of multiple characters](character_card.png)
-![EveMail Viewer](evemail.png)
-![In-game Fittings Browser, including current ship fittings](fitting_current.png)
+![Обзор нескольких персонажей](character_card.png)
+![Просмотрщик EveMail](evemail.png)
+![Браузер сборок из игры, включая текущие сборки корабля](fitting_current.png)
 
-## Universe Data Browser
-Browse through information about EVE Online, including Agents, LP Stores, and more.
+## Браузер данных вселенной
+Просматривайте информацию об EVE Online, включая агентов, магазины LP и многое другое.
 
-![Loyalty Point Store Table](lp_store_table.png)
-![Route Planner](travel_planner.png)
+![Таблица магазина очков лояльности](lp_store_table.png)
+![Планировщик маршрутов](travel_planner.png)

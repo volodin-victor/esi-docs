@@ -1,34 +1,34 @@
-# From-id Pagination
+# Пагинация From-ID
 
-From-id pagination uses record IDs to navigate backwards through datasets in chronological order.
-This pagination method only allows you to move backwards in time, making it ideal for collecting historical data.
+Пагинация From-ID использует ID записей для навигации назад по наборам данных в хронологическом порядке.
+Этот метод пагинации позволяет вам двигаться только назад во времени, что делает его идеальным для сбора исторических данных.
 
-## How pagination works
+## Как работает пагинация
 
-1. **Initial request**: Make a request without the `from_id` parameter to get the most recent records.
-2. **Backward navigation**: Use the `transaction_id` of the last record as `from_id` in your next request. The response will always include that `from_id` record.
-3. **Stop condition**: If the response contains more than just the `from_id` record, continue. If it only contains that one record, stop.
+1. **Начальный запрос**: Сделайте запрос без параметра `from_id`, чтобы получить самые последние записи.
+2. **Навигация назад**: Используйте `transaction_id` последней записи как `from_id` в следующем запросе. Ответ всегда будет включать эту запись `from_id`.
+3. **Условие остановки**: Если ответ содержит больше, чем только запись `from_id`, продолжайте. Если он содержит только эту одну запись, остановитесь.
 
-### Request parameters
+### Параметры запроса
 
-- `from_id`: The ID of a record. The response will contain this record and records that are older.
+- `from_id`: ID записи. Ответ будет содержать эту запись и записи, которые старше.
 
-When you omit the `from_id` parameter, you get the most recent records.
+Когда вы опускаете параметр `from_id`, вы получаете самые последние записи.
 
-### Data ordering
+### Порядок данных
 
-Records returned by these listing routes are ordered by time, with the most recent records first.
-Using `from_id` returns that record and records that are older.
+Записи, возвращаемые этими маршрутами списков, упорядочены по времени, причём самые последние записи идут первыми.
+Использование `from_id` возвращает эту запись и записи, которые старше.
 
-## Initial Data Collection
+## Начальный сбор данных
 
-Start by making your first request without the `from_id` parameter:
+Начните с первого запроса без параметра `from_id`:
 
 ```http
 GET /<listing-route>
 ```
 
-You'll receive a response like this:
+Вы получите ответ, подобный этому:
 
 ```json
 [
@@ -38,13 +38,13 @@ You'll receive a response like this:
 ]
 ```
 
-**What to do:**
+**Что делать:**
 
-1. Store all the records you retrieved.
-2. If you find a record you already know, stop.
-3. If you are at the end of the record set, use the last `transaction_id` as `from_id` in your next request.
-4. The response will always contain that `from_id` record (98). If it only contains that one record, stop. Otherwise continue at step 1.
+1. Сохраните все полученные записи.
+2. Если вы нашли запись, которую уже знаете, остановитесь.
+3. Если вы в конце набора записей, используйте последний `transaction_id` как `from_id` в следующем запросе.
+4. Ответ всегда будет содержать эту запись `from_id` (98). Если он содержит только эту одну запись, остановитесь. В противном случае продолжайте с шага 1.
 
-## Example
+## Пример
 
 --8<-- "snippets/examples/pagination-from-id.md"

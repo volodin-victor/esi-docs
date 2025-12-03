@@ -3,214 +3,214 @@ title: Single Sign-On
 ---
 # Single Sign-On (SSO)
 
-The EVE Single Sign-On (SSO) Service helps facilitate third-party application access for players.
-By leveraging the OAuth 2.0 protocol, the EVE SSO allows players to sign in to external websites, applications or tools using their EVE Online credentials.
-Furthermore, this provides a seamless and secure way for players to authorize third-party applications to access their EVE Online data through the ESI API, without exposing their account credentials.
+Сервис EVE Single Sign-On (SSO) помогает облегчить доступ сторонних приложений для игроков.
+Используя протокол OAuth 2.0, EVE SSO позволяет игрокам входить на внешние веб-сайты, в приложения или инструменты, используя свои учетные данные EVE Online.
+Кроме того, это обеспечивает безопасный способ для игроков авторизовать сторонние приложения для доступа к их данным EVE Online через API ESI без раскрытия учетных данных аккаунта.
 
-The SSO ensures that third-party applications can obtain limited access to a character's data based on the permissions granted (also known as "scopes").
-For instance, a third-party application may request access to a character's location, skill queue or wallet balance, but only if the player explicitly grants the application permission to do so.
-At the same time, scopes not granted by the player will not be accessible to the third-party application.
+SSO гарантирует, что сторонние приложения могут получить ограниченный доступ к данным персонажа на основе предоставленных разрешений (также известных как "scopes" - области доступа).
+Например, стороннее приложение может запросить доступ к местоположению персонажа, очереди навыков или балансу кошелька, но только если игрок явно предоставит приложению разрешение на это.
+В то же время области доступа, не предоставленные игроком, не будут доступны стороннему приложению.
 
-This secure, token-based access control mechanism ensures that players have full control over the data they share with third-party applications, and can revoke access at any time.
+Этот безопасный механизм контроля доступа на основе токенов гарантирует, что игроки имеют полный контроль над данными, которыми они делятся со сторонними приложениями, и могут отозвать доступ в любое время.
 
-## How it works
+## Как это работает
 
-The EVE SSO workflow is based on the OAuth 2.0 protocol, which is a widely used standard for secure authorization.
+Рабочий процесс EVE SSO основан на протоколе OAuth 2.0, который является широко используемым стандартом для безопасной авторизации.
 
-To explain the SSO workflow roughly, we will use the example of a third-party website that wants to access a player's character data.
+Чтобы примерно объяснить рабочий процесс SSO, мы будем использовать пример стороннего веб-сайта, который хочет получить доступ к данным персонажа игрока.
 
-1. **Application Registration**: Before using the SSO, developers must register their application with the EVE Online Developers Portal.
-   This process generates a unique client ID and secret, which are used to authenticate the application with the SSO service.
-2. **Authorization Request**: When a user wants to use a third-party application, the application redirects the user to the EVE SSO service.
-   The user is prompted to log in with their EVE Online account, after which they select with which character they wish to continue, and to confirm the access scopes that will be granted to the application. The user must explicitly consent to all the requested scopes, or cancel the process.
-3. **Authorization Code and Redirect**: If the user has selected a character, and consented to the requested scopes, the SSO service redirects the user back to the third-party application.
-   The redirect contains an authorization code, which the application can use to obtain an access token.
-4. **Token Exchange**: The third-party application sends the authorization code to the SSO service, along with the client ID and secret. In return, the SSO service returns an access token together with a refresh token.
-   The access token is a time-limited token used to authenticate requests to the ESI API, while the refresh token can be used to obtain a new access token when the current one expires.
-5. **Accessing the ESI API**: With the access token, the third-party application can now make requests to the ESI API on behalf of the user. The token is valid only for the character and scopes that the user has consented to, and until it expires.
+1. **Регистрация приложения**: Перед использованием SSO разработчики должны зарегистрировать свое приложение на портале разработчиков EVE Online.
+   Этот процесс генерирует уникальный client ID и secret, которые используются для аутентификации приложения в сервисе SSO.
+2. **Запрос авторизации**: Когда пользователь хочет использовать стороннее приложение, приложение перенаправляет пользователя в сервис EVE SSO.
+   Пользователю предлагается войти со своим аккаунтом EVE Online, после чего он выбирает, с каким персонажем продолжить, и подтверждает области доступа, которые будут предоставлены приложению. Пользователь должен явно дать согласие на все запрошенные области доступа или отменить процесс.
+3. **Код авторизации и перенаправление**: Если пользователь выбрал персонажа и дал согласие на запрошенные области доступа, сервис SSO перенаправляет пользователя обратно в стороннее приложение.
+   Перенаправление содержит код авторизации, который приложение может использовать для получения токена доступа.
+4. **Обмен токенами**: Стороннее приложение отправляет код авторизации в сервис SSO вместе с client ID и secret. В ответ сервис SSO возвращает токен доступа вместе с токеном обновления.
+   Токен доступа — это временный токен, используемый для аутентификации запросов к API ESI, в то время как токен обновления можно использовать для получения нового токена доступа, когда текущий истекает.
+5. **Доступ к API ESI**: С токеном доступа стороннее приложение теперь может делать запросы к API ESI от имени пользователя. Токен действителен только для персонажа и областей доступа, на которые пользователь дал согласие, и до истечения срока его действия.
 
 ``` mermaid
 sequenceDiagram
-    participant browser as Web Browser
-    participant app as Your Application
+    participant browser as Веб-браузер
+    participant app as Ваше приложение
     participant sso as EVE SSO
     participant esi as ESI
 
-    app->>browser: Redirect the user to the authorize endpoint <br/> requesting specific scopes
-    browser->>sso: Browser contacts the EVE SSO
-    sso->>browser: Redirects user to the login page
-    browser->>sso: User completes the login flow and authorizes the request
-    sso->>browser: Redirects user to the app's defined callback URL with authorization code
-    browser->>app: User returns to the application with an authorization code
-    app->>sso: Requests tokens through the SSO's token endpoint, <br/> passing the authorization code and application client id/secret
-    sso-->>app: Responds with an access token and refresh token
+    app->>browser: Перенаправить пользователя на конечную точку авторизации <br/> запрашивая определенные области доступа
+    browser->>sso: Браузер связывается с EVE SSO
+    sso->>browser: Перенаправляет пользователя на страницу входа
+    browser->>sso: Пользователь завершает процесс входа и авторизует запрос
+    sso->>browser: Перенаправляет пользователя на определенный URL обратного вызова приложения с кодом авторизации
+    browser->>app: Пользователь возвращается в приложение с кодом авторизации
+    app->>sso: Запрашивает токены через конечную точку токена SSO, <br/> передавая код авторизации и client id/secret приложения
+    sso-->>app: Отвечает токеном доступа и токеном обновления
 ```
 
-## Terms and important notes
+## Термины и важные примечания
 
-- **Client ID and Secret**: The client ID and secret are used to authenticate the application with the SSO service.
-   The Client ID is public and can be shared, but the secret must be kept private.
-- **Scopes**: Scopes are permissions that the user must grant to the application.
-   The application can only access the data that the user has consented to.
-   Applications can also only request scopes that they have assigned in the application registration.
-- **Access Token**: The access token is a time-limited token that the application uses to authenticate requests to the ESI API.
-   The token is only valid for the character and scopes that the user has consented to.
-- **Refresh Token**: The refresh token is used to obtain a new access token when the current one expires.
-   The refresh token is long-lived and can be used to obtain new access tokens indefinitely, as long as the user has not revoked the application's access.
-   This token must be kept secure, as it can be used to obtain new access tokens.
-- **Authorization Code**: The authorization code is a one-time code that the application exchanges for an access token.
-   The code is only valid for a short period and can only be used once.
-- **Redirect URLs**: The application must define a redirect URL where the user is sent after completing the authorization flow.
-   The redirect URL must be registered with the application. Any other URL will be rejected by the SSO service.
-- **State Parameter**: The state parameter is used to prevent CSRF attacks.
-   The application generates a random string and includes it in the authorization request.
-   The SSO service returns the same string in the redirect, and the application must verify that the state parameter matches the one it sent.
-- **Endpoints**: The SSO service has several endpoints that applications interact with. These include the authorization endpoint, token endpoint, and the JWKS endpoint.
-   The URLs for these endpoints can be retrieved from the SSO service's well-known endpoint: `https://login.eveonline.com/.well-known/oauth-authorization-server`.
-   These URLs may change in the future, so it is recommended to always fetch them from the endpoint, however, it is safe (and recommended) to cache them for a reasonable amount of time.
+- **Client ID и Secret**: Client ID и secret используются для аутентификации приложения в сервисе SSO.
+   Client ID является публичным и может быть общедоступным, но secret должен храниться в секрете.
+- **Области доступа (Scopes)**: Области доступа — это разрешения, которые пользователь должен предоставить приложению.
+   Приложение может получить доступ только к данным, на которые пользователь дал согласие.
+   Приложения также могут запрашивать только те области доступа, которые назначены им при регистрации приложения.
+- **Токен доступа (Access Token)**: Токен доступа — это временный токен, который приложение использует для аутентификации запросов к API ESI.
+   Токен действителен только для персонажа и областей доступа, на которые пользователь дал согласие.
+- **Токен обновления (Refresh Token)**: Токен обновления используется для получения нового токена доступа, когда текущий истекает.
+   Токен обновления долгоживущий и может использоваться для получения новых токенов доступа бесконечно, пока пользователь не отозвал доступ приложения.
+   Этот токен должен храниться в безопасности, так как он может быть использован для получения новых токенов доступа.
+- **Код авторизации (Authorization Code)**: Код авторизации — это одноразовый код, который приложение обменивает на токен доступа.
+   Код действителен только в течение короткого периода и может быть использован только один раз.
+- **URL перенаправления (Redirect URLs)**: Приложение должно определить URL перенаправления, куда отправляется пользователь после завершения процесса авторизации.
+   URL перенаправления должен быть зарегистрирован с приложением. Любой другой URL будет отклонен сервисом SSO.
+- **Параметр состояния (State Parameter)**: Параметр состояния используется для предотвращения CSRF-атак.
+   Приложение генерирует случайную строку и включает её в запрос авторизации.
+   Сервис SSO возвращает ту же строку в перенаправлении, и приложение должно проверить, что параметр состояния совпадает с отправленным.
+- **Конечные точки (Endpoints)**: Сервис SSO имеет несколько конечных точек, с которыми взаимодействуют приложения. К ним относятся конечная точка авторизации, конечная точка токенов и конечная точка JWKS.
+   URL-адреса этих конечных точек можно получить из известной конечной точки сервиса SSO: `https://login.eveonline.com/.well-known/oauth-authorization-server`.
+   Эти URL могут измениться в будущем, поэтому рекомендуется всегда получать их из конечной точки, однако безопасно (и рекомендуется) кешировать их на разумное время.
 
-## Authorization Flows
+## Потоки авторизации
 
-!!! note "Before you start"
+!!! note "Перед началом"
 
-    If you are new to OAuth 2.0, we recommend reading the [OAuth 2.0 documentation](https://oauth.net/2/) to get a better understanding of the protocol.
-    Also, the [chapter above](#terms-and-important-notes) contains information on how to retrieve the URLs needed for the authorization flows.
+    Если вы новичок в OAuth 2.0, мы рекомендуем прочитать [документацию OAuth 2.0](https://oauth.net/2/), чтобы лучше понять протокол.
+    Также [раздел выше](#термины-и-важные-примечания) содержит информацию о том, как получить URL, необходимые для потоков авторизации.
 
 
-Below are examples of some of the different authorization flows that can be used with the EVE SSO service. This assumes that you have already registered your application with the EVE Online Developers Portal and obtained a client ID and secret. Looking at the [SSO overview](#how-it-works), these flows will mainly implement steps 2, 3 and 4 of the SSO workflow.
+Ниже приведены примеры некоторых различных потоков авторизации, которые можно использовать с сервисом EVE SSO. Это предполагает, что вы уже зарегистрировали свое приложение на портале разработчиков EVE Online и получили client ID и secret. Глядя на [обзор SSO](#как-это-работает), эти потоки в основном реализуют шаги 2, 3 и 4 рабочего процесса SSO.
 
 ### Authorization Code
 
-The Authorization Code flow is the most common OAuth 2.0 flow used with the EVE SSO service. It is suitable for web applications that can securely store the client secret on the server side.
+Поток Authorization Code — это наиболее распространенный поток OAuth 2.0, используемый с сервисом EVE SSO. Он подходит для веб-приложений, которые могут безопасно хранить client secret на стороне сервера.
 
 ``` mermaid
 sequenceDiagram
-    participant app as Your Application
-    participant browser as Web Browser
+    participant app as Ваше приложение
+    participant browser as Веб-браузер
     participant sso as EVE SSO
     
-    app->>app: [1] Create a valid query string containing the state, <br/> redirect url, and scopes you wish to ask for.
-    app->>browser: Append the query string to the `authorization_endpoint` URL and redirect the user there
-    browser->>sso: The browser navigates to the SSO
-    sso->>browser: The SSO takes the user through the authentication flow
-    sso->>browser: The SSO redirects the user to your redirect url with an authorization code and the state
-    browser->>app: The user returns to your application on the redirect url, together with the code and state
-    app->>app: Verify the state parameter
-    app->>sso: [2] send a POST request to the `token_endpoint` URL with the authorization in the payload, <br/> using basic authentication with your client id and secret
-    sso-->>app: The SSO responds with an access token and refresh token
-    app->>app: Verify the access token
+    app->>app: [1] Создать допустимую строку запроса, содержащую состояние, <br/> URL перенаправления и области доступа, которые вы хотите запросить.
+    app->>browser: Добавить строку запроса к URL `authorization_endpoint` и перенаправить туда пользователя
+    browser->>sso: Браузер переходит к SSO
+    sso->>browser: SSO проводит пользователя через процесс аутентификации
+    sso->>browser: SSO перенаправляет пользователя на ваш URL перенаправления с кодом авторизации и состоянием
+    browser->>app: Пользователь возвращается в ваше приложение по URL перенаправления вместе с кодом и состоянием
+    app->>app: Проверить параметр состояния
+    app->>sso: [2] отправить POST-запрос на URL `token_endpoint` с авторизацией в теле запроса, <br/> используя базовую аутентификацию с вашим client id и secret
+    sso-->>app: SSO отвечает токеном доступа и токеном обновления
+    app->>app: Проверить токен доступа
 ```
 
-1. **Query Parameters**: When redirecting the user to the SSO, you pass along several query parameters to give the SSO information on what application is requesting access, what scopes are being requested, and where to redirect the user back to after the authorization flow is complete.   
-   All query parameters are URL-encoded and appended to the `authorization_endpoint` URL.
-      - `response_type=code`: This tells the SSO that you are using the Authorization Code flow, and that you expect an authorization code in return.
-      - `client_id=<your_client_id>`: This is the client ID you received when registering your application, and identifies your application with the login request. The SSO will use this to look up your application's details.
-      - `redirect_uri=<your_redirect_uri>`: This is the URL where the user will be redirected back to after the authorization flow is complete. This URL must match one of the redirect URLs you registered with your application.
-      - `scope=<space-separated list of scopes>`: This is a list of scopes that your application is requesting access to. The user will be asked to consent to these scopes before continuing.
-      - `state=<random_string>`: This is a random string that you generate and include in the query parameters. The SSO will return this string in the redirect URL, and you must verify that it matches the one you sent to prevent CSRF attacks.
+1. **Параметры запроса**: При перенаправлении пользователя в SSO вы передаете несколько параметров запроса, чтобы предоставить SSO информацию о том, какое приложение запрашивает доступ, какие области доступа запрашиваются и куда перенаправить пользователя после завершения процесса авторизации.   
+   Все параметры запроса URL-кодируются и добавляются к URL `authorization_endpoint`.
+      - `response_type=code`: Это сообщает SSO, что вы используете поток Authorization Code и ожидаете код авторизации в ответ.
+      - `client_id=<your_client_id>`: Это client ID, который вы получили при регистрации приложения, и он идентифицирует ваше приложение при запросе входа. SSO использует его для поиска данных вашего приложения.
+      - `redirect_uri=<your_redirect_uri>`: Это URL, на который пользователь будет перенаправлен после завершения процесса авторизации. Этот URL должен соответствовать одному из URL перенаправления, зарегистрированных с вашим приложением.
+      - `scope=<space-separated list of scopes>`: Это список областей доступа, к которым ваше приложение запрашивает доступ. Пользователю будет предложено дать согласие на эти области доступа перед продолжением.
+      - `state=<random_string>`: Это случайная строка, которую вы генерируете и включаете в параметры запроса. SSO вернет эту строку в URL перенаправления, и вы должны проверить, что она совпадает с отправленной, чтобы предотвратить CSRF-атаки.
    
-2. **Token Request**: After receiving the authorization code, the application sends a POST request to the token endpoint with the following form-encoded body:
-      - `grant_type=authorization_code`: This tells the SSO that you are exchanging an authorization code for an access token.
-      - `code=<code>`: This is the authorization code that was received from the SSO.
+2. **Запрос токена**: После получения кода авторизации приложение отправляет POST-запрос к конечной точке токенов со следующим телом, закодированным в формате form:
+      - `grant_type=authorization_code`: Это сообщает SSO, что вы обмениваете код авторизации на токен доступа.
+      - `code=<code>`: Это код авторизации, полученный от SSO.
 
-      The request must be authenticated using basic authentication with your client ID and secret.
+      Запрос должен быть аутентифицирован с использованием базовой аутентификации с вашим client ID и secret.
 
-<h4>Example</h4>
+<h4>Пример</h4>
 
 --8<-- "snippets/sso/authorization-code.md"
 
 
-### Authorization Code with PKCE
+### Authorization Code с PKCE
 
-The Authorization Code flow with PKCE (Proof Key for Code Exchange) is an enhanced version of the Authorization Code flow. It is mostly aimed at mobile and desktop applications that cannot securely store the client secret.
+Поток Authorization Code с PKCE (Proof Key for Code Exchange) — это улучшенная версия потока Authorization Code. Он в основном предназначен для мобильных и настольных приложений, которые не могут безопасно хранить client secret.
 
 
 ``` mermaid
 sequenceDiagram
-    participant app as Your Application
-    participant browser as Web Browser
+    participant app as Ваше приложение
+    participant browser as Веб-браузер
     participant sso as EVE SSO
     
-    app->>app: [1] Generate a code challenge
-    app->>app: [2] Create a valid query string containing the code challenge, <br/>state, redirect url, and scopes you wish to ask for.
-    app->>browser: Append the query string to the `authorization_endpoint` URL and redirect the user there
-    browser->>sso: The browser navigates to the SSO
-    sso->>browser: The SSO takes the user through the authentication flow
-    sso->>browser: The SSO redirects the user to your redirect url with an authorization code and the state
-    browser->>app: The user returns to your application on the redirect url, together with the code and state
-    app->>app: Verify the state parameter
-    app->>app: [3] Create a payload containing the authorization code, <br/> code verifier and client ID
-    app->>sso: [4] send a POST request to the `token_endpoint` URL with the payload
-    sso-->>app: The SSO responds with an access token and refresh token
-    app->>app: Verify the access token
+    app->>app: [1] Сгенерировать code challenge
+    app->>app: [2] Создать допустимую строку запроса, содержащую code challenge, <br/>состояние, URL перенаправления и области доступа
+    app->>browser: Добавить строку запроса к URL `authorization_endpoint` и перенаправить туда пользователя
+    browser->>sso: Браузер переходит к SSO
+    sso->>browser: SSO проводит пользователя через процесс аутентификации
+    sso->>browser: SSO перенаправляет пользователя на URL перенаправления с кодом авторизации и состоянием
+    browser->>app: Пользователь возвращается в приложение по URL перенаправления вместе с кодом и состоянием
+    app->>app: Проверить параметр состояния
+    app->>app: [3] Создать тело запроса, содержащее код авторизации, <br/> code verifier и client ID
+    app->>sso: [4] отправить POST-запрос на URL `token_endpoint` с телом запроса
+    sso-->>app: SSO отвечает токеном доступа и токеном обновления
+    app->>app: Проверить токен доступа
 ```
 
-1. **Code Challenge**: The application generates a code challenge, which is a hashed version of a code verifier. <br/>
-   The code verifier is a random string that the application generates and keeps secret. <br/>
-   The code challenge is sent to the SSO in the authorization request, while the code verifier is used in the token request.
+1. **Code Challenge**: Приложение генерирует code challenge, который является хешированной версией code verifier. <br/>
+   Code verifier — это случайная строка, которую приложение генерирует и держит в секрете. <br/>
+   Code challenge отправляется в SSO в запросе авторизации, в то время как code verifier используется в запросе токена.
 
-2. **Query Parameters**: When redirecting the user to the SSO, you pass along several query parameters to give the SSO information on what application is requesting access, what scopes are being requested, and where to redirect the user back to after the authorization flow is complete.   
-   All query parameters are URL-encoded and appended to the `authorization_endpoint` URL.
-      - `code_challenge=<code challenge>`: This is the code challenge that was generated by the application.
-      - `code_challenge_method=S256`: This tells the SSO that the code challenge is hashed using the SHA-256 algorithm.
-      - `response_type=code`: This tells the SSO that you are using the Authorization Code flow, and that you expect an authorization code in return.
-      - `client_id=<your_client_id>`: This is the client ID you received when registering your application, and identifies your application with the login request. The SSO will use this to look up your application's details.
-      - `redirect_uri=<your_redirect_uri>`: This is the URL where the user will be redirected back to after the authorization flow is complete. This URL must match one of the redirect URLs you registered with your application.
-      - `scope=<space-separated list of scopes>`: This is a list of scopes that your application is requesting access to. The user will be asked to consent to these scopes before continuing.
-      - `state=<random_string>`: This is a random string that you generate and include in the query parameters. The SSO will return this string in the redirect URL, and you must verify that it matches the one you sent to prevent CSRF attacks.
+2. **Параметры запроса**: При перенаправлении пользователя в SSO вы передаете несколько параметров запроса, чтобы предоставить SSO информацию о том, какое приложение запрашивает доступ, какие области доступа запрашиваются и куда перенаправить пользователя после завершения процесса авторизации.   
+   Все параметры запроса URL-кодируются и добавляются к URL `authorization_endpoint`.
+      - `code_challenge=<code challenge>`: Это code challenge, сгенерированный приложением.
+      - `code_challenge_method=S256`: Это сообщает SSO, что code challenge хеширован с использованием алгоритма SHA-256.
+      - `response_type=code`: Это сообщает SSO, что вы используете поток Authorization Code и ожидаете код авторизации в ответ.
+      - `client_id=<your_client_id>`: Это client ID, который вы получили при регистрации приложения, и он идентифицирует ваше приложение при запросе входа. SSO использует его для поиска данных вашего приложения.
+      - `redirect_uri=<your_redirect_uri>`: Это URL, на который пользователь будет перенаправлен после завершения процесса авторизации. Этот URL должен соответствовать одному из URL перенаправления, зарегистрированных с вашим приложением.
+      - `scope=<space-separated list of scopes>`: Это список областей доступа, к которым ваше приложение запрашивает доступ. Пользователю будет предложено дать согласие на эти области доступа перед продолжением.
+      - `state=<random_string>`: Это случайная строка, которую вы генерируете и включаете в параметры запроса. SSO вернет эту строку в URL перенаправления, и вы должны проверить, что она совпадает с отправленной, чтобы предотвратить CSRF-атаки.
 
-3. **Code Payload**: The payload that is sent to the token endpoints is a form-encoded body containing the following parameters:
-      - `grant_type=authorization_code`: This tells the SSO that you are exchanging an authorization code for an access token.
-      - `code=<code>`: This is the authorization code that was received from the SSO.
-      - `code_verifier=<code verifier>`: This is the code verifier that was used to generate the code challenge.
-      - `client_id=<your_client_id>`: This is the client ID you received when registering your application, and identifies your application with the login request. The SSO will use this to look up your application's details.
+3. **Тело кода**: Тело, отправляемое на конечную точку токенов, представляет собой тело, закодированное в формате form, содержащее следующие параметры:
+      - `grant_type=authorization_code`: Это сообщает SSO, что вы обмениваете код авторизации на токен доступа.
+      - `code=<code>`: Это код авторизации, полученный от SSO.
+      - `code_verifier=<code verifier>`: Это code verifier, который использовался для генерации code challenge.
+      - `client_id=<your_client_id>`: Это client ID, который вы получили при регистрации приложения, и он идентифицирует ваше приложение при запросе входа. SSO использует его для поиска данных вашего приложения.
 
-**Creating a code challenge**: The code challenge is generated by hashing the code verifier using the SHA-256 algorithm, and then base64url encoding the result. The code verifier is a random string that the application generates and keeps secret.
+**Создание code challenge**: Code challenge генерируется путем хеширования code verifier с использованием алгоритма SHA-256 и последующего кодирования результата в base64url. Code verifier — это случайная строка, которую приложение генерирует и держит в секрете.
 
-To create a code verifier, you generate 32 random bytes of data and base64 url-encode them. Store this verifier as you'll need it later to exchange the authorization code for an access token.
+Чтобы создать code verifier, вы генерируете 32 случайных байта данных и кодируете их в base64 url. Сохраните этот verifier, так как он понадобится позже для обмена кода авторизации на токен доступа.
 
-To create a code challenge, hash the code verifier using the SHA-256 algorithm, and then base64 url-encode the result. This is the code challenge that you send to the SSO in the authorization request. As per [RFC 4648](https://tools.ietf.org/html/rfc4648#section-5), the base64 url-encoding should be done without padding (i.e. replace the trailing `=` characters with nothing).
+Чтобы создать code challenge, хешируйте code verifier с использованием алгоритма SHA-256, а затем закодируйте результат в base64 url. Это code challenge, который вы отправляете в SSO в запросе авторизации. Согласно [RFC 4648](https://tools.ietf.org/html/rfc4648#section-5), кодирование base64 url должно выполняться без заполнения (т.е. замените завершающие символы `=` на ничего).
 
 
-<h4>Example</h4>
+<h4>Пример</h4>
 
 --8<-- "snippets/sso/authorization-code-pkce.md"
 
-## Validating JWT Tokens
+## Проверка JWT-токенов
 
-Once you have obtained an access token from the EVE SSO, you can use it to authenticate requests to ESI. The access token is a JWT (JSON Web Token) that contains information about the user and the scopes that have been granted. If you want to ensure that the token is valid and issued by the EVE SSO, you need to verify the signature, check the expiration time, and ensure that the token is intended for your application.
+После получения токена доступа от EVE SSO вы можете использовать его для аутентификации запросов к ESI. Токен доступа — это JWT (JSON Web Token), который содержит информацию о пользователе и предоставленных областях доступа. Если вы хотите убедиться, что токен действителен и выдан EVE SSO, вам нужно проверить подпись, проверить время истечения срока действия и убедиться, что токен предназначен для вашего приложения.
 
-<h3>Signature Verification</h3>
+<h3>Проверка подписи</h3>
 
-The access token is a JWT that is signed by the EVE SSO using an RSA key. To verify the signature, you need to fetch the public key from the SSO's JWKS (JSON Web Key Set) endpoint and use it to validate the token.
+Токен доступа — это JWT, который подписан EVE SSO с использованием ключа RSA. Чтобы проверить подпись, вам нужно получить публичный ключ из конечной точки JWKS (JSON Web Key Set) SSO и использовать его для валидации токена.
 
-The SSO service has a [metadata endpoint](https://login.eveonline.com/.well-known/oauth-authorization-server) that provides the URL to the JWKS endpoint. If you want to verify the signature of the access token, be sure to fetch the metadata information first, and then fetch the public key from the JWKS endpoint. While the JWKS endpoint is unlikely to change, it is not guaranteed to be static, so it is recommended to fetch it from the metadata endpoint each time you need it.
+Сервис SSO имеет [конечную точку метаданных](https://login.eveonline.com/.well-known/oauth-authorization-server), которая предоставляет URL конечной точки JWKS. Если вы хотите проверить подпись токена доступа, обязательно сначала получите информацию о метаданных, а затем получите публичный ключ из конечной точки JWKS. Хотя конечная точка JWKS вряд ли изменится, она не гарантированно статична, поэтому рекомендуется получать её из конечной точки метаданных каждый раз, когда она вам нужна.
 
-<h3>Issuer Verification</h3>
+<h3>Проверка издателя</h3>
 
-The `iss` claim in the JWT token should match the issuer URL of the SSO service. This is the URL that the token was issued by, and should be `https://login.eveonline.com/`. In some cases, `login.eveonline.com` may be used as the issuer, so it is recommended to check for both, and reject tokens that do not match.
+Утверждение `iss` в JWT-токене должно соответствовать URL издателя сервиса SSO. Это URL, которым был выдан токен, и должен быть `https://login.eveonline.com/`. В некоторых случаях `login.eveonline.com` может использоваться в качестве издателя, поэтому рекомендуется проверять оба и отклонять токены, которые не совпадают.
 
-<h3>Audience</h3>
+<h3>Аудитория</h3>
 
-The `aud` claim in the JWT token is the audience of the token. This should be an array, with one value being the `client_id` of your application, and the other a static `"EVE Online"` value. You should check that the `aud` claim contains both of these values, and reject tokens that do not match.
+Утверждение `aud` в JWT-токене — это аудитория токена. Это должен быть массив с одним значением, являющимся `client_id` вашего приложения, и другим статическим значением `"EVE Online"`. Вы должны проверить, что утверждение `aud` содержит оба этих значения, и отклонить токены, которые не совпадают.
 
-<h3>Expiration Time</h3>
+<h3>Время истечения срока действия</h3>
 
-The `exp` claim in the JWT token is the expiration time of the token, represented as a Unix timestamp. You should check this claim to ensure that the token has not expired. If the token has expired, you should request a new token using the refresh token. Most `jose`-compatible libraries will automatically check the expiration time for you, and have an optional setting to allow for a grace period.
+Утверждение `exp` в JWT-токене — это время истечения срока действия токена, представленное как временная метка Unix. Вы должны проверить это утверждение, чтобы убедиться, что срок действия токена не истек. Если срок действия токена истек, вы должны запросить новый токен, используя токен обновления. Большинство библиотек, совместимых с `jose`, автоматически проверят время истечения срока действия за вас и имеют дополнительную настройку для допустимого периода отсрочки.
 
-<h4>Example</h4>
+<h4>Пример</h4>
 
 --8<-- "snippets/sso/validate-jwt-token.md"
 
-## JWT Token Claims
+## Утверждения JWT-токена
 
-Now that you have verified the JWT Token, you can use the claims belonging to the token to get more information about the access the token has, and for whom it was issued.
+Теперь, когда вы проверили JWT-токен, вы можете использовать утверждения, принадлежащие токену, чтобы получить больше информации о доступе токена и для кого он был выдан.
 
-The `sub` claim in the JWT token is in the format of `EVE:CHARACTER:<character-id>` and can be used to get the current character's ID. The `name` claim contains the character's name, and the `scp` claim is an array of scopes that have been granted to this token.
+Утверждение `sub` в JWT-токене имеет формат `EVE:CHARACTER:<character-id>` и может использоваться для получения ID текущего персонажа. Утверждение `name` содержит имя персонажа, а утверждение `scp` — массив областей доступа, предоставленных этому токену.
 
-## Log in with EVE Online buttons
+## Кнопки "Войти через EVE Online"
 
-When creating a button to direct users to log in to your site or application with the EVE SSO please use one of the following images for the button. This helps create consistency for EVE players amongst all third-party applications when viewing your site or application.
+При создании кнопки для направления пользователей на вход на ваш сайт или в приложение с помощью EVE SSO, пожалуйста, используйте одно из следующих изображений для кнопки. Это помогает создать согласованность для игроков EVE среди всех сторонних приложений при просмотре вашего сайта или приложения.
 
 ![](https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-white-large.png)
 
